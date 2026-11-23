@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>台灣職場華語 · Taiwan office Mandarin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --paper: #ECEFEA; --tile: rgba(22, 34, 45, .05); --panel: #FFFFFF; --ink: #16222D; --muted: #566370; --rule: #CCD4CE;
+  --sign: #1D252C; --sign-ink: #F3F6F2; --sign-muted: #AAB6BD; --amber: #FFC24A;
+  --red: #D61F32; --blue: #0A66B3; --green: #0B8A5A; --orange: #F4A21E;
+  --ok: #14794A; --ok-bg: #DDF3E6; --bad: #BE2633; --bad-bg: #FBE0E2; --tint: rgba(22, 34, 45, .06);
+  --zh: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Heiti TC", system-ui, sans-serif;
+  --code: "Barlow Condensed", "Arial Narrow", var(--zh);
+  box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #10161B; --tile: rgba(255, 255, 255, .035); --panel: #19222A; --ink: #EBF1F4; --muted: #9DAAB3; --rule: #2C3944; --sign: #0A0E12; --ok: #4BC98C; --ok-bg: #12301F; --bad: #FF7480; --bad-bg: #351519; --tint: rgba(255, 255, 255, .07); --red: #F0485A; --blue: #4C9DE0; --green: #2FBE86; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #10161B; --tile: rgba(255, 255, 255, .035); --panel: #19222A; --ink: #EBF1F4; --muted: #9DAAB3; --rule: #2C3944; --sign: #0A0E12; --ok: #4BC98C; --ok-bg: #12301F; --bad: #FF7480; --bad-bg: #351519; --tint: rgba(255, 255, 255, .07); --red: #F0485A; --blue: #4C9DE0; --green: #2FBE86; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); -webkit-text-size-adjust: 100%; }
+html.in-session { overflow: hidden; }
+body { margin: 0; font-family: var(--zh); font-size: 16px; line-height: 1.55; color: var(--ink); background-color: var(--paper); background-image: linear-gradient(var(--tile) 1px, transparent 1px), linear-gradient(90deg, var(--tile) 1px, transparent 1px); background-size: 56px 56px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--sign); z-index: 40; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+.c-red { --line: var(--red); --on-line: #fff; } .c-blue { --line: var(--blue); --on-line: #fff; } .c-green { --line: var(--green); --on-line: #fff; } .c-orange { --line: var(--orange); --on-line: #16222D; }
+.ic { width: 1.15em; height: 1.15em; vertical-align: -0.2em; flex: none; }
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 41; background: var(--sign); color: var(--sign-ink); }
+.top-in { max-width: 760px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
+.roundel { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--line, var(--red)); color: var(--on-line, #fff); font-family: var(--code); font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; flex: none; }
+.brand .roundel { background: #fff; color: var(--sign); border: 4px solid var(--red); font-family: var(--zh); font-weight: 900; font-size: 1rem; }
+.brand b { display: block; font-weight: 900; font-size: 1.1rem; line-height: 1.1; }
+.brand small { color: var(--sign-muted); font-family: var(--code); font-size: .95rem; letter-spacing: .03em; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid #3A4650; border-radius: 4px; font-family: var(--code); font-size: 1.1rem; font-weight: 600; background: transparent; color: var(--sign-ink); }
+#stat-streak .ic { color: #FF8A3D; } #stat-xp .ic { color: var(--amber); }
+.iconbtn { display: inline-grid; place-items: center; width: 38px; height: 38px; background: transparent; border: 1px solid #3A4650; border-radius: 4px; color: var(--sign-ink); }
+.top :focus-visible { outline-color: var(--amber); }
+#voicenote { background: #4A3A12; color: #FFEBC2; font-size: .9rem; }
+#voicenote > div { max-width: 760px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 12px; align-items: center; justify-content: space-between; }
+#voicenote button { background: transparent; border: 1px solid #A38A45; color: inherit; border-radius: 4px; padding: 3px 10px; }
+#voicenote[hidden] { display: none; }
+
+.app { max-width: 760px; margin: 0 auto; padding: 18px 16px 72px; }
+
+/* departure board */
+.board { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; background: var(--sign); color: var(--sign-ink); border-radius: 6px; padding: 20px 22px 24px; border-bottom: 8px solid var(--line, var(--red)); }
+.board-k { font-family: var(--code); font-size: 1.15rem; color: var(--amber); font-weight: 600; letter-spacing: .03em; }
+.board-k small { color: var(--sign-muted); font-size: .95rem; font-weight: 500; margin-left: 6px; }
+.board-t { margin: 2px 0 0; font-size: clamp(2rem, 8vw, 3rem); line-height: 1.1; font-weight: 900; letter-spacing: .04em; }
+.board-s { margin: 6px 0 0; color: var(--sign-muted); font-size: .95rem; }
+.go { background: var(--amber); color: #16222D; border: 0; border-radius: 4px; padding: 14px 22px; font-weight: 900; font-size: 1.1rem; box-shadow: 0 4px 0 #B88714; }
+.go:active { transform: translateY(2px); box-shadow: 0 2px 0 #B88714; }
+.board-done { font-size: 2rem; font-weight: 900; color: var(--amber); }
+.board :focus-visible { outline-color: var(--amber); }
+
+.today { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; padding: 14px 4px 6px; }
+.goal { display: flex; align-items: center; gap: 10px; flex: 1 1 260px; }
+.goal .k { font-weight: 700; font-size: .92rem; white-space: nowrap; }
+.goal .v { font-family: var(--code); font-size: 1.1rem; white-space: nowrap; color: var(--muted); }
+.meter { flex: 1; height: 12px; background: var(--tint); border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); }
+.meter i { display: block; height: 100%; background: var(--green); border-radius: 6px; transition: width .4s; }
+.kv { display: flex; align-items: baseline; gap: 6px; } .kv b { font-family: var(--code); font-size: 1.6rem; line-height: 1; } .kv span { color: var(--muted); font-size: .9rem; }
+.ghost { background: var(--panel); border: 2px solid var(--rule); border-radius: 6px; padding: 8px 14px; font-weight: 700; font-size: .92rem; }
+.ghost:not(:disabled):hover { border-color: var(--ink); } .ghost:disabled { opacity: .5; }
+.danger { background: var(--bad-bg); color: var(--bad); border: 2px solid var(--bad); border-radius: 6px; padding: 8px 14px; font-weight: 700; }
+
+/* lines and stations */
+.line { margin-top: 34px; }
+.line-h { display: flex; gap: 14px; align-items: center; padding-bottom: 10px; border-bottom: 3px solid var(--line); }
+.line-h .roundel { width: 44px; height: 44px; font-size: 1.35rem; }
+.line-h h2 { margin: 0; font-size: 1.5rem; line-height: 1.15; font-weight: 900; letter-spacing: .03em; }
+.line-h p { margin: 2px 0 0; color: var(--muted); font-size: .9rem; max-width: 46ch; }
+.line-h > div { flex: 1; min-width: 0; }
+.line-p { font-family: var(--code); font-size: 1.05rem; color: var(--muted); white-space: nowrap; }
+.station { margin-top: 26px; }
+.sign { display: flex; align-items: stretch; background: var(--sign); color: var(--sign-ink); border-radius: 4px; overflow: hidden; }
+.sign .code { display: grid; place-items: center; min-width: 74px; padding: 0 10px; background: var(--line); color: var(--on-line); font-family: var(--code); font-size: 1.7rem; font-weight: 700; letter-spacing: .02em; }
+.sign .names { padding: 10px 14px; flex: 1; min-width: 0; }
+.sign h3 { margin: 0; font-size: 1.35rem; line-height: 1.2; font-weight: 900; letter-spacing: .04em; }
+.sign p { margin: 0; color: var(--sign-muted); font-size: .92rem; font-family: var(--code); font-size: 1.05rem; letter-spacing: .02em; }
+.crown { align-self: center; margin-right: 12px; font-size: .85rem; font-weight: 700; color: var(--amber); border: 1px solid var(--amber); border-radius: 3px; padding: 2px 8px; white-space: nowrap; }
+.testout { align-self: center; margin-right: 12px; background: transparent; color: var(--sign-ink); border: 1px solid #5B6A75; border-radius: 4px; padding: 5px 12px; font-weight: 700; font-size: .85rem; }
+.sign :focus-visible { outline-color: var(--amber); }
+.station .blurb { margin: 8px 2px 0; color: var(--muted); font-size: .92rem; }
+.stops { position: relative; margin-top: 6px; }
+.stops::before { content: ""; position: absolute; left: 26px; top: 28px; bottom: 28px; width: 10px; margin-left: -5px; background: var(--line); border-radius: 5px; }
+.station.is-locked .stops::before { background: var(--rule); }
+.stop { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 66px; padding: 6px 8px 6px 0; background: transparent; border: 0; text-align: left; }
+.dotwrap { width: 52px; display: grid; place-items: center; flex: none; }
+.dot { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--panel); border: 7px solid var(--line); color: var(--ink); }
+.dot .ic { width: 15px; height: 15px; } 
+.stop.done .dot { background: var(--line); color: var(--on-line); border-color: var(--line); }
+.stop.locked .dot { border-color: var(--rule); color: var(--muted); }
+.stop.locked { opacity: .6; }
+.stop.current .dot { animation: pulse 1.8s ease-out infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--line) 55%, transparent); } 100% { box-shadow: 0 0 0 14px transparent; } }
+.stop.quiz .dot { width: 46px; height: 46px; border: 6px solid var(--ink); background: var(--panel); color: var(--line); }
+.stop.quiz.done .dot { background: var(--ink); color: var(--amber); }
+.stop.quiz.locked .dot { border-color: var(--rule); color: var(--muted); }
+.stop.speech .dot { border-radius: 10px; background: var(--line); border-color: var(--line); color: var(--on-line); width: 40px; height: 40px; }
+.stop.speech.locked .dot { background: var(--panel); border-color: var(--rule); color: var(--muted); }
+.stop-t { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.stop-t b { font-size: 1.05rem; font-weight: 700; } .stop-t small { color: var(--muted); font-size: .88rem; }
+.stop:not(:disabled):hover .stop-t b { text-decoration: underline; text-underline-offset: 3px; }
+.stars { font-family: var(--code); font-size: 1.1rem; color: var(--muted); margin-right: 6px; white-space: nowrap; letter-spacing: .05em; }
+details.tip { margin: 8px 2px 0; font-size: .9rem; color: var(--muted); } details.tip summary { cursor: pointer; font-weight: 700; color: var(--ink); } details.tip p { margin: 6px 0 0; max-width: 62ch; }
+
+/* session */
+.session { position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; background: var(--paper); padding-top: env(safe-area-inset-top, 0px); }
+.s-top { display: flex; align-items: center; gap: 14px; padding: 12px 16px; max-width: 700px; width: 100%; margin: 0 auto; }
+.s-close { background: transparent; border: 0; color: var(--muted); padding: 6px; border-radius: 4px; } .s-close .ic { width: 22px; height: 22px; }
+.s-prog { flex: 1; height: 14px; background: var(--tint); border-radius: 7px; overflow: hidden; border: 1px solid var(--rule); } .s-prog i { display: block; height: 100%; width: 0; background: var(--line, var(--green)); border-radius: 7px; transition: width .35s; }
+.s-hearts { display: flex; align-items: center; gap: 4px; color: var(--bad); font-family: var(--code); font-size: 1.25rem; font-weight: 700; min-width: 46px; } .s-hearts .ic { width: 24px; height: 24px; }
+.s-main { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.s-body { max-width: 700px; margin: 0 auto; padding: 8px 16px 24px; }
+.q { font-size: 1.35rem; margin: 10px 0 18px; font-weight: 700; line-height: 1.3; }
+.ex-main { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 20px; position: relative; }
+.hz { font-family: var(--zh); font-weight: 700; font-size: 1.5rem; line-height: 1.3; letter-spacing: .02em; } .hz.big { font-size: 3.4rem; font-weight: 900; line-height: 1.15; }
+.en { color: var(--muted); font-size: 1rem; display: block; } .promptEn { font-size: 1.5rem; font-weight: 700; }
+.rd { display: flex; flex-direction: column; } .rd-py { font-size: 1.05rem; color: var(--muted); } .rd-zy { font-size: 1rem; color: var(--muted); letter-spacing: .06em; }
+.zh.ruby { font-size: 2rem; font-weight: 700; line-height: 2.1; letter-spacing: .04em; } ruby { ruby-position: over; } rt { font-size: .38em; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.sentline { font-size: 2rem; font-weight: 700; line-height: 1.5; letter-spacing: .04em; } .gap { display: inline-block; min-width: 3.2em; border-bottom: 4px solid var(--ink); margin: 0 .15em; color: transparent; }
+.bubble { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--panel); border: 2px solid var(--rule); border-radius: 6px 18px 18px 18px; }
+.audio-btn { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: #fff; border: 0; flex: none; } .audio-btn[data-slow] { background: var(--muted); } .audio-btn .ic { width: 22px; height: 22px; }
+.bigaudio { display: flex; gap: 12px; } .bigaudio .audio-btn { width: 72px; height: 72px; } .bigaudio .audio-btn .ic { width: 32px; height: 32px; }
+.mini-audio { position: absolute; right: 0; top: 0; }
+.opts { display: flex; flex-direction: column; gap: 10px; } .opts.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.opt { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 58px; text-align: left; padding: 12px 14px; background: var(--panel); border: 2px solid var(--rule); border-bottom-width: 4px; border-radius: 8px; font-size: 1.1rem; }
+.opt kbd { display: inline-grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--code); font-size: .95rem; color: var(--muted); flex: none; }
+.optbody { display: flex; flex-direction: column; min-width: 0; }
+.opt:not(:disabled):hover { border-color: var(--ink); } .opt.sel { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 12%, var(--panel)); }
+.opt.right { border-color: var(--ok); background: var(--ok-bg); } .opt.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.opt .rd-big { font-size: 1.3rem; font-weight: 700; display: flex; flex-direction: column; } .opt .rd-big small { font-size: .95rem; font-weight: 500; color: var(--muted); letter-spacing: .06em; }
+.opts.grid .opt .hz { font-size: 1.9rem; }
+.intro { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.introcard { position: relative; display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 12px 14px; background: var(--panel); border: 2px solid var(--rule); border-radius: 8px; }
+.introcard .hz { font-size: 1.9rem; } .introcard .spk { position: absolute; right: 10px; top: 10px; color: var(--blue); }
+.matchgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } .mcol { display: flex; flex-direction: column; gap: 10px; }
+.mbtn { min-height: 60px; padding: 8px 12px; background: var(--panel); border: 2px solid var(--rule); border-bottom-width: 4px; border-radius: 8px; text-align: left; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; }
+.mbtn .hz { font-size: 1.5rem; } .mbtn.sel { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 12%, var(--panel)); } .mbtn.done { border-color: var(--ok); background: var(--ok-bg); opacity: .75; } .mbtn.shake { border-color: var(--bad); animation: shake .35s; }
+@keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.answer-line { display: flex; flex-wrap: wrap; gap: 8px; min-height: 76px; padding: 10px 4px; border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); margin-bottom: 16px; align-content: flex-start; }
+.answer-line.right { border-color: var(--ok); } .answer-line.wrong { border-color: var(--bad); }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; }
+.tile { font-family: var(--zh); font-weight: 700; font-size: 1.35rem; padding: 8px 14px; background: var(--panel); border: 2px solid var(--rule); border-bottom-width: 4px; border-radius: 8px; } .tile.used { opacity: .25; } .tile:not(:disabled):hover { border-color: var(--ink); }
+.typebox { width: 100%; font: inherit; font-size: 1.4rem; padding: 12px 14px; border: 2px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--ink); } .typebox.right { border-color: var(--ok); background: var(--ok-bg); } .typebox.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.speakbox { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 22px; }
+.mic { width: 92px; height: 92px; border-radius: 50%; border: 6px solid var(--line, var(--blue)); background: var(--panel); color: var(--line, var(--blue)); display: grid; place-items: center; } .mic .ic { width: 38px; height: 38px; } .mic.live { background: var(--bad); border-color: var(--bad); color: #fff; animation: pulse2 1.2s infinite; }
+@keyframes pulse2 { 0% { box-shadow: 0 0 0 0 rgba(214, 31, 50, .5); } 100% { box-shadow: 0 0 0 22px transparent; } }
+.speakout { min-height: 1.6em; text-align: center; } .selfrate { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 420px; }
+.hint { color: var(--muted); font-size: .92rem; margin: 6px 0; }
+.s-foot { }
+.s-foot, .s-foot * { }
+.s-foot { flex: none; }
+.session .s-foot { }
+.s-foot { border-top: 2px solid var(--rule); }
+.s-foot { background: var(--panel); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.s-foot.ok, .s-foot:has(.s-fb.ok) { background: var(--ok-bg); } .s-foot:has(.s-fb.bad) { background: var(--bad-bg); }
+.s-fb { max-width: 700px; margin: 0 auto; padding: 0 16px; } .s-fb.ok, .s-fb.bad { padding-top: 14px; }
+.fb-h { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; } .s-fb.ok { color: var(--ok); } .s-fb.bad { color: var(--bad); } .fb-lab { font-size: .85rem; margin-top: 6px; opacity: .9; }
+.fb-x { color: var(--ink); display: flex; flex-direction: column; margin-top: 4px; max-height: 24vh; overflow: auto; } .fb-x .hz { font-size: 1.4rem; } .fb-x .zh.ruby { font-size: 1.4rem; line-height: 2; }
+.s-btns { max-width: 700px; margin: 0 auto; padding: 12px 16px; display: flex; gap: 12px; justify-content: flex-end; }
+.btn { border: 0; border-radius: 8px; padding: 14px 26px; font-weight: 900; font-size: 1.05rem; min-width: 140px; }
+.btn.main { background: var(--green); color: #fff; border-bottom: 4px solid color-mix(in srgb, var(--green) 65%, #000); } .btn.main:disabled { background: var(--rule); color: var(--muted); border-bottom-color: transparent; }
+.s-foot:has(.s-fb.bad) .btn.main { background: var(--bad); border-bottom-color: color-mix(in srgb, var(--bad) 65%, #000); color: #fff; }
+.btn.skip { background: transparent; color: var(--muted); border: 2px solid var(--rule); font-weight: 700; }
+.endcard { text-align: center; padding: 30px 0; } .endcard h2 { font-size: 2.2rem; margin: 6px 0; font-weight: 900; letter-spacing: .03em; } .endcard.good h2 { color: var(--ok); } .endcard.bad h2 { color: var(--bad); }
+.endcard .lead { color: var(--muted); max-width: 44ch; margin: 6px auto 20px; } .stats { display: flex; justify-content: center; gap: 28px; margin: 18px 0; } .stats b { display: block; font-family: var(--code); font-size: 2.4rem; line-height: 1; } .stats span { color: var(--muted); font-size: .9rem; } .stars { font-size: 1.8rem; color: var(--amber); letter-spacing: .1em; }
+.results { max-width: 420px; margin: 18px auto 0; text-align: left; } .rrow { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); } .rrow .zh { font-weight: 700; }
+
+/* modal */
+.modal { position: fixed; inset: 0; z-index: 70; background: rgba(8, 12, 16, .6); display: grid; place-items: center; padding: calc(env(safe-area-inset-top, 0px) + 12px) 12px calc(env(safe-area-inset-bottom, 0px) + 12px); }
+.modal-card { background: var(--paper); color: var(--ink); width: 100%; max-width: 620px; max-height: 100%; overflow: auto; border-radius: 8px; border: 2px solid var(--ink); }
+.modal-card > header { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: var(--sign); color: var(--sign-ink); position: sticky; top: 0; } .modal-card h2 { margin: 0; font-size: 1.25rem; } .modal-card .x { background: transparent; border: 0; color: inherit; padding: 4px; } .modal-card > header :focus-visible { outline-color: var(--amber); }
+.settings, .reference { padding: 8px 18px 18px; }
+.srow { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); } .srow label { font-weight: 700; display: flex; flex-direction: column; } .srow small { font-weight: 400; color: var(--muted); max-width: 34ch; }
+.srow select { font: inherit; padding: 8px 10px; border: 2px solid var(--rule); border-radius: 6px; background: var(--panel); color: var(--ink); }
+.reference h3 { margin: 18px 0 8px; font-size: 1.1rem; } .tonegrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; } .tonecard { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px; background: var(--panel); border: 2px solid var(--rule); border-radius: 8px; } .tonecard .hz { font-size: 2rem; } .tonecard span { font-size: .85rem; } .tonecard small { color: var(--muted); font-size: .75rem; text-align: center; }
+.zygrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; } .zycell { display: flex; flex-direction: column; align-items: center; padding: 8px 4px; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; } .zycell b { font-size: 1.5rem; font-weight: 700; } .zycell span { font-family: var(--code); font-size: 1rem; color: var(--muted); }
+
+@media (max-width: 560px) {
+  .board { grid-template-columns: 1fr; } .go { width: 100%; }
+  .opts.grid { grid-template-columns: 1fr 1fr; } .hz.big { font-size: 2.8rem; } .matchgrid { gap: 8px; }
+  .line-h p { display: none; } .sign .code { min-width: 62px; font-size: 1.45rem; } .sign h3 { font-size: 1.15rem; }
+  .btn { flex: 1; min-width: 0; } .tonegrid { grid-template-columns: repeat(5, 1fr); } .tonecard .hz { font-size: 1.5rem; } .tonecard span { font-size: .7rem; }
+  .srow { flex-direction: column; align-items: stretch; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+.linkbtn { background: none; border: 0; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; font-size: .92rem; padding: 6px; }
+.linkbtn:hover { color: var(--ink); }
+
+.rubywrap { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.bubble .rubywrap, .bubble .zh { flex: 1; }
+@media (max-width: 560px) {
+  .brand small { display: none; } .top-in { gap: 8px; padding: 8px 12px; } .chip { padding: 5px 8px; font-size: 1rem; } .iconbtn { width: 34px; height: 34px; }
+  .zh.ruby { font-size: 1.6rem; } .sentline { font-size: 1.7rem; }
+}
+
+/* ===== tone colours, memory aids, speaking coach, gym ===== */
+:root { --t1: #D62839; --t2: #B25A00; --t3: #16824F; --t4: #2860D0; --t5: #66727C; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --t1: #FF7A86; --t2: #FFAA55; --t3: #4BD29A; --t4: #78AEFF; --t5: #A3B0B8; } }
+:root[data-theme="dark"] { --t1: #FF7A86; --t2: #FFAA55; --t3: #4BD29A; --t4: #78AEFF; --t5: #A3B0B8; }
+.t1 { color: var(--t1); } .t2 { color: var(--t2); } .t3 { color: var(--t3); } .t4 { color: var(--t4); } .t5 { color: var(--t5); }
+ruby[class*="t"] rt { color: inherit; } ruby { cursor: pointer; }
+.hzc { font-family: var(--zh); }
+.bd { display: inline-flex; flex-wrap: wrap; align-items: stretch; gap: 4px; margin-top: 8px; }
+.bdc { display: flex; flex-direction: column; align-items: center; padding: 6px 8px; min-width: 58px; background: var(--panel); border: 2px solid var(--rule); border-radius: 6px; }
+.bdc:hover { border-color: var(--ink); } .bdc .hzc { font-size: 1.5rem; font-weight: 700; line-height: 1.3; } .bdc .bp { font-size: .9rem; } .bdc .bg { font-size: .78rem; color: var(--muted); text-align: center; max-width: 92px; line-height: 1.25; }
+.bplus { align-self: center; color: var(--muted); font-weight: 700; } .lit { display: block; margin-top: 4px; font-size: .9rem; color: var(--muted); }
+.intro { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.introcard { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 12px 14px; background: var(--panel); border: 2px solid var(--rule); border-radius: 8px; }
+.ic-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; } .ic-audio { display: flex; gap: 6px; } .ic-audio .audio-btn { width: 38px; height: 38px; } .ic-audio .audio-btn .ic { width: 18px; height: 18px; } .big2 { font-size: 2.2rem; font-weight: 900; line-height: 1.2; }
+.tile { display: flex; flex-direction: column; align-items: center; padding: 6px 12px; } .tz { font-size: 1.35rem; font-weight: 700; line-height: 1.3; } .tp { font-size: .72rem; color: var(--muted); }
+.ex-target { margin: 4px 0; }
+.tpat { display: inline-flex; align-items: center; gap: 6px; } .tcell { display: inline-flex; align-items: center; gap: 2px; } .tcell b { font-family: var(--code); font-size: 1.25rem; } .tsep { color: var(--muted); } .tdesc { margin-left: 8px; color: var(--ink); font-weight: 500; }
+.coach { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.co-ctl { display: flex; flex-direction: column; align-items: center; gap: 10px; } .co-msg { text-align: center; min-height: 1.5em; max-width: 44ch; }
+.co-res { display: flex; align-items: center; gap: 16px; width: 100%; max-width: 460px; }
+.ring { --p: 0; --rc: var(--muted); position: relative; flex: none; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--rc) calc(var(--p) * 1%), var(--tint) 0); }
+.ring::before { content: ""; position: absolute; inset: 9px; background: var(--paper); border-radius: 50%; } .ring b { position: relative; font-family: var(--code); font-size: 1.7rem; } .ring.pass { --rc: var(--ok); } .ring.fail { --rc: var(--bad); }
+.co-sum { display: flex; flex-direction: column; } .co-sum strong { font-size: 1.3rem; } .co-sum span { color: var(--muted); }
+.co-chars { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.cc { display: flex; flex-direction: column; align-items: center; padding: 4px 8px; min-width: 46px; border: 2px solid var(--rule); border-radius: 6px; background: var(--panel); } .cc.ok { border-color: var(--ok); background: var(--ok-bg); } .cc.bad { border-color: var(--bad); background: var(--bad-bg); }
+.cc .hzc { font-size: 1.4rem; font-weight: 700; line-height: 1.3; } .cc .bp { font-size: .8rem; } .cc i { font-style: normal; font-size: .85rem; font-weight: 900; min-height: 1.1em; } .cc.ok i { color: var(--ok); } .cc.bad i { color: var(--bad); }
+.toneres { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.tchip { padding: 3px 10px; border-radius: 14px; font-size: .88rem; font-weight: 700; border: 2px solid var(--rule); background: var(--panel); } .tchip.ok { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); } .tchip.bad { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.co-tips { margin: 0; padding-left: 20px; max-width: 46ch; text-align: left; }
+.cgraph { width: 100%; max-width: 420px; background: var(--panel); border: 2px solid var(--rule); border-radius: 6px; } .cgraph .tgt { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 5 4; } .cgraph .okd { fill: var(--ok); } .cgraph .badd { fill: var(--bad); } .cgraph .gl { stroke: var(--rule); } .cgraph .tx { fill: var(--muted); font-size: 11px; }
+.co-btns { display: flex; gap: 10px; } .co-notes { max-width: 46ch; text-align: center; }
+.gym { margin-top: 28px; } .gym-h h2 { margin: 0; font-size: 1.3rem; font-weight: 900; } .gym-h p { margin: 2px 0 10px; color: var(--muted); font-size: .92rem; }
+.gym-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.gymcard { text-align: left; background: var(--sign); color: var(--sign-ink); border: 0; border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; border-bottom: 6px solid var(--orange); } .gymcard b { font-size: 1.3rem; font-weight: 900; } .gymcard span { font-family: var(--code); font-size: 1.1rem; color: var(--sign-muted); } .gymcard small { color: var(--sign-muted); font-size: .8rem; line-height: 1.3; } .gymcard em { font-style: normal; color: var(--amber); font-family: var(--code); margin-top: 4px; }
+.gymcard:focus-visible { outline-color: var(--amber); }
+.stop.tone .dot, .stop.role .dot { border-radius: 10px; width: 40px; height: 40px; background: var(--panel); border-color: var(--line); color: var(--line); }
+.stop.tone.done .dot, .stop.role.done .dot { background: var(--line); color: var(--on-line); } .stop.tone.locked .dot, .stop.role.locked .dot { border-color: var(--rule); color: var(--muted); }
+.hooks { display: grid; gap: 8px; } .hook { display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: var(--panel); border: 2px solid var(--rule); border-radius: 6px; } .hook .hzc { font-size: 1.8rem; font-weight: 900; } .tips { padding-left: 20px; } .tips li { margin: 6px 0; }
+@media (max-width: 560px) { .co-res { flex-direction: row; } .ring { width: 76px; height: 76px; } .intro { grid-template-columns: 1fr; } }
+.ring b { font-size: 1.3rem; }
+
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <div class="brand"><span class="roundel" aria-hidden="true">台</span><div><b>台灣職場華語</b><small>Taiwan office Mandarin</small></div></div>
+  <span class="chip" id="stat-streak" title="Day streak"></span><span class="chip" id="stat-xp" title="Experience points"></span>
+  <button type="button" class="iconbtn" id="btn-ref" aria-label="Tones and Zhuyin chart"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zm0 14a2 2 0 0 1 2-2h13M8 7h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" class="iconbtn" id="btn-settings" aria-label="Settings"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7zm7.4-3.5l1.8 1.4-1.8 3.1-2.2-.7a7 7 0 0 1-1.7 1l-.4 2.3h-3.6l-.4-2.3a7 7 0 0 1-1.7-1l-2.2.7-1.8-3.1 1.8-1.4a7 7 0 0 1 0-2l-1.8-1.4 1.8-3.1 2.2.7a7 7 0 0 1 1.7-1L10.6 3h3.6l.4 2.3a7 7 0 0 1 1.7 1l2.2-.7 1.8 3.1-1.8 1.4a7 7 0 0 1 0 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div></header>
+<div id="voicenote" hidden><div><span></span><button type="button">Dismiss</button></div></div>
+<main id="app" class="app"></main>
+<script>
+/* Pinyin / Zhuyin / scoring helpers (Taiwan Mandarin learning app) */
+(function (root) {
+  "use strict";
+  var TONE = { 1: "\u0304", 2: "\u0301", 3: "\u030c", 4: "\u0300" };
+  /* ---- pinyin with tone numbers -> tone marks ---- */
+  function parse(s) { var m = /^([a-züv]+?)([1-5])?$/i.exec(String(s).trim()); return m ? { base: m[1].toLowerCase().replace(/v/g, "ü"), tone: m[2] ? +m[2] : 5 } : { base: String(s), tone: 5 }; }
+  function mark(s) {
+    var p = parse(s), b = p.base, t = p.tone; if (t === 5) { return b; }
+    var i = b.search(/[ae]/); if (i < 0) { i = b.indexOf("ou") >= 0 ? b.indexOf("o") : -1; }
+    if (i < 0) { for (var k = b.length - 1; k >= 0; k--) { if ("iouü".indexOf(b[k]) >= 0) { i = k; break; } } }
+    if (i < 0) { return b; }
+    return (b.slice(0, i + 1) + TONE[t] + b.slice(i + 1)).normalize("NFC");
+  }
+  /* ---- pinyin -> zhuyin ---- */
+  var INI = { b: "ㄅ", p: "ㄆ", m: "ㄇ", f: "ㄈ", d: "ㄉ", t: "ㄊ", n: "ㄋ", l: "ㄌ", g: "ㄍ", k: "ㄎ", h: "ㄏ", j: "ㄐ", q: "ㄑ", x: "ㄒ", zh: "ㄓ", ch: "ㄔ", sh: "ㄕ", r: "ㄖ", z: "ㄗ", c: "ㄘ", s: "ㄙ" };
+  var FIN = { a: "ㄚ", o: "ㄛ", e: "ㄜ", ê: "ㄝ", ai: "ㄞ", ei: "ㄟ", ao: "ㄠ", ou: "ㄡ", an: "ㄢ", en: "ㄣ", ang: "ㄤ", eng: "ㄥ", ong: "ㄨㄥ", er: "ㄦ",
+    i: "ㄧ", ia: "ㄧㄚ", io: "ㄧㄛ", ie: "ㄧㄝ", iao: "ㄧㄠ", iu: "ㄧㄡ", iou: "ㄧㄡ", ian: "ㄧㄢ", in: "ㄧㄣ", iang: "ㄧㄤ", ing: "ㄧㄥ", iong: "ㄩㄥ",
+    u: "ㄨ", ua: "ㄨㄚ", uo: "ㄨㄛ", uai: "ㄨㄞ", ui: "ㄨㄟ", uei: "ㄨㄟ", uan: "ㄨㄢ", un: "ㄨㄣ", uen: "ㄨㄣ", uang: "ㄨㄤ", ueng: "ㄨㄥ",
+    "ü": "ㄩ", "üe": "ㄩㄝ", "üan": "ㄩㄢ", "ün": "ㄩㄣ" };
+  var WHOLE = { zhi: "ㄓ", chi: "ㄔ", shi: "ㄕ", ri: "ㄖ", zi: "ㄗ", ci: "ㄘ", si: "ㄙ" };
+  var YW = { yi: "i", ya: "ia", yo: "io", ye: "ie", yao: "iao", you: "iou", yan: "ian", yin: "in", yang: "iang", ying: "ing", yong: "iong", yu: "ü", yue: "üe", yuan: "üan", yun: "ün",
+    wu: "u", wa: "ua", wo: "uo", wai: "uai", wei: "uei", wan: "uan", wen: "uen", wang: "uang", weng: "ueng" };
+  function zhuyin(s) {
+    var p = parse(s), b = p.base, t = p.tone, out = "";
+    if (WHOLE[b]) { out = WHOLE[b]; }
+    else if (b === "er") { out = "ㄦ"; }
+    else if (YW[b]) { out = FIN[YW[b]]; }
+    else {
+      var ini = "", fin = b, two = b.slice(0, 2);
+      if (INI[two]) { ini = two; fin = b.slice(2); } else if (INI[b[0]]) { ini = b[0]; fin = b.slice(1); }
+      if ("jqx".indexOf(ini) >= 0 && ini) { fin = fin.replace(/^u/, "ü"); }
+      if (("n" === ini || "l" === ini) && fin === "ue") { fin = "üe"; }
+      if (fin === "ue") { fin = "üe"; }
+      out = (ini ? INI[ini] : "") + (FIN[fin] !== undefined ? FIN[fin] : "?");
+    }
+    var tm = { 1: "", 2: "ˊ", 3: "ˇ", 4: "ˋ" };
+    return t === 5 ? "˙" + out : out + tm[t];
+  }
+  /* ---- tone variants for multiple-choice distractors ---- */
+  function variants(sylls, rnd) {
+    rnd = rnd || Math.random; var seen = {}, out = [], key = sylls.join(" "); seen[key] = 1; var tries = 0;
+    while (out.length < 3 && tries++ < 40) {
+      var c = sylls.slice(), i = Math.floor(rnd() * c.length), p = parse(c[i]), nt = 1 + Math.floor(rnd() * 4);
+      if (p.tone === 5 && c.length > 1) { continue; }
+      if (nt === p.tone) { continue; }
+      c[i] = (p.base === "ü" ? "v" : p.base.replace(/ü/g, "v")) + nt; var k = c.join(" ");
+      if (!seen[k]) { seen[k] = 1; out.push(c); }
+    }
+    return out;
+  }
+  /* ---- text scoring for speech recognition ---- */
+  var DIG = "零一二三四五六七八九";
+  function numToZh(n) {
+    if (n < 10) { return DIG[n]; }
+    if (n < 20) { return "十" + (n % 10 ? DIG[n % 10] : ""); }
+    if (n < 100) { return DIG[Math.floor(n / 10)] + "十" + (n % 10 ? DIG[n % 10] : ""); }
+    if (n < 1000) { var r = n % 100; return DIG[Math.floor(n / 100)] + "百" + (r === 0 ? "" : r < 10 ? "零" + DIG[r] : numToZh(r)); }
+    return String(n).split("").map(function (d) { return DIG[+d]; }).join("");
+  }
+  function norm(s) {
+    s = String(s || "").replace(/\d+/g, function (m) { return numToZh(parseInt(m, 10)); }).replace(/兩/g, "二");
+    return (s.match(/[\u3400-\u9fff]/g) || []).join("");
+  }
+  function lev(a, b) {
+    var m = a.length, n = b.length, d = [], i, j; for (i = 0; i <= m; i++) { d[i] = [i]; } for (j = 1; j <= n; j++) { d[0][j] = j; }
+    for (i = 1; i <= m; i++) { for (j = 1; j <= n; j++) { d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); } }
+    return d[m][n];
+  }
+  function similarity(target, heard) { var a = norm(target), b = norm(heard); if (!a.length) { return 0; } return Math.max(0, Math.round(100 * (1 - lev(a, b) / Math.max(a.length, b.length)))); }
+  var api = { mark: mark, zhuyin: zhuyin, parse: parse, variants: variants, similarity: similarity, norm: norm, numToZh: numToZh };
+  if (typeof module !== "undefined" && module.exports) { module.exports = api; } else { root.TWU = api; }
+})(typeof window !== "undefined" ? window : globalThis);
+
+/* Pitch tracking, syllable segmentation and tone classification for Mandarin learners (browser + Node) */
+(function (root) {
+  "use strict";
+  var FMIN = 70, FMAX = 450;
+  function decimate(x, sr) { var k = Math.max(1, Math.floor(sr / 8000)); if (k === 1) { return { x: x, sr: sr }; } var n = Math.floor(x.length / k), y = new Float32Array(n), i, j, s; for (i = 0; i < n; i++) { s = 0; for (j = 0; j < k; j++) { s += x[i * k + j]; } y[i] = s / k; } return { x: y, sr: sr / k }; }
+  function yin(buf, off, W, sr, thresh) {
+    var tauMax = Math.min(Math.floor(sr / FMIN), (W >> 1) - 1), tauMin = Math.max(2, Math.floor(sr / FMAX)), n = W - tauMax, d = new Float32Array(tauMax + 1), cm = new Float32Array(tauMax + 1), tau, j, diff, run = 0;
+    for (tau = 1; tau <= tauMax; tau++) { var s = 0; for (j = 0; j < n; j++) { diff = buf[off + j] - buf[off + j + tau]; s += diff * diff; } d[tau] = s; run += s; cm[tau] = run > 0 ? d[tau] * tau / run : 1; }
+    for (tau = tauMin; tau < tauMax; tau++) {
+      if (cm[tau] < thresh) { while (tau + 1 < tauMax && cm[tau + 1] < cm[tau]) { tau++; } var a = cm[tau - 1], b = cm[tau], c = cm[tau + 1], den = a - 2 * b + c, adj = den !== 0 ? 0.5 * (a - c) / den : 0; return { f0: sr / (tau + adj), clarity: 1 - b }; }
+    }
+    return { f0: 0, clarity: 0 };
+  }
+  function median(a) { var s = a.slice().sort(function (p, q) { return p - q; }); return s.length ? s[Math.floor(s.length / 2)] : 0; }
+  function pct(a, p) { var s = a.slice().sort(function (x, y) { return x - y; }); return s.length ? s[Math.min(s.length - 1, Math.max(0, Math.round(p * (s.length - 1))))] : 0; }
+  function track(samples, sr) {
+    var d = decimate(samples, sr), x = d.x, fs = d.sr, W = Math.round(fs * 0.04), hop = Math.round(fs * 0.01), frames = [], i, maxR = 0;
+    for (i = 0; i + W <= x.length; i += hop) { var e = 0, j; for (j = 0; j < W; j++) { e += x[i + j] * x[i + j]; } var rms = Math.sqrt(e / W); maxR = Math.max(maxR, rms); var r = rms > 0.003 ? yin(x, i, W, fs, 0.15) : { f0: 0, clarity: 0 }; frames.push({ t: (i + W / 2) / fs, f0: r.f0, cl: r.clarity, rms: rms }); }
+    frames.forEach(function (f) { f.voiced = f.f0 > 0 && f.cl > 0.55 && f.rms > 0.1 * maxR; });
+    for (i = 0; i < frames.length; i++) { if (!frames[i].voiced) { continue; } var loc = []; for (var k = Math.max(0, i - 6); k <= Math.min(frames.length - 1, i + 6); k++) { if (frames[k].voiced) { loc.push(frames[k].f0); } } var m = median(loc); if (frames[i].f0 > 1.7 * m || frames[i].f0 < 0.6 * m) { frames[i].f0c = m; } }
+    frames.forEach(function (f) { if (f.f0c) { f.f0 = f.f0c; } });
+    return { frames: frames, maxR: maxR, hop: hop / fs };
+  }
+  function runs(frames, gapFrames, minFrames) {
+    var out = [], cur = null, gap = 0;
+    frames.forEach(function (f, i) { if (f.voiced) { if (cur && gap <= gapFrames) { cur.b = i; } else { if (cur) { out.push(cur); } cur = { a: i, b: i }; } gap = 0; } else if (cur) { gap++; } });
+    if (cur) { out.push(cur); }
+    return out.filter(function (r) { return r.b - r.a + 1 >= minFrames; });
+  }
+  function smoothRms(frames, a, b) { var out = [], i, k, s, c; for (i = a; i <= b; i++) { s = 0; c = 0; for (k = Math.max(a, i - 2); k <= Math.min(b, i + 2); k++) { s += frames[k].rms; c++; } out.push(s / c); } return out; }
+  function splitRun(frames, r, parts) {
+    var sm = smoothRms(frames, r.a, r.b), i, cand = [];
+    for (i = 3; i < sm.length - 3; i++) { if (sm[i] <= sm[i - 1] && sm[i] <= sm[i + 1]) { var lmax = Math.max.apply(null, sm.slice(Math.max(0, i - 12), i)), rmax = Math.max.apply(null, sm.slice(i + 1, Math.min(sm.length, i + 13))), depth = 1 - sm[i] / Math.min(lmax, rmax); if (depth > 0.18) { cand.push({ i: i, depth: depth }); } } }
+    cand.sort(function (p, q) { return q.depth - p.depth; });
+    var pick = cand.slice(0, parts - 1).map(function (c) { return c.i; }).sort(function (p, q) { return p - q; }), approx = pick.length < parts - 1;
+    if (approx) { pick = []; for (i = 1; i < parts; i++) { pick.push(Math.round(sm.length * i / parts)); } }
+    var segs = [], start = r.a; pick.forEach(function (c) { segs.push({ a: start, b: r.a + c - 1 }); start = r.a + c; }); segs.push({ a: start, b: r.b });
+    return { segs: segs, approx: approx };
+  }
+  function segment(frames, n) {
+    var rs = runs(frames, 7, 8), approx = false;
+    if (!rs.length) { return { segs: [], approx: false }; }
+    while (rs.length > n) { var best = 0, gp = 1e9, i; for (i = 0; i < rs.length - 1; i++) { var g = rs[i + 1].a - rs[i].b; if (g < gp) { gp = g; best = i; } } rs.splice(best, 2, { a: rs[best].a, b: rs[best + 1].b }); }
+    while (rs.length < n) { var li = 0, ll = 0; rs.forEach(function (r, k) { if (r.b - r.a > ll) { ll = r.b - r.a; li = k; } }); var sp = splitRun(frames, rs[li], 2); approx = approx || sp.approx; rs.splice.apply(rs, [li, 1].concat(sp.segs)); }
+    return { segs: rs, approx: approx };
+  }
+  function st(f, ref) { return 12 * Math.log2(f / ref); }
+  function contour(frames, seg, ref) {
+    var pts = [], i, len = seg.b - seg.a + 1, trim = Math.floor(len * 0.1);
+    for (i = seg.a + trim; i <= seg.b - trim; i++) { if (frames[i].voiced) { pts.push({ t: (i - seg.a - trim) / Math.max(1, len - 2 * trim - 1), v: st(frames[i].f0, ref) }); } }
+    if (pts.length > 4) { var vs = pts.map(function (p) { return p.v; }), sm = vs.map(function (v, k) { var a = vs.slice(Math.max(0, k - 1), k + 2); return a.reduce(function (s, q) { return s + q; }, 0) / a.length; }); pts.forEach(function (p, k) { p.v = sm[k]; }); }
+    return pts;
+  }
+  function avgRange(pts, a, b) { var s = 0, c = 0; pts.forEach(function (p) { if (p.t >= a && p.t <= b) { s += p.v; c++; } }); return c ? s / c : null; }
+  function classify(pts, calibrated) {
+    if (pts.length < 4) { return { tone: 0, why: "too short" }; }
+    var vs = pts.map(function (p) { return p.v; }), range = pct(vs, 0.9) - pct(vs, 0.1), first = avgRange(pts, 0, 0.25), last = avgRange(pts, 0.75, 1), mid = avgRange(pts, 0.35, 0.65), lvl = vs.reduce(function (a, b) { return a + b; }, 0) / vs.length;
+    if (first === null || last === null) { return { tone: 0, why: "no contour" }; }
+    var d = last - first, minFirstHalf = Math.min.apply(null, pts.filter(function (p) { return p.t <= 0.65; }).map(function (p) { return p.v; })), dip = first - minFirstHalf, tone;
+    if (range < 2.4 && Math.abs(d) < 1.8) { tone = (calibrated && lvl < -2.2) ? 3 : 1; }
+    else if (d > 2.0) { tone = dip > 1.8 ? 3 : 2; }
+    else if (d < -2.2) { tone = (first < -0.2 && range < 6.5) ? 3 : 4; }
+    else { var midLow = mid !== null && mid < Math.min(first, last) - 1.5; tone = midLow ? 3 : (d >= 0 ? 2 : 4); }
+    return { tone: tone, d: d, range: range, level: lvl, first: first, last: last };
+  }
+  function analyze(samples, sr, n, cal) {
+    var tr = track(samples, sr), voiced = tr.frames.filter(function (f) { return f.voiced; });
+    if (voiced.length < 6) { return { ok: false, reason: "I could not hear a clear voice. Move closer to the microphone and try again.", frames: tr.frames }; }
+    var ref = cal && cal.med ? cal.med : median(voiced.map(function (f) { return f.f0; })), sg = segment(tr.frames, n);
+    if (sg.segs.length < n) { return { ok: false, reason: "I could not separate the syllables. Speak a little slower with a small pause between words.", frames: tr.frames }; }
+    var tones = sg.segs.map(function (s) { var pts = contour(tr.frames, s, ref), c = classify(pts, !!(cal && cal.med)); c.pts = pts; c.t0 = tr.frames[s.a].t; c.t1 = tr.frames[s.b].t; return c; });
+    return { ok: true, tones: tones, approx: sg.approx, ref: ref, frames: tr.frames, calibrated: !!(cal && cal.med) };
+  }
+  function calibrate(samples, sr) { var tr = track(samples, sr), f = tr.frames.filter(function (x) { return x.voiced; }).map(function (x) { return x.f0; }); if (f.length < 25) { return null; } var med = median(f), lo = pct(f, 0.1), hi = pct(f, 0.9); return { med: med, lo: lo, hi: hi, range: 12 * Math.log2(hi / lo) }; }
+  var TEMPLATES = { 1: [0.8, 0.8, 0.8, 0.8, 0.8], 2: [-0.2, 0, 0.35, 0.7, 1], 3: [0.1, -0.35, -0.7, -0.45, 0.1], 4: [1, 0.75, 0.2, -0.4, -0.9] };
+  var api = { analyze: analyze, calibrate: calibrate, track: track, classify: classify, segment: segment, contour: contour, TEMPLATES: TEMPLATES, median: median, pct: pct };
+  if (typeof module !== "undefined" && module.exports) { module.exports = api; } else { root.TWP = api; }
+})(typeof window !== "undefined" ? window : globalThis);
+
+</script>
+<script>
+/* Course content. Vocab "zh|pinyin|English"; sentence "tokens/with/[blank]|pinyin|English"; dialogue "A>>B" (each "zh|pinyin|English"). Pinyin uses tone numbers, v = ü. */
+window.CONTENT = {
+  parts: [
+    { id: "A", line: "R", color: "red", zh: "基礎職場華語", en: "Office basics", blurb: "Greetings, numbers, the office, titles and everyday messages" },
+    { id: "B", line: "BL", color: "blue", zh: "進階職場華語", en: "Office advanced", blurb: "Meetings, formal email, polite requests and business dealings" },
+    { id: "C", line: "G", color: "green", zh: "專家職場華語", en: "Office expert", blurb: "Projects, technical customers and company rules" },
+    { id: "D", line: "O", color: "orange", zh: "日常台灣華語", en: "Everyday Taiwan", blurb: "Lunch talk, trains, drink shops, markets and the hospital" }
+  ],
+  chapters: [
+  { id: "c0", part: "A", zh: "聲調與注音", en: "Tones and Zhuyin", blurb: "Hear the four tones before anything else.",
+    tip: "Mandarin has four tones and a light neutral tone, and the tone changes the word: 媽 (mom), 麻 (hemp), 馬 (horse), 罵 (scold). Taiwan teaches sounds with Zhuyin (ㄅㄆㄇㄈ), so this app shows Zhuyin next to pinyin. Choose what you want in Settings.",
+    v: ["媽|ma1|mom", "麻|ma2|hemp, numb", "馬|ma3|horse", "罵|ma4|to scold", "詩|shi1|poem", "時|shi2|time", "使|shi3|to use, to cause", "是|shi4|to be, yes"],
+    s: ["你/好/[嗎]？|ni3 hao3 ma5|How are you? (Are you well?)", "我/[很]/好。|wo3 hen3 hao3|I am well.", "[他]/是/我/的/朋友。|ta1 shi4 wo3 de5 peng2 you3|He is my friend.", "請/[坐]。|qing3 zuo4|Please sit."], d: [] },
+  { id: "c1", part: "A", zh: "打招呼與自我介紹", en: "Greetings and introductions", blurb: "How colleagues greet, thank and apologise at work.",
+    tip: "Colleagues often greet with 辛苦了 (thanks for your effort) or a short 早 instead of a long “how are you”. 您 is the polite “you” for clients and senior leaders; 你 is normal between colleagues.",
+    v: ["你好|ni3 hao3|hello", "您好|nin2 hao3|hello (polite)", "早安|zao3 an1|good morning", "謝謝|xie4 xie5|thank you", "不客氣|bu2 ke4 qi5|you’re welcome", "對不起|dui4 bu5 qi3|sorry", "不好意思|bu4 hao3 yi4 si5|excuse me, sorry", "請|qing3|please", "名字|ming2 zi5|name", "同事|tong2 shi4|colleague", "請多指教|qing3 duo1 zhi3 jiao4|please guide me (when meeting)", "辛苦了|xin1 ku3 le5|thanks for your hard work", "再見|zai4 jian4|goodbye", "我|wo3|I, me"],
+    s: ["您好，/我/叫/[小美]。|nin2 hao3 wo3 jiao4 xiao3 mei3|Hello, my name is Xiaomei.", "很/高興/[認識]/你。|hen3 gao1 xing4 ren4 shi4 ni3|Nice to meet you.", "我/在/[業務部]/工作。|wo3 zai4 ye4 wu4 bu4 gong1 zuo4|I work in the sales department.", "請問/您/[貴姓]？|qing3 wen4 nin2 gui4 xing4|May I ask your surname?", "大家/[早]！|da4 jia1 zao3|Good morning, everyone!", "謝謝/你/的/[幫忙]。|xie4 xie5 ni3 de5 bang1 mang2|Thank you for your help.", "不好意思，/我/[遲到]/了。|bu4 hao3 yi4 si5 wo3 chi2 dao4 le5|Sorry, I’m late.", "明天/[見]！|ming2 tian1 jian4|See you tomorrow!"],
+    d: ["您好，請問您貴姓？|nin2 hao3 qing3 wen4 nin2 gui4 xing4|Hello, may I ask your surname?>>敝姓王，請多指教。|bi4 xing4 wang2 qing3 duo1 zhi3 jiao4|My surname is Wang, pleased to meet you.", "早安！|zao3 an1|Good morning!>>早安，今天也請多指教。|zao3 an1 jin1 tian1 ye3 qing3 duo1 zhi3 jiao4|Good morning, I look forward to working with you today too.", "謝謝你的幫忙！|xie4 xie5 ni3 de5 bang1 mang2|Thank you for your help!>>不客氣！|bu2 ke4 qi5|You’re welcome!", "不好意思，我來晚了。|bu4 hao3 yi4 si5 wo3 lai2 wan3 le5|Sorry, I’m late.>>沒關係，請坐。|mei2 guan1 xi5 qing3 zuo4|No problem, please sit."] },
+  { id: "c2", part: "A", zh: "數字與時間", en: "Numbers, time and dates", blurb: "Hours, days and the Republic of China calendar.",
+    tip: "Taiwan uses the ROC calendar: 民國 year = AD year − 1911, so 2026 is 民國115年. Government forms and many invoices use it. Dates are spoken with 號 (e.g. 十一月二十二號) and written with 日 in formal documents.",
+    v: ["一|yi1|one", "二|er4|two", "三|san1|three", "五|wu3|five", "九|jiu3|nine", "十|shi2|ten", "點|dian3|o’clock", "分|fen1|minute", "今天|jin1 tian1|today", "明天|ming2 tian1|tomorrow", "昨天|zuo2 tian1|yesterday", "星期|xing1 qi2|week, weekday", "月|yue4|month", "號|hao4|day of the month", "上午|shang4 wu3|morning", "下午|xia4 wu3|afternoon"],
+    s: ["現在/[幾點]？|xian4 zai4 ji3 dian3|What time is it now?", "會議/在/[下午]/三點。|hui4 yi4 zai4 xia4 wu3 san1 dian3|The meeting is at 3 p.m.", "今天/是/[星期]/五。|jin1 tian1 shi4 xing1 qi2 wu3|Today is Friday.", "明天/是/十/[月]/三/號。|ming2 tian1 shi4 shi2 yue4 san1 hao4|Tomorrow is October 3rd.", "我/[上午]/九點/到/公司。|wo3 shang4 wu3 jiu3 dian3 dao4 gong1 si1|I get to the company at 9 a.m.", "星期一/到/星期五/[上班]。|xing1 qi2 yi1 dao4 xing1 qi2 wu3 shang4 ban1|We work Monday to Friday.", "我們/[昨天]/開會。|wo3 men5 zuo2 tian1 kai1 hui4|We had a meeting yesterday.", "民國/[一百一十五]/年。|min2 guo2 yi4 bai3 yi4 shi2 wu3 nian2|It is year 115 of the Republic (2026)."],
+    d: ["會議幾點開始？|hui4 yi4 ji3 dian3 kai1 shi3|What time does the meeting start?>>下午兩點。|xia4 wu3 liang3 dian3|Two in the afternoon.", "今天幾號？|jin1 tian1 ji3 hao4|What is the date today?>>今天十號。|jin1 tian1 shi2 hao4|Today is the 10th.", "你什麼時候有空？|ni3 shen2 me5 shi2 hou4 you3 kong4|When are you free?>>明天下午有空。|ming2 tian1 xia4 wu3 you3 kong4|Tomorrow afternoon.", "你幾點下班？|ni3 ji3 dian3 xia4 ban1|What time do you finish work?>>六點。|liu4 dian3|Six o’clock."] },
+  { id: "c3", part: "A", zh: "辦公室與設備", en: "The office and equipment", blurb: "Find the meeting room, restroom, printer and Wi-Fi.",
+    tip: "Most Taiwan offices have a 茶水間 with hot water and a fridge. For the restroom, 洗手間 is polite and 廁所 is plain. Floors are counted in 樓: 三樓 is the third floor.",
+    v: ["公司|gong1 si1|company", "辦公室|ban4 gong1 shi4|office", "會議室|hui4 yi4 shi4|meeting room", "座位|zuo4 wei4|seat, desk", "電腦|dian4 nao3|computer", "筆電|bi3 dian4|laptop", "螢幕|ying2 mu4|monitor", "印表機|yin4 biao3 ji1|printer", "影印|ying3 yin4|photocopy", "茶水間|cha2 shui3 jian1|pantry", "洗手間|xi3 shou3 jian1|restroom", "電梯|dian4 ti1|elevator", "網路|wang3 lu4|internet", "密碼|mi4 ma3|password", "文件|wen2 jian4|document", "資料夾|zi1 liao4 jia2|folder"],
+    s: ["會議室/在/[三樓]。|hui4 yi4 shi4 zai4 san1 lou2|The meeting room is on the 3rd floor.", "請問/[洗手間]/在/哪裡？|qing3 wen4 xi3 shou3 jian1 zai4 na3 li3|Excuse me, where is the restroom?", "我的/[電腦]/壞/了。|wo3 de5 dian4 nao3 huai4 le5|My computer is broken.", "印表機/[沒有]/紙/了。|yin4 biao3 ji1 mei2 you3 zhi3 le5|The printer is out of paper.", "請問/無線/網路/的/[密碼]/是/什麼？|qing3 wen4 wu2 xian4 wang3 lu4 de5 mi4 ma3 shi4 shen2 me5|What is the Wi-Fi password?", "我/要/去/[影印]/文件。|wo3 yao4 qu4 ying3 yin4 wen2 jian4|I’m going to photocopy the documents.", "請/把/文件/放/在/[座位]/上。|qing3 ba3 wen2 jian4 fang4 zai4 zuo4 wei4 shang4|Please put the document on the desk.", "電梯/在/[那裡]。|dian4 ti1 zai4 na4 li3|The elevator is over there."],
+    d: ["請問會議室在哪裡？|qing3 wen4 hui4 yi4 shi4 zai4 na3 li3|Where is the meeting room?>>在三樓，電梯旁邊。|zai4 san1 lou2 dian4 ti1 pang2 bian1|On the 3rd floor, next to the elevator.", "我的電腦連不上網路。|wo3 de5 dian4 nao3 lian2 bu2 shang4 wang3 lu4|My computer can’t connect to the internet.>>我幫你看一下。|wo3 bang1 ni3 kan4 yi2 xia4|Let me take a look.", "印表機在哪裡？|yin4 biao3 ji1 zai4 na3 li3|Where is the printer?>>在茶水間旁邊。|zai4 cha2 shui3 jian1 pang2 bian1|Next to the pantry.", "請問網路密碼是什麼？|qing3 wen4 wang3 lu4 mi4 ma3 shi4 shen2 me5|What is the Wi-Fi password?>>我傳給你。|wo3 chuan2 gei3 ni3|I’ll send it to you."] },
+  { id: "c4", part: "A", zh: "職稱與人物", en: "Titles and people", blurb: "Who is who, and how to address them.",
+    tip: "Address people as surname + title: 王經理, 林副理, 陳工程師. First names are common in foreign companies, but surname + title is always safe. Customers and vendors are 客戶 and 廠商.",
+    v: ["老闆|lao3 ban3|boss", "主管|zhu3 guan3|supervisor", "經理|jing1 li3|manager", "副理|fu4 li3|assistant manager", "總經理|zong3 jing1 li3|general manager", "董事長|dong3 shi4 zhang3|chairman", "工程師|gong1 cheng2 shi1|engineer", "業務|ye4 wu4|sales", "助理|zhu4 li3|assistant", "客戶|ke4 hu4|customer", "廠商|chang3 shang1|vendor, supplier", "新人|xin1 ren2|new hire", "前輩|qian2 bei4|senior colleague", "部門|bu4 men2|department", "小姐|xiao3 jie3|Ms., Miss", "先生|xian1 sheng5|Mr., sir"],
+    s: ["這位/是/王/[經理]。|zhe4 wei4 shi4 wang2 jing1 li3|This is Manager Wang.", "他/是/我們/的/[主管]。|ta1 shi4 wo3 men5 de5 zhu3 guan3|He is our supervisor.", "林/小姐/是/[業務]/助理。|lin2 xiao3 jie3 shi4 ye4 wu4 zhu4 li3|Ms. Lin is a sales assistant.", "我/是/[工程師]。|wo3 shi4 gong1 cheng2 shi1|I am an engineer.", "我們/[部門]/有/十/個/人。|wo3 men5 bu4 men2 you3 shi2 ge5 ren2|Our department has ten people.", "這位/[客戶]/從/美國/來。|zhe4 wei4 ke4 hu4 cong2 mei3 guo2 lai2|This customer comes from the US.", "[前輩]/教/我/怎麼/做。|qian2 bei4 jiao1 wo3 zen3 me5 zuo4|My senior colleague taught me how to do it.", "王/[先生]/在/等/您。|wang2 xian1 sheng5 zai4 deng3 nin2|Mr. Wang is waiting for you."],
+    d: ["請問您是哪位？|qing3 wen4 nin2 shi4 na3 wei4|Who may I say is calling?>>我是廠商的業務，敝姓李。|wo3 shi4 chang3 shang1 de5 ye4 wu4 bi4 xing4 li3|I’m the vendor’s sales rep, my surname is Li.", "王經理在嗎？|wang2 jing1 li3 zai4 ma5|Is Manager Wang in?>>他在開會。|ta1 zai4 kai1 hui4|He is in a meeting.", "誰是你的主管？|shei2 shi4 ni3 de5 zhu3 guan3|Who is your supervisor?>>李經理是我的主管。|li3 jing1 li3 shi4 wo3 de5 zhu3 guan3|Manager Li is my supervisor.", "他是新人嗎？|ta1 shi4 xin1 ren2 ma5|Is he a new hire?>>對，他這個星期剛來。|dui4 ta1 zhe4 ge5 xing1 qi2 gang1 lai2|Yes, he just arrived this week."] },
+  { id: "c5", part: "A", zh: "日常工作", en: "Daily work", blurb: "Clocking in, overtime, leave and business trips.",
+    tip: "打卡 means clocking in or out. Time off is requested with 請假 through the company system, and 加班 (overtime) usually needs your supervisor’s approval first.",
+    v: ["上班|shang4 ban1|go to work", "下班|xia4 ban1|finish work", "打卡|da3 ka3|clock in or out", "開會|kai1 hui4|have a meeting", "報告|bao4 gao4|report", "處理|chu3 li3|handle", "確認|que4 ren4|confirm", "回覆|hui2 fu4|reply", "寄|ji4|send (mail)", "傳|chuan2|send (file, message)", "列印|lie4 yin4|print", "加班|jia1 ban1|work overtime", "請假|qing3 jia4|take leave", "出差|chu1 chai1|business trip", "午休|wu3 xiu1|lunch break", "忙|mang2|busy"],
+    s: ["我/每天/[上班]/都/要/打卡。|wo3 mei3 tian1 shang4 ban1 dou1 yao4 da3 ka3|I have to clock in every day.", "今天/我/要/[加班]。|jin1 tian1 wo3 yao4 jia1 ban1|I have to work overtime today.", "我/下午/要/[請假]。|wo3 xia4 wu3 yao4 qing3 jia4|I need to take leave this afternoon.", "他/下個/星期/要/去/[出差]。|ta1 xia4 ge5 xing1 qi2 yao4 qu4 chu1 chai1|He is going on a business trip next week.", "請/你/[確認]/一下。|qing3 ni3 que4 ren4 yi2 xia4|Please confirm.", "我/正在/[處理]/這個/問題。|wo3 zheng4 zai4 chu3 li3 zhe4 ge5 wen4 ti2|I’m handling this problem now.", "我/會/盡快/[回覆]/您。|wo3 hui4 jin3 kuai4 hui2 fu4 nin2|I’ll reply to you as soon as possible.", "我們/十二點/[午休]。|wo3 men5 shi2 er4 dian3 wu3 xiu1|We take our lunch break at twelve."],
+    d: ["你今天會加班嗎？|ni3 jin1 tian1 hui4 jia1 ban1 ma5|Are you working overtime today?>>會，我要處理一份報告。|hui4 wo3 yao4 chu3 li3 yi2 fen4 bao4 gao4|Yes, I have a report to finish.", "明天我想請假。|ming2 tian1 wo3 xiang3 qing3 jia4|I’d like to take leave tomorrow.>>好，請先跟主管確認。|hao3 qing3 xian1 gen1 zhu3 guan3 que4 ren4|Okay, please check with your supervisor first.", "報告寄出去了嗎？|bao4 gao4 ji4 chu1 qu4 le5 ma5|Has the report been sent?>>已經寄了。|yi3 jing1 ji4 le5|Yes, it’s been sent.", "你下個星期要出差嗎？|ni3 xia4 ge5 xing1 qi2 yao4 chu1 chai1 ma5|Are you going on a business trip next week?>>對，去台中。|dui4 qu4 tai2 zhong1|Yes, to Taichung."] },
+  { id: "c6", part: "A", zh: "訊息與電子郵件入門", en: "Chat and email basics", blurb: "Short replies that keep work moving on LINE and email.",
+    tip: "LINE is Taiwan’s main chat app, also at work, and a quick 收到 or 了解 is expected. Multinational teams often use Teams or Slack too. In email, 副本 means CC and 附件 means attachment.",
+    v: ["訊息|xun4 xi2|message", "群組|qun2 zu3|group chat", "電子郵件|dian4 zi3 you2 jian4|email", "信|xin4|letter, email", "附件|fu4 jian4|attachment", "收到|shou1 dao4|received", "了解|liao3 jie3|understood", "好的|hao3 de5|okay", "麻煩您|ma2 fan5 nin2|sorry to trouble you", "副本|fu4 ben3|CC", "主旨|zhu3 zhi3|subject line", "回信|hui2 xin4|reply (email)", "轉寄|zhuan3 ji4|forward", "開視訊|kai1 shi4 xun4|start a video call", "截圖|jie2 tu2|screenshot", "稍等|shao1 deng3|please wait a moment"],
+    s: ["[收到]，/謝謝！|shou1 dao4 xie4 xie5|Received, thank you!", "請/參考/[附件]。|qing3 can1 kao3 fu4 jian4|Please refer to the attachment.", "我/已經/把/信/[寄]/給/你/了。|wo3 yi3 jing1 ba3 xin4 ji4 gei3 ni3 le5|I’ve sent you the email.", "[麻煩您]/看/一下。|ma2 fan5 nin2 kan4 yi2 xia4|Could you please take a look?", "我/[了解]/了，/謝謝。|wo3 liao3 jie3 le5 xie4 xie5|Got it, thanks.", "請/把/我/加進/[群組]。|qing3 ba3 wo3 jia1 jin4 qun2 zu3|Please add me to the group.", "郵件/的/[主旨]/要/寫/清楚。|you2 jian4 de5 zhu3 zhi3 yao4 xie3 qing1 chu3|The email subject must be written clearly.", "請/[稍等]，/我/馬上/回覆/你。|qing3 shao1 deng3 wo3 ma3 shang4 hui2 fu4 ni3|Please wait a moment, I’ll reply right away."],
+    d: ["附件收到了嗎？|fu4 jian4 shou1 dao4 le5 ma5|Did you get the attachment?>>收到了，謝謝。|shou1 dao4 le5 xie4 xie5|Yes, thank you.", "可以幫我轉寄這封信嗎？|ke3 yi3 bang1 wo3 zhuan3 ji4 zhe4 feng1 xin4 ma5|Can you forward this email for me?>>沒問題。|mei2 wen4 ti2|No problem.", "我們開視訊討論吧。|wo3 men5 kai1 shi4 xun4 tao3 lun4 ba5|Let’s discuss over a video call.>>好，我五分鐘後上線。|hao3 wo3 wu3 fen1 zhong1 hou4 shang4 xian4|Okay, I’ll be online in five minutes.", "請在群組通知大家。|qing3 zai4 qun2 zu3 tong1 zhi1 da4 jia1|Please tell everyone in the group chat.>>好的，我現在發。|hao3 de5 wo3 xian4 zai4 fa1|Okay, I’ll post it now."] },
+  { id: "c7", part: "B", zh: "開會", en: "Meetings", blurb: "Agree, add, object and assign action items.",
+    tip: "Meetings usually end with 會議紀錄 and 待辦事項 (action items) with a 負責人 and a 期限. Disagreement is soft: 我想補充一點 or 不知道這樣可不可以… is how many people open an objection.",
+    v: ["議程|yi4 cheng2|agenda", "會議紀錄|hui4 yi4 ji4 lu4|meeting minutes", "討論|tao3 lun4|discuss", "意見|yi4 jian4|opinion, feedback", "提案|ti2 an4|proposal", "同意|tong2 yi4|agree", "反對|fan3 dui4|oppose", "補充|bu3 chong1|add, supplement", "決議|jue2 yi4|resolution", "待辦事項|dai4 ban4 shi4 xiang4|action items", "負責人|fu4 ze2 ren2|person in charge", "期限|qi2 xian4|deadline", "進度|jin4 du4|progress", "延遲|yan2 chi2|delay", "風險|feng1 xian3|risk", "結論|jie2 lun4|conclusion"],
+    s: ["今天/的/[議程]/有/三/項。|jin1 tian1 de5 yi4 cheng2 you3 san1 xiang4|Today’s agenda has three items.", "大家/有/什麼/[意見]/嗎？|da4 jia1 you3 shen2 me5 yi4 jian4 ma5|Does anyone have any comments?", "我/[同意]/這個/方案。|wo3 tong2 yi4 zhe4 ge5 fang1 an4|I agree with this plan.", "我/想/[補充]/一點。|wo3 xiang3 bu3 chong1 yi4 dian3|I’d like to add something.", "這項/工作/的/[負責人]/是/誰？|zhe4 xiang4 gong1 zuo4 de5 fu4 ze2 ren2 shi4 shei2|Who is in charge of this task?", "[期限]/是/下週/五。|qi2 xian4 shi4 xia4 zhou1 wu3|The deadline is next Friday.", "專案/的/[進度]/有點/落後。|zhuan1 an4 de5 jin4 du4 you3 dian3 luo4 hou4|The project is a little behind schedule.", "[會議紀錄]/我/會/寄給/大家。|hui4 yi4 ji4 lu4 wo3 hui4 ji4 gei3 da4 jia1|I’ll send the minutes to everyone."],
+    d: ["大家同意這個提案嗎？|da4 jia1 tong2 yi4 zhe4 ge5 ti2 an4 ma5|Does everyone agree with this proposal?>>我同意，但有一點要補充。|wo3 tong2 yi4 dan4 you3 yi4 dian3 yao4 bu3 chong1|I agree, but I have one point to add.", "這個任務誰負責？|zhe4 ge5 ren4 wu4 shei2 fu4 ze2|Who is responsible for this task?>>我來負責。|wo3 lai2 fu4 ze2|I’ll take it.", "期限可以延遲嗎？|qi2 xian4 ke3 yi3 yan2 chi2 ma5|Can the deadline be delayed?>>可以，但請先通知客戶。|ke3 yi3 dan4 qing3 xian1 tong1 zhi1 ke4 hu4|Yes, but please notify the customer first.", "今天的結論是什麼？|jin1 tian1 de5 jie2 lun4 shi4 shen2 me5|What is today’s conclusion?>>我們下週再討論。|wo3 men5 xia4 zhou1 zai4 tao3 lun4|We’ll discuss it again next week."] },
+  { id: "c8", part: "B", zh: "正式電子郵件", en: "Formal email writing", blurb: "Openings, requests and closings for business email.",
+    tip: "Formal email opens with 您好 or 王經理您好 and closes with 順頌商祺 (business wishes). 煩請 and 敬請 are more formal than 請. Apologies for trouble use 造成不便，敬請見諒.",
+    v: ["敬啟者|jing4 qi3 zhe3|to whom it may concern", "收件人|shou1 jian4 ren2|recipient", "敬請|jing4 qing3|respectfully request", "煩請|fan2 qing3|kindly (formal please)", "附上|fu4 shang4|attach, enclose", "來信|lai2 xin4|your email", "說明|shuo1 ming2|explanation", "詳見|xiang2 jian4|see details in", "如有任何問題|ru2 you3 ren4 he2 wen4 ti2|if you have any questions", "隨時|sui2 shi2|at any time", "聯絡|lian2 luo4|contact", "感謝|gan3 xie4|thank (formal)", "協助|xie2 zhu4|assistance", "造成不便|zao4 cheng2 bu2 bian4|cause inconvenience", "敬請見諒|jing4 qing3 jian4 liang4|please forgive us", "順頌商祺|shun4 song4 shang1 qi2|best wishes for your business"],
+    s: ["[敬啟者]：|jing4 qi3 zhe3|To whom it may concern:", "感謝/您/的/[來信]。|gan3 xie4 nin2 de5 lai2 xin4|Thank you for your email.", "[附上]/報價單，/敬請/參考。|fu4 shang4 bao4 jia4 dan1 jing4 qing3 can1 kao3|Attached is the quotation, for your reference.", "如有/任何/問題，/歡迎/[隨時]/與我/聯絡。|ru2 you3 ren4 he2 wen4 ti2 huan1 ying2 sui2 shi2 yu3 wo3 lian2 luo4|If you have any questions, feel free to contact me at any time.", "[煩請]/您/協助/確認/這份/資料。|fan2 qing3 nin2 xie2 zhu4 que4 ren4 zhe4 fen4 zi1 liao4|Kindly help confirm this information.", "造成/您的/[不便]，/敬請/見諒。|zao4 cheng2 nin2 de5 bu2 bian4 jing4 qing3 jian4 liang4|We apologise for the inconvenience.", "謝謝/您的/[協助]。|xie4 xie5 nin2 de5 xie2 zhu4|Thank you for your assistance.", "[順頌]/商祺。|shun4 song4 shang1 qi2|With best wishes for your business."],
+    d: ["請問何時可以收到報價？|qing3 wen4 he2 shi2 ke3 yi3 shou1 dao4 bao4 jia4|When can we receive the quotation?>>我們會在明天下午前回覆您。|wo3 men5 hui4 zai4 ming2 tian1 xia4 wu3 qian2 hui2 fu4 nin2|We’ll reply to you before tomorrow afternoon.", "附件打不開，可以再寄一次嗎？|fu4 jian4 da3 bu4 kai1 ke3 yi3 zai4 ji4 yi2 ci4 ma5|The attachment won’t open, could you send it again?>>抱歉，我現在重新寄給您。|bao4 qian4 wo3 xian4 zai4 chong2 xin1 ji4 gei3 nin2|Sorry, I’ll resend it to you now.", "感謝您的協助。|gan3 xie4 nin2 de5 xie2 zhu4 |Thank you for your assistance.>>不客氣，這是我們應該做的。|bu2 ke4 qi5 zhe4 shi4 wo3 men5 ying1 gai1 zuo4 de5|You’re welcome, it’s what we should do.", "請問這件事由誰負責？|qing3 wen4 zhe4 jian4 shi4 you2 shei2 fu4 ze2|Who is responsible for this matter?>>請聯絡李經理。|qing3 lian2 luo4 li3 jing1 li3|Please contact Manager Li."] },
+  { id: "c9", part: "B", zh: "請求、追蹤與婉拒", en: "Requests, follow-ups and polite refusals", blurb: "Ask politely, remind gently and say no without saying no.",
+    tip: "Taiwanese politeness is indirect. 恐怕, 可能有點困難 and 我再看看 often mean “no”. Soften requests with 麻煩 and 能不能, and follow up with 想請問一下目前的進度.",
+    v: ["可以|ke3 yi3|can, may", "能不能|neng2 bu4 neng2|could you", "麻煩|ma2 fan5|to trouble", "幫忙|bang1 mang2|help", "先|xian1|first", "再|zai4|again, then", "追蹤|zhui1 zong1|follow up", "提醒|ti2 xing3|remind", "抱歉|bao4 qian4|sorry", "可惜|ke3 xi1|unfortunately", "恐怕|kong3 pa4|I’m afraid that", "目前|mu4 qian2|currently", "沒辦法|mei2 ban4 fa3|unable to", "考慮|kao3 lu4|consider", "再說|zai4 shuo1|decide later", "改天|gai3 tian1|another day"],
+    s: ["[能不能]/請/你/幫/我/看/一下？|neng2 bu4 neng2 qing3 ni3 bang1 wo3 kan4 yi2 xia4|Could you take a look for me?", "我/想/[提醒]/您/一下。|wo3 xiang3 ti2 xing3 nin2 yi2 xia4|I’d like to remind you.", "請問/這件/事/[目前]/進度/如何？|qing3 wen4 zhe4 jian4 shi4 mu4 qian2 jin4 du4 ru2 he2|May I ask how this matter is progressing?", "[抱歉]，/讓/您/久等/了。|bao4 qian4 rang4 nin2 jiu3 deng3 le5|Sorry to keep you waiting.", "[恐怕]/這個/時間/不太/方便。|kong3 pa4 zhe4 ge5 shi2 jian1 bu2 tai4 fang1 bian4|I’m afraid this time isn’t very convenient.", "這個/案子/目前/[沒辦法]/處理。|zhe4 ge5 an4 zi5 mu4 qian2 mei2 ban4 fa3 chu3 li3|We can’t handle this case at the moment.", "我/會/[考慮]/看看。|wo3 hui4 kao3 lu4 kan4 kan5|I’ll think about it.", "我們/[改天]/再約，/好嗎？|wo3 men5 gai3 tian1 zai4 yue1 hao3 ma5|Let’s meet another day, okay?"],
+    d: ["能不能幫我印一份？|neng2 bu4 neng2 bang1 wo3 yin4 yi2 fen4|Could you print a copy for me?>>沒問題，我馬上去。|mei2 wen4 ti2 wo3 ma3 shang4 qu4|No problem, I’ll go right now.", "這份報告什麼時候可以給我？|zhe4 fen4 bao4 gao4 shen2 me5 shi2 hou4 ke3 yi3 gei3 wo3|When can I have this report?>>不好意思，我明天一定給您。|bu4 hao3 yi4 si5 wo3 ming2 tian1 yi2 ding4 gei3 nin2|Sorry, I’ll definitely give it to you tomorrow.", "下午可以開會嗎？|xia4 wu3 ke3 yi3 kai1 hui4 ma5|Can we have the meeting this afternoon?>>恐怕不行，我下午要出差。|kong3 pa4 bu4 xing2 wo3 xia4 wu3 yao4 chu1 chai1|I’m afraid not, I’m on a business trip this afternoon.", "這個報價可以再便宜一點嗎？|zhe4 ge5 bao4 jia4 ke3 yi3 zai4 pian2 yi2 yi4 dian3 ma5|Can this quotation be a little cheaper?>>很抱歉，目前沒辦法。|hen3 bao4 qian4 mu4 qian2 mei2 ban4 fa3|I’m very sorry, we can’t at the moment."] },
+  { id: "c10", part: "B", zh: "報價、訂單與付款", en: "Quotes, orders and payment", blurb: "Prices, lead times, invoices and payment terms.",
+    tip: "Prices are quoted 未稅 (before the 5% business tax) or 含稅. An invoice is a 發票 and needs the buyer’s 統一編號 (8 digits). Payment terms such as 月結30天 (monthly settlement, 30 days) are standard.",
+    v: ["報價|bao4 jia4|quotation", "報價單|bao4 jia4 dan1|quotation sheet", "訂單|ding4 dan1|purchase order", "單價|dan1 jia4|unit price", "數量|shu4 liang4|quantity", "含稅|han2 shui4|tax included", "未稅|wei4 shui4|before tax", "交期|jiao1 qi2|lead time", "出貨|chu1 huo4|ship out", "庫存|ku4 cun2|inventory", "發票|fa1 piao4|invoice", "統一編號|tong3 yi1 bian1 hao4|business tax ID", "請款|qing3 kuan3|request payment", "月結|yue4 jie2|monthly settlement", "付款|fu4 kuan3|pay", "折扣|zhe2 kou4|discount"],
+    s: ["請/提供/[報價單]。|qing3 ti2 gong1 bao4 jia4 dan1|Please provide a quotation.", "這個/單價/是/[含稅]/的/嗎？|zhe4 ge5 dan1 jia4 shi4 han2 shui4 de5 ma5|Is this unit price tax included?", "[交期]/大概/要/多久？|jiao1 qi2 da4 gai4 yao4 duo1 jiu3|About how long is the lead time?", "我們/下週/可以/[出貨]。|wo3 men5 xia4 zhou1 ke3 yi3 chu1 huo4|We can ship next week.", "目前/[庫存]/不夠。|mu4 qian2 ku4 cun2 bu2 gou4|Stock is currently insufficient.", "請/開/[發票]/給/我。|qing3 kai1 fa1 piao4 gei3 wo3|Please issue an invoice to me.", "[統一編號]/是/多少？|tong3 yi1 bian1 hao4 shi4 duo1 shao3|What is the tax ID number?", "付款/條件/是/[月結]/三十天。|fu4 kuan3 tiao2 jian4 shi4 yue4 jie2 san1 shi2 tian1|The payment terms are monthly settlement, 30 days."],
+    d: ["請問這個產品的交期是多久？|qing3 wen4 zhe4 ge5 chan3 pin3 de5 jiao1 qi2 shi4 duo1 jiu3|What is the lead time for this product?>>現貨一週，缺貨要三週。|xian4 huo4 yi4 zhou1 que1 huo4 yao4 san1 zhou1|One week if in stock, three weeks if not.", "可以給我們一點折扣嗎？|ke3 yi3 gei3 wo3 men5 yi4 dian3 zhe2 kou4 ma5|Could you give us a small discount?>>數量多的話可以。|shu4 liang4 duo1 de5 hua4 ke3 yi3|Yes, if the quantity is large.", "請問發票要開統一編號嗎？|qing3 wen4 fa1 piao4 yao4 kai1 tong3 yi1 bian1 hao4 ma5|Should the invoice carry a tax ID?>>要，麻煩您了。|yao4 ma2 fan5 nin2 le5|Yes, thank you for your trouble.", "什麼時候可以請款？|shen2 me5 shi2 hou4 ke3 yi3 qing3 kuan3|When can we request payment?>>出貨後就可以請款。|chu1 huo4 hou4 jiu4 ke3 yi3 qing3 kuan3|You can request payment after shipment."] },
+  { id: "c11", part: "C", zh: "專案與簽核", en: "Projects, reports and approvals", blurb: "Schedules, budgets, sign-offs and post-mortems.",
+    tip: "簽核 (sign-off) often goes through several levels, and many companies use an e-signing system. 簡報 can mean slides or a short presentation, and 檢討 means a review of what went wrong or can improve, not blame.",
+    v: ["專案|zhuan1 an4|project", "里程碑|li3 cheng2 bei1|milestone", "進度表|jin4 du4 biao3|schedule", "預算|yu4 suan4|budget", "簽核|qian1 he2|sign-off", "核准|he2 zhun3|approve", "審查|shen3 cha2|review, audit", "簡報|jian3 bao4|presentation", "週報|zhou1 bao4|weekly report", "月報|yue4 bao4|monthly report", "績效|ji1 xiao4|performance", "目標|mu4 biao1|goal, target", "達成|da2 cheng2|achieve", "檢討|jian3 tao3|review, post-mortem", "改善|gai3 shan4|improve", "風險管理|feng1 xian3 guan3 li3|risk management"],
+    s: ["這個/[專案]/預計/十二月/完成。|zhe4 ge5 zhuan1 an4 yu4 ji4 shi2 er4 yue4 wan2 cheng2|This project is expected to finish in December.", "我/下週/要/做/[簡報]。|wo3 xia4 zhou1 yao4 zuo4 jian3 bao4|I need to give a presentation next week.", "這筆/[預算]/需要/經理/簽核。|zhe4 bi3 yu4 suan4 xu1 yao4 jing1 li3 qian1 he2|This budget needs the manager’s approval.", "請/在/[週報]/裡/更新/進度。|qing3 zai4 zhou1 bao4 li3 geng1 xin1 jin4 du4|Please update the progress in the weekly report.", "我們/今年/的/[目標]/已經/達成/了。|wo3 men5 jin1 nian2 de5 mu4 biao1 yi3 jing1 da2 cheng2 le5|We have already achieved this year’s goal.", "專案/[延遲]/的/原因/是/什麼？|zhuan1 an4 yan2 chi2 de5 yuan2 yin1 shi4 shen2 me5|What is the reason for the project delay?", "我們/需要/[檢討]/這次/的/問題。|wo3 men5 xu1 yao4 jian3 tao3 zhe4 ci4 de5 wen4 ti2|We need to review this issue.", "請/大家/一起/[改善]/流程。|qing3 da4 jia1 yi4 qi3 gai3 shan4 liu2 cheng2|Let’s all improve the process together."],
+    d: ["預算簽核了嗎？|yu4 suan4 qian1 he2 le5 ma5|Has the budget been signed off?>>還沒有，主管出差了。|hai2 mei2 you3 zhu3 guan3 chu1 chai1 le5|Not yet, the supervisor is away on a trip.", "專案目前進度如何？|zhuan1 an4 mu4 qian2 jin4 du4 ru2 he2|How is the project progressing?>>大約完成百分之八十。|da4 yue1 wan2 cheng2 bai3 fen1 zhi1 ba1 shi2|About 80 percent done.", "簡報什麼時候要交？|jian3 bao4 shen2 me5 shi2 hou4 yao4 jiao1|When is the presentation due?>>星期五下班前。|xing1 qi2 wu3 xia4 ban1 qian2|Before end of work on Friday.", "這次的專案為什麼延遲？|zhe4 ci4 de5 zhuan1 an4 wei4 shen2 me5 yan2 chi2|Why was this project delayed?>>因為客戶更改了規格。|yin1 wei4 ke4 hu4 geng1 gai3 le5 gui1 ge2|Because the customer changed the specification."] },
+  { id: "c12", part: "C", zh: "客戶與技術溝通", en: "Customers and technical support", blurb: "Samples, validation, yield and customer complaints.",
+    tip: "In tech firms an application engineer is a 應用工程師. A customer complaint is a 客訴, and in electronics the usual written reply is an 8D 報告. Datasheets are 規格書, and design-in is 導入.",
+    v: ["技術支援|ji4 shu4 zhi1 yuan2|technical support", "應用工程師|ying4 yong4 gong1 cheng2 shi1|application engineer", "規格書|gui1 ge2 shu1|datasheet", "樣品|yang4 pin3|sample", "測試|ce4 shi4|test", "驗證|yan4 zheng4|validation", "導入|dao3 ru4|design-in, adopt", "量產|liang4 chan3|mass production", "良率|liang2 lv4|yield", "品質|pin3 zhi2|quality", "異常|yi4 chang2|abnormality", "客訴|ke4 su4|customer complaint", "失效分析|shi1 xiao4 fen1 xi1|failure analysis", "改善對策|gai3 shan4 dui4 ce4|corrective action", "退貨|tui4 huo4|return goods", "保固|bao3 gu4|warranty"],
+    s: ["我們/可以/提供/[樣品]/給/您/測試。|wo3 men5 ke3 yi3 ti2 gong1 yang4 pin3 gei3 nin2 ce4 shi4|We can provide samples for you to test.", "這份/[規格書]/有/最新/版本。|zhe4 fen4 gui1 ge2 shu1 you3 zui4 xin1 ban3 ben3|This datasheet has the latest version.", "客戶/正在/[驗證]/這顆/晶片。|ke4 hu4 zheng4 zai4 yan4 zheng4 zhe4 ke1 jing1 pian4|The customer is validating this chip.", "預計/下個/月/開始/[量產]。|yu4 ji4 xia4 ge5 yue4 kai1 shi3 liang4 chan3|Mass production is expected to start next month.", "這批貨/的/[良率]/只有/百分之/九十。|zhe4 pi1 huo4 de5 liang2 lv4 zhi3 you3 bai3 fen1 zhi1 jiu3 shi2|The yield of this batch is only 90 percent.", "產品/出現/[異常]，/請/協助/分析。|chan3 pin3 chu1 xian4 yi4 chang2 qing3 xie2 zhu4 fen1 xi1|The product shows an anomaly, please help analyse it.", "我們/已經/收到/[客訴]。|wo3 men5 yi3 jing1 shou1 dao4 ke4 su4|We have received the customer complaint.", "產品/的/[保固]/期/是/兩年。|chan3 pin3 de5 bao3 gu4 qi2 shi4 liang3 nian2|The product warranty period is two years."],
+    d: ["請問這顆晶片有最新的規格書嗎？|qing3 wen4 zhe4 ke1 jing1 pian4 you3 zui4 xin1 de5 gui1 ge2 shu1 ma5|Is there a latest datasheet for this chip?>>有，我寄給您。|you3 wo3 ji4 gei3 nin2|Yes, I’ll send it to you.", "良率為什麼下降？|liang2 lv4 wei4 shen2 me5 xia4 jiang4|Why did the yield drop?>>我們正在分析原因。|wo3 men5 zheng4 zai4 fen1 xi1 yuan2 yin1|We are analysing the cause.", "可以提供樣品讓我們測試嗎？|ke3 yi3 ti2 gong1 yang4 pin3 rang4 wo3 men5 ce4 shi4 ma5|Can you provide samples for us to test?>>可以，請填寫申請單。|ke3 yi3 qing3 tian2 xie3 shen1 qing3 dan1|Yes, please fill in the request form.", "這批貨有品質問題，要退貨。|zhe4 pi1 huo4 you3 pin3 zhi2 wen4 ti2 yao4 tui4 huo4|This batch has a quality problem, we want to return it.>>很抱歉，請告訴我們批號。|hen3 bao4 qian4 qing3 gao4 su4 wo3 men5 pi1 hao4|We’re very sorry, please tell us the batch number."] },
+  { id: "c13", part: "C", zh: "公司制度與人資", en: "HR and company rules", blurb: "Leave types, overtime pay, onboarding and resigning.",
+    tip: "Common leave types are 特休 (annual), 事假 (personal) and 病假 (sick). 勞健保 is the labour and national health insurance. The 年終獎金 is often paid before the Lunar New Year (農曆年).",
+    v: ["人資|ren2 zi1|HR", "薪水|xin1 shui3|salary", "特休|te4 xiu1|annual leave", "病假|bing4 jia4|sick leave", "事假|shi4 jia4|personal leave", "加班費|jia1 ban1 fei4|overtime pay", "勞健保|lao2 jian4 bao3|labour and health insurance", "面試|mian4 shi4|interview", "試用期|shi4 yong4 qi2|probation period", "到職|dao4 zhi2|start date", "離職|li2 zhi2|resign", "公告|gong1 gao4|announcement", "規定|gui1 ding4|regulation", "考績|kao3 ji4|performance review", "年終獎金|nian2 zhong1 jiang3 jin1|year-end bonus", "員工旅遊|yuan2 gong1 lv3 you2|company trip"],
+    s: ["我/想/請/一天/[特休]。|wo3 xiang3 qing3 yi4 tian1 te4 xiu1|I’d like to take one day of annual leave.", "我/明天/要/請/[病假]。|wo3 ming2 tian1 yao4 qing3 bing4 jia4|I need to take sick leave tomorrow.", "請問/[加班費]/怎麼/計算？|qing3 wen4 jia1 ban1 fei4 zen3 me5 ji4 suan4|How is overtime pay calculated?", "新/同事/下週一/[到職]。|xin1 tong2 shi4 xia4 zhou1 yi1 dao4 zhi2|The new colleague starts next Monday.", "[試用期]/是/三個月。|shi4 yong4 qi2 shi4 san1 ge5 yue4|The probation period is three months.", "公司/[規定]/要/準時/打卡。|gong1 si1 gui1 ding4 yao4 zhun3 shi2 da3 ka3|Company rules require clocking in on time.", "每個月/五號/發/[薪水]。|mei3 ge5 yue4 wu3 hao4 fa1 xin1 shui3|Salary is paid on the 5th of every month.", "請/看/最新/的/[公告]。|qing3 kan4 zui4 xin1 de5 gong1 gao4|Please read the latest announcement."],
+    d: ["我想請明天的假。|wo3 xiang3 qing3 ming2 tian1 de5 jia4|I’d like to take leave tomorrow.>>好，請先在系統申請。|hao3 qing3 xian1 zai4 xi4 tong3 shen1 qing3|Okay, please apply in the system first.", "你什麼時候到職？|ni3 shen2 me5 shi2 hou4 dao4 zhi2|When do you start?>>下個月一號。|xia4 ge5 yue4 yi1 hao4|The 1st of next month.", "年終獎金什麼時候發？|nian2 zhong1 jiang3 jin1 shen2 me5 shi2 hou4 fa1|When is the year-end bonus paid?>>通常在農曆年前。|tong1 chang2 zai4 nong2 li4 nian2 qian2|Usually before the Lunar New Year.", "我下個月要離職。|wo3 xia4 ge5 yue4 yao4 li2 zhi2|I’m resigning next month.>>我了解了，請先跟人資聯絡。|wo3 liao3 jie3 le5 qing3 xian1 gen1 ren2 zi1 lian2 luo4|I understand, please contact HR first."] },
+  { id: "c14", part: "D", zh: "午餐與閒聊", en: "Lunch and small talk", blurb: "Invite colleagues to eat and chat about the week.",
+    tip: "吃飽沒？ is a casual greeting that means “have you eaten?”, used like “how are you?”. 請客 means you pay for others, and colleagues often take turns.",
+    v: ["吃飯|chi1 fan4|eat a meal", "午餐|wu3 can1|lunch", "便當|bian4 dang1|boxed meal", "一起|yi4 qi3|together", "好吃|hao3 chi1|delicious", "餓|e4|hungry", "飽|bao3|full", "週末|zhou1 mo4|weekend", "最近|zui4 jin4|recently", "還好|hai2 hao3|so-so, fine", "怎麼樣|zen3 me5 yang4|how is it", "真的嗎|zhen1 de5 ma5|really?", "有空|you3 kong4|free (time)", "請客|qing3 ke4|treat someone", "下次|xia4 ci4|next time", "聚餐|ju4 can1|group meal"],
+    s: ["你/吃/[飽]/了/嗎？|ni3 chi1 bao3 le5 ma5|Have you eaten?", "中午/我們/一起/去/[吃飯]/吧。|zhong1 wu3 wo3 men5 yi4 qi3 qu4 chi1 fan4 ba5|Let’s go eat at noon.", "我/今天/想/吃/[便當]。|wo3 jin1 tian1 xiang3 chi1 bian4 dang1|I want a boxed meal today.", "這家/的/便當/很/[好吃]。|zhe4 jia1 de5 bian4 dang1 hen3 hao3 chi1|This place’s boxed meals are delicious.", "我/[餓]/了，/我們/去/吃飯/吧。|wo3 e4 le5 wo3 men5 qu4 chi1 fan4 ba5|I’m hungry, let’s go eat.", "你/週末/[有空]/嗎？|ni3 zhou1 mo4 you3 kong4 ma5|Are you free this weekend?", "最近/工作/[怎麼樣]？|zui4 jin4 gong1 zuo4 zen3 me5 yang4|How has work been lately?", "[下次]/換/我/請客。|xia4 ci4 huan4 wo3 qing3 ke4|Next time it’s my treat."],
+    d: ["你吃飯了嗎？|ni3 chi1 fan4 le5 ma5|Have you eaten?>>吃了，你呢？|chi1 le5 ni3 ne5|Yes, and you?", "中午一起吃飯好嗎？|zhong1 wu3 yi4 qi3 chi1 fan4 hao3 ma5|Shall we eat together at noon?>>好啊，吃什麼？|hao3 a5 chi1 shen2 me5|Sure, what shall we eat?", "這家便當好吃嗎？|zhe4 jia1 bian4 dang1 hao3 chi1 ma5|Are this place’s boxed meals good?>>超好吃，我常來。|chao1 hao3 chi1 wo3 chang2 lai2|Super good, I come often.", "最近怎麼樣？|zui4 jin4 zen3 me5 yang4|How have you been?>>還好，就是有點忙。|hai2 hao3 jiu4 shi4 you3 dian3 mang2|Fine, just a bit busy."] },
+  { id: "c15", part: "D", zh: "搭車與問路", en: "Getting around", blurb: "MRT, high-speed rail, taxis and directions.",
+    tip: "Tap a 悠遊卡 (EasyCard) or your phone on the 捷運, buses and even at convenience stores. The 高鐵 has 自由座 (unreserved) and 對號座 (reserved) seats. Ask “怎麼走？” for directions and listen for 左轉, 右轉 and 直走.",
+    v: ["捷運|jie2 yun4|MRT, metro", "高鐵|gao1 tie3|high-speed rail", "台鐵|tai2 tie3|Taiwan Railways", "車站|che1 zhan4|station", "月台|yue4 tai2|platform", "車票|che1 piao4|ticket", "單程票|dan1 cheng2 piao4|one-way ticket", "悠遊卡|you1 you2 ka3|EasyCard", "轉乘|zhuan3 cheng2|transfer", "出口|chu1 kou3|exit", "計程車|ji4 cheng2 che1|taxi", "公車|gong1 che1|bus", "左轉|zuo3 zhuan3|turn left", "右轉|you4 zhuan3|turn right", "直走|zhi2 zou3|go straight", "紅綠燈|hong2 lv4 deng1|traffic light"],
+    s: ["請問/[捷運站]/怎麼走？|qing3 wen4 jie2 yun4 zhan4 zen3 me5 zou3|Excuse me, how do I get to the MRT station?", "我/要/買/兩張/[高鐵]/票。|wo3 yao4 mai3 liang3 zhang1 gao1 tie3 piao4|I want to buy two high-speed rail tickets.", "請問/到/台北/的/[車票]/多少錢？|qing3 wen4 dao4 tai2 bei3 de5 che1 piao4 duo1 shao3 qian2|How much is a ticket to Taipei?", "我/想/買/[單程票]。|wo3 xiang3 mai3 dan1 cheng2 piao4|I’d like a one-way ticket.", "我的/[悠遊卡]/沒錢了。|wo3 de5 you1 you2 ka3 mei2 qian2 le5|My EasyCard is out of money.", "請問/[月台]/在/哪裡？|qing3 wen4 yue4 tai2 zai4 na3 li3|Excuse me, where is the platform?", "在/下一站/[轉乘]/紅線。|zai4 xia4 yi2 zhan4 zhuan3 cheng2 hong2 xian4|Transfer to the red line at the next station.", "前面/[右轉]，/然後/直走/就到了。|qian2 mian4 you4 zhuan3 ran2 hou4 zhi2 zou3 jiu4 dao4 le5|Turn right ahead, then go straight and you’re there."],
+    d: ["請問去台北車站要在哪裡轉乘？|qing3 wen4 qu4 tai2 bei3 che1 zhan4 yao4 zai4 na3 li3 zhuan3 cheng2|Where do I transfer to get to Taipei Main Station?>>在下一站轉乘就可以了。|zai4 xia4 yi2 zhan4 zhuan3 cheng2 jiu4 ke3 yi3 le5|Transfer at the next station.", "請問幾號出口比較近？|qing3 wen4 ji3 hao4 chu1 kou3 bi3 jiao4 jin4|Which exit is closer?>>二號出口。|er4 hao4 chu1 kou3|Exit 2.", "司機先生，請到這個地址。|si1 ji1 xian1 sheng5 qing3 dao4 zhe4 ge5 di4 zhi3|Driver, please go to this address.>>好的，大概十分鐘。|hao3 de5 da4 gai4 shi2 fen1 zhong1|Okay, about ten minutes.", "請問這班車有到高鐵站嗎？|qing3 wen4 zhe4 ban1 che1 you3 dao4 gao1 tie3 zhan4 ma5|Does this bus go to the high-speed rail station?>>有，坐三站就到了。|you3 zuo4 san1 zhan4 jiu4 dao4 le5|Yes, three stops and you’re there."] },
+  { id: "c16", part: "D", zh: "手搖飲與餐廳", en: "Drink shops and restaurants", blurb: "Order bubble tea the way locals do, and pay the bill.",
+    tip: "Order drinks as size, drink, sugar, ice: 大杯珍珠奶茶半糖少冰. Sugar levels run 全糖, 少糖, 半糖, 微糖, 無糖. In a restaurant, call the owner 老闆 and say 買單 when you want to pay.",
+    v: ["珍珠奶茶|zhen1 zhu1 nai3 cha2|bubble milk tea", "綠茶|lv4 cha2|green tea", "大杯|da4 bei1|large cup", "中杯|zhong1 bei1|medium cup", "全糖|quan2 tang2|full sugar", "半糖|ban4 tang2|half sugar", "微糖|wei2 tang2|light sugar", "無糖|wu2 tang2|no sugar", "少冰|shao3 bing1|less ice", "去冰|qu4 bing1|no ice", "熱的|re4 de5|hot (drink)", "加料|jia1 liao4|add toppings", "外帶|wai4 dai4|take-out", "內用|nei4 yong4|dine in", "買單|mai3 dan1|pay the bill", "菜單|cai4 dan1|menu"],
+    s: ["我/要/一杯/[珍珠奶茶]。|wo3 yao4 yi4 bei1 zhen1 zhu1 nai3 cha2|I’d like a bubble milk tea.", "請給我/[半糖]/少冰。|qing3 gei3 wo3 ban4 tang2 shao3 bing1|Half sugar and less ice, please.", "大杯/的/綠茶，/[去冰]。|da4 bei1 de5 lv4 cha2 qu4 bing1|A large green tea, no ice.", "請問/要/[加料]/嗎？|qing3 wen4 yao4 jia1 liao4 ma5|Would you like toppings?", "這裡/喝/還是/[外帶]？|zhe4 li3 he1 hai2 shi4 wai4 dai4|Drink here or take away?", "我/要/[內用]。|wo3 yao4 nei4 yong4|I’ll dine in.", "請/給/我/[菜單]。|qing3 gei3 wo3 cai4 dan1|Please give me the menu.", "老闆，/我/要/[買單]。|lao3 ban3 wo3 yao4 mai3 dan1|Boss, I’d like to pay the bill."],
+    d: ["請問要點什麼？|qing3 wen4 yao4 dian3 shen2 me5|What would you like to order?>>我要一杯微糖少冰的綠茶。|wo3 yao4 yi4 bei1 wei2 tang2 shao3 bing1 de5 lv4 cha2|A green tea, light sugar, less ice.", "內用還是外帶？|nei4 yong4 hai2 shi4 wai4 dai4|Dine in or take away?>>外帶，謝謝。|wai4 dai4 xie4 xie5|Take away, thanks.", "要加珍珠嗎？|yao4 jia1 zhen1 zhu1 ma5|Add tapioca pearls?>>好，謝謝，不要太多。|hao3 xie4 xie5 bu2 yao4 tai4 duo1|Yes please, but not too many.", "請問一共多少錢？|qing3 wen4 yi2 gong4 duo1 shao3 qian2|How much is it altogether?>>一共兩百五十元。|yi2 gong4 liang3 bai3 wu3 shi2 yuan2|250 dollars in total."] },
+  { id: "c17", part: "D", zh: "市場與便利商店", en: "Market and convenience store", blurb: "Weights, prices, haggling and the questions at the till.",
+    tip: "Markets weigh by the 斤 (about 600 g), and haggling is gentle: 算便宜一點嗎？ At a convenience store you may hear 要加熱嗎？ and 有載具嗎？ (do you have an e-invoice carrier barcode?).",
+    v: ["市場|shi4 chang3|market", "夜市|ye4 shi4|night market", "多少錢|duo1 shao3 qian2|how much", "太貴了|tai4 gui4 le5|too expensive", "便宜|pian2 yi2|cheap", "算便宜|suan4 pian2 yi2|give a discount", "一斤|yi4 jin1|one jin (about 600 g)", "青菜|qing1 cai4|green vegetables", "水果|shui3 guo3|fruit", "袋子|dai4 zi5|bag", "零錢|ling2 qian2|small change", "找錢|zhao3 qian2|give change", "載具|zai4 ju4|e-invoice carrier", "集點|ji2 dian3|collect points", "加熱|jia1 re4|heat up", "結帳|jie2 zhang4|check out"],
+    s: ["這個/[多少錢]？|zhe4 ge5 duo1 shao3 qian2|How much is this?", "[太貴了]，/可以/算/便宜/一點/嗎？|tai4 gui4 le5 ke3 yi3 suan4 pian2 yi2 yi4 dian3 ma5|Too expensive, can you make it a bit cheaper?", "我/要/[一斤]/青菜。|wo3 yao4 yi4 jin1 qing1 cai4|I’d like one jin of greens.", "這個/[水果]/很甜。|zhe4 ge5 shui3 guo3 hen3 tian2|This fruit is sweet.", "請問/需要/[袋子]/嗎？|qing3 wen4 xu1 yao4 dai4 zi5 ma5|Do you need a bag?", "不好意思，/我/沒有/[零錢]。|bu4 hao3 yi4 si5 wo3 mei2 you3 ling2 qian2|Sorry, I don’t have small change.", "請/幫/我/[加熱]。|qing3 bang1 wo3 jia1 re4|Please heat it up for me.", "請問/有/[載具]/嗎？|qing3 wen4 you3 zai4 ju4 ma5|Do you have an e-invoice carrier?"],
+    d: ["這個蘋果多少錢？|zhe4 ge5 ping2 guo3 duo1 shao3 qian2|How much is this apple?>>一斤五十元。|yi4 jin1 wu3 shi2 yuan2|Fifty dollars a jin.", "太貴了，算我便宜一點吧！|tai4 gui4 le5 suan4 wo3 pian2 yi2 yi4 dian3 ba5|Too expensive, give me a little discount!>>好啦，算你四十五。|hao3 la5 suan4 ni3 si4 shi2 wu3|Alright, forty-five for you.", "需要袋子嗎？|xu1 yao4 dai4 zi5 ma5|Do you need a bag?>>不用，我有帶環保袋。|bu2 yong4 wo3 you3 dai4 huan2 bao3 dai4|No, I brought a reusable bag.", "請問要加熱嗎？|qing3 wen4 yao4 jia1 re4 ma5|Would you like it heated?>>麻煩加熱，謝謝。|ma2 fan5 jia1 re4 xie4 xie5|Yes please, thanks."] },
+  { id: "c18", part: "D", zh: "醫院與藥局", en: "Hospital and pharmacy", blurb: "Register, describe symptoms and pick up medicine.",
+    tip: "Bring your 健保卡 (national health insurance card) to every visit. You 掛號 at the counter or in an app, see the doctor, then pick up medicine at the 藥局 or the hospital window. In an emergency call 119 for an ambulance or fire, and 110 for police.",
+    v: ["掛號|gua4 hao4|register (at a clinic)", "健保卡|jian4 bao3 ka3|health insurance card", "看診|kan4 zhen3|see a doctor", "醫生|yi1 sheng1|doctor", "護理師|hu4 li3 shi1|nurse", "診所|zhen3 suo3|clinic", "藥局|yao4 ju2|pharmacy", "發燒|fa1 shao1|fever", "咳嗽|ke2 sou4|cough", "喉嚨痛|hou2 long2 tong4|sore throat", "頭痛|tou2 tong4|headache", "肚子痛|du4 zi5 tong4|stomachache", "過敏|guo4 min3|allergy", "抽血|chou1 xie3|blood draw", "領藥|ling3 yao4|pick up medicine", "不舒服|bu4 shu1 fu5|unwell"],
+    s: ["我/要/[掛號]。|wo3 yao4 gua4 hao4|I’d like to register.", "這是/我的/[健保卡]。|zhe4 shi4 wo3 de5 jian4 bao3 ka3|This is my health insurance card.", "我/覺得/[不舒服]。|wo3 jue2 de5 bu4 shu1 fu5|I feel unwell.", "我/昨天/開始/[發燒]/了。|wo3 zuo2 tian1 kai1 shi3 fa1 shao1 le5|I started running a fever yesterday.", "我/一直/[咳嗽]，/喉嚨/也/痛。|wo3 yi4 zhi2 ke2 sou4 hou2 long2 ye3 tong4|I keep coughing and my throat hurts too.", "我的/[頭痛]/很/嚴重。|wo3 de5 tou2 tong4 hen3 yan2 zhong4|My headache is severe.", "我/對/花生/[過敏]。|wo3 dui4 hua1 sheng1 guo4 min3|I’m allergic to peanuts.", "請/到/[藥局]/領藥。|qing3 dao4 yao4 ju2 ling3 yao4|Please pick up your medicine at the pharmacy."],
+    d: ["請問哪裡不舒服？|qing3 wen4 na3 li3 bu4 shu1 fu5|Where does it hurt?>>我發燒，還有一點咳嗽。|wo3 fa1 shao1 hai2 you3 yi4 dian3 ke2 sou4|I have a fever and a little cough.", "請出示健保卡。|qing3 chu1 shi4 jian4 bao3 ka3|Please show your health insurance card.>>好，在這裡。|hao3 zai4 zhe4 li3|Okay, here it is.", "你有對什麼東西過敏嗎？|ni3 you3 dui4 shen2 me5 dong1 xi5 guo4 min3 ma5|Are you allergic to anything?>>沒有，我沒有過敏。|mei2 you3 wo3 mei2 you3 guo4 min3|No, I have no allergies.", "這個藥一天吃幾次？|zhe4 ge5 yao4 yi4 tian1 chi1 ji3 ci4|How many times a day do I take this medicine?>>一天三次，飯後吃。|yi4 tian1 san1 ci4 fan4 hou4 chi1|Three times a day, after meals."] }
+  ]
+};
+
+/* Character glosses (short, literal) for memory aids, and minimal pairs for sound drills */
+window.GLOSS = "媽:mom|麻:hemp, numb|馬:horse|罵:scold|詩:poem|時:time|使:use, cause|是:to be|你:you|好:good|嗎:question particle|我:I|很:very|他:he|的:of (possessive)|朋:friend|友:friend|請:please|坐:sit|您:you (polite)|早:early|安:peace|謝:thank|不:not|客:guest|氣:air, manner|對:correct, toward|起:rise|意:meaning|思:think|名:name|字:character|同:same|事:matter, work|多:many|指:point|教:teach|辛:toilsome|苦:bitter, hard|了:completed (particle)|再:again|見:see|叫:be called|小:small|美:beautiful|高:tall, high|興:delighted|認:recognise|識:know|在:at, in|業:business|務:affairs|部:department|工:work|作:do, work|問:ask|貴:honourable|姓:surname|大:big|家:home, family|幫:help|忙:busy|遲:late|到:arrive|明:bright, next|天:day, sky|敝:my humble|王:king, surname Wang|今:now, today|也:also|來:come|晚:late, evening|沒:not have|關:close, relate|係:relation|一:one|二:two|三:three|五:five|九:nine|十:ten|點:point, o’clock|分:part, minute|昨:yesterday|星:star|期:period|月:month, moon|號:number, day|上:up, on|午:noon|下:down, next|現:present|幾:how many|會:meet, will, can|議:discuss|公:public|司:manage|班:shift, class|們:plural marker|開:open, start|民:people|國:country|百:hundred|年:year|始:begin|兩:two (of things)|什:what|麼:what (particle)|候:wait, time|有:have|空:empty, free|六:six|辦:handle|室:room|座:seat|位:position|電:electricity|腦:brain|筆:pen|螢:glow|幕:screen, curtain|印:print|表:table, show|機:machine|影:shadow, image|茶:tea|水:water|間:between, room|洗:wash|手:hand|梯:ladder|網:net|路:road|密:secret, dense|碼:code, number|文:writing|件:item|資:resources|料:material|夾:clip, folder|樓:floor, building|哪:which|裡:inside|壞:broken, bad|紙:paper|無:without|線:line, thread|要:want, need|去:go|把:take (object marker)|放:put|那:that|旁:side|邊:edge, side|連:connect|看:look|傳:pass on, send|給:give|老:old|闆:boss|主:main, owner|管:manage, tube|經:pass through|理:reason, manage|副:deputy|總:overall, general|董:director|長:long, chief|程:procedure|師:teacher, expert|助:assist|戶:household, account|廠:factory|商:business|新:new|人:person|前:front, before|輩:generation|門:door|姐:older sister|先:first|生:life, born|這:this|林:forest, surname Lin|個:piece (measure word)|從:from|怎:how|做:do, make|等:wait|李:plum, surname Li|誰:who|剛:just now|打:hit, do|卡:card|報:report, newspaper|告:tell|處:place, handle|確:sure|回:return|覆:reply, cover|寄:post, send|列:row, list|加:add|假:leave, fake|出:out|差:differ, errand|休:rest|每:every|都:all|正:exactly, now|題:topic|盡:exhaust, do one’s best|快:fast|份:portion|想:think, want|跟:follow, with|已:already|台:platform, Taiwan|中:middle|訊:message|息:news, rest|群:group|組:team, form|子:child, noun suffix|郵:mail|信:letter, trust|附:attach|收:receive|解:untie, understand|煩:annoying, trouble|本:root, copy|旨:purpose|轉:turn, forward|視:look|截:cut off|圖:picture|稍:slightly|參:take part, consult|考:test, check|進:enter, advance|寫:write|清:clear|楚:clear|可:can|以:with, by|封:seal, letter (measure word)|討:discuss, ask for|論:discuss|吧:suggestion particle|鐘:clock, minute|後:after|通:through|知:know|發:send, issue|紀:record|錄:record|提:raise, carry|案:case, proposal|反:oppose, reverse|補:supplement|充:fill|決:decide|待:wait, treat|項:item|負:bear|責:responsibility|限:limit|度:degree|延:extend, delay|風:wind|險:danger|結:tie, conclude|方:square, method|週:week|專:specialised|落:fall|但:but|任:duty|敬:respect|啟:open, begin|者:person (one who)|說:say|詳:detailed|如:as, like|何:what, how|隨:follow|聯:join|絡:network|感:feel|協:cooperate|造:make, create|成:become, achieve|便:convenient, easy|諒:forgive|順:smooth, along|頌:praise, wish|祺:good fortune|價:price|單:single, sheet|歡:joyful|迎:welcome|與:and, with|次:time (occasion)|抱:hold|歉:regret|重:heavy, important|應:should, respond|該:should|由:from, by|能:can, able|追:chase|蹤:trace|醒:wake, remind|惜:cherish, pity|恐:fear|怕:afraid|目:eye, item|法:method, law|慮:consider|改:change|讓:let|久:long (time)|太:too|約:about, appointment|定:fix, decide|行:row, go, okay|宜:suitable|訂:order, book|數:number|量:quantity|含:contain|稅:tax|未:not yet|交:hand over|貨:goods|庫:warehouse|存:store|票:ticket|統:unify|編:compile|款:sum of money|付:pay|折:fold, discount|扣:deduct|供:supply|概:general|夠:enough|少:few|條:strip, clause|產:produce|品:goods, quality|缺:lack|話:words|就:then, at once|里:mile|碑:stone tablet|預:in advance|算:calculate|簽:sign|核:check, core|准:permit|審:examine|查:check|簡:simple|績:achievement|效:effect|標:mark, target|達:reach|檢:inspect|善:good, improve|計:plan, count|完:finish|需:need|更:more, change|原:original|因:cause|流:flow|還:still, return|之:of (literary)|八:eight|為:for, be|規:rule|格:grid, standard|技:skill|術:art, technique|支:support, branch|援:aid|用:use|書:book|樣:shape, sample|測:measure|試:try|驗:test, verify|證:prove|導:guide|入:enter|良:good|率:rate|質:quality|異:different|常:usual|訴:complain|失:lose|析:analyse|策:plan, policy|退:retreat, return|保:protect|固:firm|最:most|版:edition|顆:grain (measure word)|晶:crystal|片:slice, chip|批:batch|只:only|降:drop|填:fill in|申:apply|薪:salary|特:special|病:sick|費:fee|勞:labour|健:healthy|面:face, side|職:job|離:leave|終:end|獎:prize|金:gold, money|員:member|旅:travel|遊:roam|準:accurate|系:system|農:farm|曆:calendar|吃:eat|飯:meal, rice|餐:meal|當:act as, ought|餓:hungry|飽:full|末:end|近:near|真:real|聚:gather|換:exchange|呢:particle|啊:particle|超:exceed, super|捷:swift|運:transport|鐵:iron|車:car|站:stand, station|悠:leisurely|乘:ride|口:mouth, exit|左:left|右:right|直:straight|走:walk|紅:red|綠:green|燈:light|買:buy|張:sheet (measure word)|北:north|錢:money|然:so, thus|比:compare|較:compare|地:ground|址:site|珍:precious|珠:pearl|奶:milk|杯:cup|全:whole|糖:sugar|半:half|微:tiny|冰:ice|熱:hot|外:outside|帶:carry, belt|內:inside|菜:vegetable, dish|喝:drink|共:together|元:dollar|市:market|場:place|夜:night|斤:jin (about 600 g)|青:green|果:fruit|袋:bag|零:zero, small|找:look for, give change|載:carry|具:tool|集:gather|帳:account|甜:sweet|蘋:apple|啦:particle|四:four|環:ring, environment|掛:hang, register|診:diagnose|醫:doctor|護:protect|所:place|藥:medicine|局:office|燒:burn|咳:cough|嗽:cough|喉:throat|嚨:throat|痛:pain|頭:head|肚:belly|過:pass, over|敏:sensitive|抽:draw out|血:blood|領:lead, receive|舒:comfortable|服:clothes, serve|覺:feel|得:get, obtain|嚴:strict, severe|花:flower, spend|示:show|東:east|西:west";
+/* characters whose sound alone may differ from the word reading: play the whole word instead */
+window.CTXCHARS = "還行都得長數為傳載處假間率差重便應分了的地不一看生子教煩績謝";
+/* minimal pairs: [char, pinyin, meaning] */
+window.PAIRS = [
+  { id: "zhz", label: "zh and z", a: ["知", "zhi1", "know"], b: ["資", "zi1", "resources"] },
+  { id: "zhz2", label: "zh and z", a: ["找", "zhao3", "look for"], b: ["早", "zao3", "early"] },
+  { id: "shs", label: "sh and s", a: ["事", "shi4", "matter"], b: ["四", "si4", "four"] },
+  { id: "chc", label: "ch and c", a: ["超", "chao1", "exceed"], b: ["操", "cao1", "operate"] },
+  { id: "jqx", label: "j and q", a: ["雞", "ji1", "chicken"], b: ["七", "qi1", "seven"] },
+  { id: "qx", label: "q and x", a: ["七", "qi1", "seven"], b: ["西", "xi1", "west"] },
+  { id: "uv", label: "u and ü", a: ["路", "lu4", "road"], b: ["綠", "lv4", "green"] },
+  { id: "uv2", label: "u and ü", a: ["努", "nu3", "strive"], b: ["女", "nv3", "woman"] },
+  { id: "anang", label: "an and ang", a: ["山", "shan1", "mountain"], b: ["商", "shang1", "business"] },
+  { id: "anang2", label: "an and ang", a: ["半", "ban4", "half"], b: ["棒", "bang4", "stick, great"] },
+  { id: "eneng", label: "en and eng", a: ["分", "fen1", "minute"], b: ["風", "feng1", "wind"] },
+  { id: "eneng2", label: "en and eng", a: ["人", "ren2", "person"], b: ["仍", "reng2", "still"] },
+  { id: "inin", label: "in and ing", a: ["新", "xin1", "new"], b: ["星", "xing1", "star"] },
+  { id: "inin2", label: "in and ing", a: ["今", "jin1", "today"], b: ["京", "jing1", "capital"] },
+  { id: "ln", label: "l and n", a: ["六", "liu4", "six"], b: ["牛", "niu2", "cow"] },
+  { id: "bp", label: "b and p (puff of air)", a: ["爸", "ba4", "dad"], b: ["怕", "pa4", "afraid"] },
+  { id: "dt", label: "d and t (puff of air)", a: ["多", "duo1", "many"], b: ["拖", "tuo1", "drag"] },
+  { id: "gk", label: "g and k (puff of air)", a: ["哥", "ge1", "elder brother"], b: ["科", "ke1", "subject"] }
+];
+
+</script>
+<script>
+(function () {
+  "use strict";
+  var U = window.TWU, D = window.CONTENT;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function h(tag, attrs, kids) {
+    var e = document.createElement(tag); attrs = attrs || {};
+    Object.keys(attrs).forEach(function (k) { if (k === "class") { e.className = attrs[k]; } else if (k === "html") { e.innerHTML = attrs[k]; } else if (k.slice(0, 2) === "on") { e.addEventListener(k.slice(2), attrs[k]); } else if (attrs[k] !== false && attrs[k] !== null && attrs[k] !== undefined) { e.setAttribute(k, attrs[k] === true ? "" : attrs[k]); } });
+    (kids || []).forEach(function (c) { if (c !== null && c !== undefined) { e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); } });
+    return e;
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function pick(a, n) { return shuffle(a).slice(0, n); }
+  var ICON = {
+    heart: "M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.3 12C19 16.4 12 21 12 21z",
+    flame: "M12 2s5 4.5 5 9.5A5 5 0 0 1 12 17a5 5 0 0 1-5-5.5C7 9 8.5 7.6 9 6c1.6 1.4 2 3 2 3s1-2.4 1-7zM12 22a6 6 0 0 1-6-5c2 2 4 2.5 6 2.5s4-.5 6-2.5a6 6 0 0 1-6 5z",
+    star: "M12 2l3 6.3 6.9.9-5 4.8 1.2 6.9L12 17.6 5.9 20.9l1.2-6.9-5-4.8 6.9-.9z",
+    lock: "M7 10V8a5 5 0 0 1 10 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm2 0h6V8a3 3 0 0 0-6 0z",
+    check: "M5 12.5l4.5 4.5L19 7.5",
+    mic: "M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 0 0-7 0v6A3.5 3.5 0 0 0 12 15zm6-3.5a6 6 0 0 1-12 0M12 18v3.5",
+    speaker: "M4 9v6h4l5 4V5L8 9zm11.5 0a4 4 0 0 1 0 6m2.5-9a8 8 0 0 1 0 12",
+    slow: "M3 14c0-4 3-7 7-7 3 0 5 1.5 6 3.5l4 .5-2 3-3 .5c-.8 1.3-2.4 2.5-4.5 2.5H8l-2 2H4zm13-2.2h.01",
+    gear: "M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7zm7.4-3.5l1.8 1.4-1.8 3.1-2.2-.7a7 7 0 0 1-1.7 1l-.4 2.3h-3.6l-.4-2.3a7 7 0 0 1-1.7-1l-2.2.7-1.8-3.1 1.8-1.4a7 7 0 0 1 0-2l-1.8-1.4 1.8-3.1 2.2.7a7 7 0 0 1 1.7-1L10.6 3h3.6l.4 2.3a7 7 0 0 1 1.7 1l2.2-.7 1.8 3.1-1.8 1.4a7 7 0 0 1 0 2z",
+    book: "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zm0 14a2 2 0 0 1 2-2h13M8 7h7",
+    close: "M6 6l12 12M18 6L6 18"
+  };
+  function icon(n, cls, fill) { return "<svg class=\"ic " + (cls || "") + "\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"" + ICON[n] + "\" " + (fill ? "fill=\"currentColor\"" : "fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"") + "/></svg>"; }
+
+  /* ================= state ================= */
+  var KEY = "twmandarin.v1";
+  function defaults() { return { xp: 0, streak: { count: 0, last: "" }, today: { date: "", xp: 0 }, done: {}, quiz: {}, speech: {}, tone: {}, role: {}, gym: {}, tested: {}, srs: {}, learned: {}, voice: null, set: { aid: "both", rate: 0.85, sound: true, theme: "auto", goal: 30, tc: true, hardListen: false, check: "both" } }; }
+  var S = (function () { try { var r = localStorage.getItem(KEY); if (r) { var o = JSON.parse(r), d = defaults(); Object.keys(d).forEach(function (k) { if (o[k] === undefined) { o[k] = d[k]; } }); o.set = Object.assign(d.set, o.set); return o; } } catch (e) {} return defaults(); })();
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function dstr(d) { d = d || new Date(); return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+  function touchDay() { var t = dstr(); if (S.today.date !== t) { S.today = { date: t, xp: 0 }; } }
+  function bumpStreak() { touchDay(); var t = dstr(), y = dstr(new Date(Date.now() - 864e5)); if (S.streak.last === t) { return; } S.streak.count = S.streak.last === y ? S.streak.count + 1 : 1; S.streak.last = t; }
+  function addXp(n) { touchDay(); S.xp += n; S.today.xp += n; }
+
+  /* ================= content prep ================= */
+  var CH = D.chapters.map(function (c, ci) {
+    var part = D.parts.filter(function (p) { return p.id === c.part; })[0], idx = D.chapters.filter(function (x) { return x.part === c.part; }).indexOf(c) + 1;
+    var vocab = c.v.map(function (l, i) { var p = l.split("|"); return { id: c.id + "v" + i, zh: p[0], py: p[1].trim().split(/\s+/), en: p[2], ch: c.id }; });
+    var sents = c.s.map(function (l, i) {
+      var p = l.split("|"), toks = p[0].split("/"), bi = -1, tokens = toks.map(function (x, k) { if (x.indexOf("[") >= 0) { bi = k; } return x.replace(/[\[\]]/g, ""); });
+      var py = p[1].trim().split(/\s+/), k2 = 0, tokPy = tokens.map(function (t) { var n = (t.match(/[\u3400-\u9fff]/g) || []).length, a = py.slice(k2, k2 + n); k2 += n; return a; });
+      return { id: c.id + "s" + i, tokens: tokens, tokPy: tokPy, bi: bi, blank: tokens[bi], blankPy: tokPy[bi], zh: tokens.join(""), py: py, en: p[2], ch: c.id };
+    });
+    var dials = c.d.map(function (l, i) { var ab = l.split(">>"), a = ab[0].split("|"), b = ab[1].split("|"); return { id: c.id + "d" + i, ch: c.id, a: { zh: a[0], py: a[1].trim().split(/\s+/), en: a[2] }, b: { zh: b[0], py: b[1].trim().split(/\s+/), en: b[2] } }; });
+    var hv = Math.ceil(vocab.length / 2), hs = Math.ceil(sents.length / 2), hd = Math.ceil(dials.length / 2);
+    var lessons = [
+      { key: "L1", label: "Lesson 1", kind: "Words", words: vocab.slice(0, hv), sents: [], dials: [] },
+      { key: "L2", label: "Lesson 2", kind: "Words", words: vocab.slice(hv), sents: [], dials: [], review: vocab.slice(0, hv) },
+      { key: "L3", label: "Lesson 3", kind: "Sentences", words: [], sents: sents.slice(0, hs), dials: dials.slice(0, hd), review: vocab },
+      { key: "L4", label: "Lesson 4", kind: "Sentences", words: [], sents: sents.slice(hs), dials: dials.slice(hd), review: vocab }
+    ].filter(function (l) { return l.words.length || l.sents.length || l.dials.length; });
+    return Object.assign({}, c, { ci: ci, part: part, num: idx, code: part.line + String(idx).padStart(2, "0"), vocab: vocab, sents: sents, dials: dials, lessons: lessons });
+  });
+  var BYID = {}; CH.forEach(function (c) { BYID[c.id] = c; });
+  var ALLV = []; CH.forEach(function (c) { ALLV = ALLV.concat(c.vocab); });
+  var ITEM = {}; ALLV.forEach(function (v) { ITEM[v.id] = v; });
+  /* ================= characters, tone colours and memory aids ================= */
+  var GL = {}; String(window.GLOSS || "").split("|").forEach(function (x) { var i = x.indexOf(":"); if (i > 0) { GL[x.slice(0, i)] = x.slice(i + 1); } });
+  var CTX = window.CTXCHARS || "", CHARINFO = {};
+  function isCJK(c) { return /[\u3400-\u9fff]/.test(c); }
+  function toneN(s) { return U.parse(s).tone; }
+  function seeChars(zh, py) { var i = 0; Array.from(zh).forEach(function (c) { if (isCJK(c)) { var p = py[i++]; if (!p) { return; } var o = CHARINFO[c] || (CHARINFO[c] = { sy: {} }); o.sy[p] = 1; } }); }
+  CH.forEach(function (c) { c.vocab.forEach(function (v) { seeChars(v.zh, v.py); }); c.sents.forEach(function (s) { seeChars(s.zh, s.py); }); c.dials.forEach(function (d) { seeChars(d.a.zh, d.a.py); seeChars(d.b.zh, d.b.py); }); });
+  function safeChar(c) { var o = CHARINFO[c]; if (!o) { return false; } var k = Object.keys(o.sy); if (k.length !== 1 || CTX.indexOf(c) >= 0) { return false; } var t = toneN(k[0]); return t >= 1 && t <= 4; }
+  function charPy(c) { return CHARINFO[c] ? Object.keys(CHARINFO[c].sy)[0] : ""; }
+  function tcOn() { return S.set.tc !== false; }
+
+  /* ================= readings ================= */
+  function pyText(arr) { return arr.map(U.mark).join(" "); }
+  function zyText(arr) { return arr.map(U.zhuyin).join(" "); }
+  function hzC(zh, py) { var a = py || [], i = 0; return Array.from(zh).map(function (ch) { if (isCJK(ch)) { var s = a[i++], t = s ? toneN(s) : 0; return "<span class=\"hzc" + (tcOn() && t ? " t" + t : "") + "\">" + esc(ch) + "</span>"; } return esc(ch); }).join(""); }
+  function pyC(arr) { return arr.map(function (s) { return "<span class=\"" + (tcOn() ? "t" + toneN(s) : "") + "\">" + esc(U.mark(s)) + "</span>"; }).join(" "); }
+  function zyC(arr) { return arr.map(function (s) { return "<span class=\"" + (tcOn() ? "t" + toneN(s) : "") + "\">" + esc(U.zhuyin(s)) + "</span>"; }).join(" "); }
+  function readingHtml(arr) {
+    var a = S.set.aid; if (a === "none") { return ""; }
+    var p = a === "pinyin" || a === "both" ? "<span class=\"rd-py\">" + pyC(arr) + "</span>" : "", z = a === "zhuyin" || a === "both" ? "<span class=\"rd-zy\">" + zyC(arr) + "</span>" : "";
+    return "<span class=\"rd\">" + p + z + "</span>";
+  }
+  function rubyHtml(zh, py, tap) {
+    var a = S.set.aid, i = 0, out = "";
+    if (a === "none") { return "<span class=\"zh\"" + (tap ? " data-ctx=\"" + esc(zh) + "\"" : "") + ">" + hzC(zh, py) + "</span>"; }
+    Array.from(zh).forEach(function (ch) {
+      if (isCJK(ch)) { var s = py[i++] || "", rt = a === "zhuyin" ? U.zhuyin(s) : U.mark(s), t = s ? toneN(s) : 0; out += "<ruby class=\"" + (tcOn() && t ? "t" + t : "") + "\"" + (tap ? " data-char=\"" + esc(ch) + "\"" : "") + ">" + esc(ch) + "<rt>" + esc(rt) + "</rt></ruby>"; } else { out += esc(ch); }
+    });
+    var core = "<span class=\"zh ruby\"" + (tap ? " data-ctx=\"" + esc(zh) + "\"" : "") + ">" + out + "</span>";
+    return a === "both" ? "<span class=\"rubywrap\">" + core + "<span class=\"rd\"><span class=\"rd-zy\">" + zyC(py) + "</span></span></span>" : core;
+  }
+  function breakdown(zh, py) {
+    var chars = Array.from(zh).filter(isCJK); if (!chars.length) { return ""; }
+    var a = S.set.aid, items = chars.map(function (c, i) { return { c: c, s: py[i] || "", g: GL[c] || "" }; });
+    var h = "<span class=\"bd\" data-ctx=\"" + esc(zh) + "\">" + items.map(function (x) { var t = x.s ? toneN(x.s) : 0; return "<button type=\"button\" class=\"bdc\" data-char=\"" + esc(x.c) + "\" aria-label=\"Hear " + esc(x.c) + ", " + esc(x.g) + "\"><span class=\"hzc" + (tcOn() && t ? " t" + t : "") + "\">" + esc(x.c) + "</span>" + (a !== "none" && x.s ? "<span class=\"bp" + (tcOn() && t ? " t" + t : "") + "\">" + esc(a === "zhuyin" ? U.zhuyin(x.s) : U.mark(x.s)) + "</span>" : "") + "<span class=\"bg\">" + esc(x.g) + "</span></button>"; }).join("<span class=\"bplus\">+</span>") + "</span>";
+    if (items.length > 1) { var lit = items.map(function (x) { return (x.g || "").split(",")[0]; }); if (lit.every(Boolean)) { h += "<span class=\"lit\">" + esc(lit.join(" + ")) + "</span>"; } }
+    return h;
+  }
+  function sayChar(c, ctxText) { if (safeChar(c)) { say(c, 0.7); } else { say(ctxText || c, 0.6); } }
+  document.addEventListener("click", function (e) { var b = e.target.closest("[data-char]"); if (b) { var cx = b.closest("[data-ctx]"); sayChar(b.getAttribute("data-char"), cx ? cx.getAttribute("data-ctx") : ""); } });
+  /* ================= audio ================= */
+  var tts = "speechSynthesis" in window, voices = [], haveZh = null;
+  function loadVoices() { if (!tts) { return; } voices = speechSynthesis.getVoices() || []; haveZh = voices.some(function (v) { return /^zh/i.test(v.lang); }); }
+  if (tts) { loadVoices(); if (speechSynthesis.addEventListener) { speechSynthesis.addEventListener("voiceschanged", function () { loadVoices(); updateVoiceNote(); }); } }
+  function voice() { return voices.filter(function (v) { return /zh[-_]TW/i.test(v.lang); })[0] || voices.filter(function (v) { return /zh[-_]HK|cmn|zh[-_]Hant/i.test(v.lang); })[0] || voices.filter(function (v) { return /^zh/i.test(v.lang); })[0] || null; }
+  function say(text, rate) {
+    if (!tts) { return false; }
+    try { speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(text); u.lang = "zh-TW"; var v = voice(); if (v) { u.voice = v; u.lang = v.lang; } u.rate = rate || S.set.rate; speechSynthesis.speak(u); return true; } catch (e) { return false; }
+  }
+  var actx = null;
+  function beep(ok) {
+    if (!S.set.sound) { return; }
+    try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); var t = actx.currentTime, seq = ok ? [[660, 0], [880, 0.09]] : [[220, 0], [165, 0.1]];
+      seq.forEach(function (n) { var o = actx.createOscillator(), g = actx.createGain(); o.type = "sine"; o.frequency.value = n[0]; g.gain.setValueAtTime(0.0001, t + n[1]); g.gain.exponentialRampToValueAtTime(0.12, t + n[1] + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + n[1] + 0.16); o.connect(g); g.connect(actx.destination); o.start(t + n[1]); o.stop(t + n[1] + 0.18); }); } catch (e) {}
+  }
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition, srBlocked = false;
+  function listenOnce(done) {
+    if (!SR || srBlocked) { done({ unsupported: true }); return null; }
+    var r; try { r = new SR(); } catch (e) { done({ unsupported: true }); return null; }
+    r.lang = "zh-TW"; r.interimResults = false; r.maxAlternatives = 3; var fired = false;
+    r.onresult = function (e) { fired = true; var alts = []; for (var i = 0; i < e.results[0].length; i++) { alts.push(e.results[0][i].transcript); } done({ alts: alts }); };
+    r.onerror = function (e) { if (fired) { return; } fired = true; if (e.error === "not-allowed" || e.error === "service-not-allowed" || e.error === "audio-capture") { srBlocked = true; done({ unsupported: true, reason: e.error }); } else if (e.error === "no-speech" || e.error === "aborted") { done({ alts: [] }); } else { done({ unsupported: true, reason: e.error }); } };
+    r.onend = function () { if (!fired) { fired = true; done({ alts: [] }); } };
+    try { r.start(); } catch (e) { done({ unsupported: true }); return null; }
+    setTimeout(function () { if (!fired) { try { r.abort(); } catch (e) {} } }, 10000);
+    return r;
+  }
+  function updateVoiceNote() {
+    var n = $("#voicenote"); if (!n) { return; }
+    var bad = !tts || haveZh === false; n.hidden = !bad || sessionStorageDismissed;
+    if (bad) { n.querySelector("span").textContent = !tts ? "This browser has no speech audio. Listening exercises will be skipped." : "No Chinese voice was found on this device. Install a Traditional Chinese (Taiwan) voice in your system settings to hear the audio."; }
+  }
+  var sessionStorageDismissed = false;
+
+  /* ================= exercise builders ================= */
+  var PRAISE = ["對了！", "太棒了！", "很好！", "答對了！", "不錯！"];
+  function explainWord(it) { return "<span class=\"hz\">" + hzC(it.zh, it.py) + "</span>" + readingHtml(it.py) + "<span class=\"en\">" + esc(it.en) + "</span>" + breakdown(it.zh, it.py); }
+  function explainSent(s) { return rubyHtml(s.zh, s.py, true) + "<span class=\"en\">" + esc(s.en) + "</span>"; }
+  function gist(en) { return String(en).toLowerCase().replace(/[(),].*$/, "").trim().split(/\s+/)[0]; }
+  function distract(item, n, poolFn, key) {
+    var pool = poolFn().filter(function (x) { return x.id !== item.id && x[key] !== item[key] && gist(x.en) !== gist(item.en); }), seen = {}, out = [];
+    shuffle(pool).forEach(function (x) { if (out.length < n && !seen[x[key]]) { seen[x[key]] = 1; out.push(x); } });
+    return out;
+  }
+  function wordPool(ch) { return function () { var p = ch.vocab.slice(); if (p.length < 6) { p = p.concat(ALLV); } return p; }; }
+  function mkOptions(correct, wrong, labelFn) { return shuffle([{ html: labelFn(correct), ok: true }].concat(wrong.map(function (w) { return { html: labelFn(w), ok: false }; }))); }
+  function playBtn(text, slow) { return "<button type=\"button\" class=\"audio-btn\" data-say=\"" + esc(text) + "\"" + (slow ? " data-slow=\"1\"" : "") + " aria-label=\"" + (slow ? "Play slowly" : "Play audio") + "\">" + icon(slow ? "slow" : "speaker") + "</button>"; }
+
+  function zh2en(it, ch) { var w = distract(it, 3, wordPool(ch), "en"); return { kind: "choice", item: it.id, title: "What does this mean?", main: "<span class=\"hz big\">" + esc(it.zh) + "</span>" + readingHtml(it.py), audio: it.zh, options: mkOptions(it, w, function (x) { return esc(x.en); }), explain: explainWord(it) }; }
+  function en2zh(it, ch) { var w = distract(it, 3, wordPool(ch), "zh"); return { kind: "choice", item: it.id, title: "Choose the Chinese for", main: "<span class=\"promptEn\">“" + esc(it.en) + "”</span>", options: mkOptions(it, w, function (x) { return "<span class=\"hz\">" + hzC(x.zh, x.py) + "</span>" + readingHtml(x.py); }), explain: explainWord(it), cls: "grid" }; }
+  function listen(it, ch) { var w = distract(it, 3, wordPool(ch), "zh"); return { kind: "choice", item: it.id, listenNeeded: true, title: "Tap what you hear", main: "<div class=\"bigaudio\">" + playBtn(it.zh) + playBtn(it.zh, true) + "</div>", audio: it.zh, autoplay: true, options: mkOptions(it, w, function (x) { return "<span class=\"hz\">" + esc(x.zh) + "</span>" + (S.set.hardListen ? "" : readingHtml(x.py)); }), explain: explainWord(it), cls: "grid" }; }
+  function tone(it) {
+    var vs = U.variants(it.py); if (vs.length < 2) { return null; }
+    var show = function (arr) { var a = S.set.aid; return "<span class=\"rd-big\">" + esc(a === "zhuyin" ? zyText(arr) : pyText(arr)) + (a === "both" ? "<small>" + esc(zyText(arr)) + "</small>" : "") + "</span>"; };
+    var opts = shuffle([{ html: show(it.py), ok: true }].concat(vs.slice(0, 3).map(function (v) { return { html: show(v), ok: false }; })));
+    return { kind: "choice", item: it.id, title: "Which reading is right?", main: "<span class=\"hz big\">" + esc(it.zh) + "</span><span class=\"en\">" + esc(it.en) + "</span>", audio: it.zh, options: opts, explain: explainWord(it), cls: "grid", tone: true };
+  }
+  function cloze(s, ch) {
+    var cands = []; ch.sents.forEach(function (x) { if (x.id !== s.id && x.blank !== s.blank) { cands.push({ zh: x.blank, py: x.blankPy }); } });
+    ch.vocab.forEach(function (v) { if (v.zh !== s.blank && s.zh.indexOf(v.zh) < 0) { cands.push({ zh: v.zh, py: v.py }); } });
+    var seen = {}, w = []; shuffle(cands).forEach(function (b) { if (w.length < 3 && !seen[b.zh] && b.zh !== s.blank) { seen[b.zh] = 1; w.push(b); } });
+    var sentHtml = s.tokens.map(function (t, i) { return i === s.bi ? "<span class=\"gap\">＿＿＿</span>" : hzC(t, s.tokPy[i]); }).join("");
+    var lab = function (z, p) { return "<span class=\"hz\">" + hzC(z, p) + "</span>" + readingHtml(p); };
+    return { kind: "choice", item: s.id, title: "Fill in the blank", main: "<span class=\"sentline\">" + sentHtml + "</span>" + readingHtml(s.py.filter(function (_, k) { return true; })) + "<span class=\"en\">" + esc(s.en) + "</span>", audio: s.zh, options: shuffle([{ html: lab(s.blank, s.blankPy), ok: true }].concat(w.map(function (b) { return { html: lab(b.zh, b.py), ok: false }; }))), explain: explainSent(s), cls: "grid" };
+  }
+  function sent2en(s, ch) {
+    var w = ch.sents.filter(function (x) { return x.id !== s.id; }); w = pick(w, 3);
+    if (w.length < 2) { return null; }
+    return { kind: "choice", item: s.id, title: "What does this sentence mean?", main: rubyHtml(s.zh, s.py), audio: s.zh, options: mkOptions(s, w, function (x) { return esc(x.en); }), explain: explainSent(s) };
+  }
+  function reply(d, ch) {
+    var w = pick(ch.dials.filter(function (x) { return x.id !== d.id; }), 2);
+    if (w.length < 1) { return null; }
+    return { kind: "choice", item: d.id, title: "Choose the natural reply", main: "<div class=\"bubble\">" + rubyHtml(d.a.zh, d.a.py) + playBtn(d.a.zh) + "</div><span class=\"en\">" + esc(d.a.en) + "</span>", options: mkOptions(d, w, function (x) { return rubyHtml(x.b.zh, x.b.py); }), explain: rubyHtml(d.b.zh, d.b.py) + "<span class=\"en\">" + esc(d.b.en) + "</span>" };
+  }
+  function match(items) {
+    items = items.slice(0, 5);
+    return { kind: "match", item: items[0].id, title: "Match the pairs", items: items, explain: "<span class=\"en\">Pairs: " + items.map(function (i) { return esc(i.zh + " = " + i.en); }).join("; ") + "</span>" };
+  }
+  function order(s, ch, listenOnly) {
+    if (s.tokens.length < 3) { return null; }
+    var extra = []; ch.sents.forEach(function (x) { if (x.id !== s.id) { x.tokens.forEach(function (t, k) { if (s.tokens.indexOf(t) < 0 && !extra.some(function (e) { return e.t === t; }) && t.length <= 3) { extra.push({ t: t, py: x.tokPy[k] }); } }); } });
+    var bank = s.tokens.map(function (t, i) { return { t: t, py: s.tokPy[i], id: i }; }).concat(pick(extra, 1).map(function (e, i) { return { t: e.t, py: e.py, id: 100 + i }; }));
+    return { kind: "order", item: s.id, listenNeeded: !!listenOnly, title: listenOnly ? "Build what you hear (tap the words)" : "Build the sentence", main: listenOnly ? "<div class=\"bigaudio\">" + playBtn(s.zh) + playBtn(s.zh, true) + "</div>" : "<span class=\"promptEn\">“" + esc(s.en) + "”</span>", audio: s.zh, autoplay: !!listenOnly, bank: shuffle(bank), answer: s.tokens, explain: explainSent(s) };
+  }
+  function speak(s, mode) { var n = (s.zh.match(/[\u3400-\u9fff]/g) || []).length; return { kind: "speak", item: s.id, speakNeeded: true, mode: mode || "sentence", title: mode === "tone" ? "Say it and check your tones" : mode === "sound" ? "Say this sound" : "Say it out loud", main: "<div class=\"ex-target\">" + rubyHtml(s.zh, s.py, true) + "</div><span class=\"en\">" + esc(s.en) + "</span><div class=\"bigaudio\">" + playBtn(s.zh) + playBtn(s.zh, true) + "</div>", audio: s.zh, target: s.zh, py: s.py, nSyl: n, explain: explainSent(s) }; }
+  function typePy(it) {
+    var tgt = it.py.map(function (p) { return p.replace(/[1-5]/g, ""); }).join("");
+    return { kind: "type", item: it.id, title: "Type the pinyin (tones optional)", main: "<span class=\"hz big\">" + esc(it.zh) + "</span><span class=\"en\">" + esc(it.en) + "</span>", audio: it.zh, target: tgt, explain: explainWord(it) };
+  }
+
+  /* ---- tone helpers, listening and tone exercises ---- */
+  var TONEDESC = { 1: "high and flat", 2: "rising", 3: "low dip", 4: "falling" };
+  var TONETIP = { 1: "Keep your voice high and steady, like holding a note.", 2: "Start in the middle and rise, like saying “huh?”", 3: "Go low and let the voice dip. Inside a phrase, simply stay low.", 4: "Start high and drop sharply, like a firm “No!”" };
+  function toneIcon(t) {
+    if (t === 5) { return "<svg class=\"ti t5\" viewBox=\"0 0 24 18\" width=\"26\" height=\"20\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"10\" r=\"2.6\" fill=\"currentColor\"/></svg>"; }
+    var pts = { 1: "2,4 22,4", 2: "2,14 22,3", 3: "2,5 9,14 15,15 22,8", 4: "2,2 22,15" }[t];
+    return "<svg class=\"ti t" + t + "\" viewBox=\"0 0 24 18\" width=\"26\" height=\"20\" aria-hidden=\"true\"><polyline points=\"" + pts + "\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>";
+  }
+  function toneCell(t) { return "<span class=\"tcell t" + t + "\">" + toneIcon(t) + "<b>" + (t === 5 ? "·" : t) + "</b></span>"; }
+  function tonePat(pat) { return "<span class=\"tpat\">" + pat.map(toneCell).join("<span class=\"tsep\">–</span>") + "</span>"; }
+  function expectedTones(py) { var t = py.map(toneN), i; for (i = t.length - 2; i >= 0; i--) { if (t[i] === 3 && t[i + 1] === 3) { t[i] = 2; } } return t.map(function (x, k) { return { t: x, orig: toneN(py[k]) }; }); }
+  function toneOk(exp, got) { if (exp.t === 5) { return true; } if (got.tone === exp.t) { return true; } if (exp.orig === 3 && exp.t === 2 && got.tone === 3) { return true; } if (exp.t === 3 && got.tone === 4 && got.level < -0.5) { return true; } return false; }
+  function toneListen(it) {
+    if (!it || it.py.length > 3) { return null; }
+    var pat = expectedTones(it.py).map(function (e) { return e.t; }), seen = {}, opts = [{ pat: pat, ok: true }], tries = 0; seen[pat.join()] = 1;
+    while (opts.length < 4 && tries++ < 80) { var p = pat.map(function (t) { return Math.random() < 0.6 || t === 5 ? 1 + Math.floor(Math.random() * 4) : t; }); if (!seen[p.join()]) { seen[p.join()] = 1; opts.push({ pat: p, ok: false }); } }
+    if (opts.length < 3) { return null; }
+    var sandhi = it.py.some(function (s, i) { return toneN(s) === 3 && it.py[i + 1] && toneN(it.py[i + 1]) === 3; });
+    return { kind: "choice", item: it.id, listenNeeded: true, title: "Which tones do you hear?", main: "<div class=\"bigaudio\">" + playBtn(it.zh) + playBtn(it.zh, true) + "</div><span class=\"hz\">" + esc(it.zh) + "</span><span class=\"en\">" + esc(it.en) + "</span>", audio: it.zh, autoplay: true, options: shuffle(opts.map(function (o) { return { html: tonePat(o.pat), ok: o.ok }; })), explain: explainWord(it) + "<span class=\"en\">Tones: " + pat.map(function (t) { return t === 5 ? "light" : t; }).join(" – ") + (sandhi ? ". Two third tones in a row: the first becomes rising." : "") + "</span>", cls: "grid" };
+  }
+  function chapChars(ch) { var seen = {}, out = []; ch.vocab.forEach(function (v) { Array.from(v.zh).forEach(function (c) { if (isCJK(c) && !seen[c] && safeChar(c)) { seen[c] = 1; out.push(c); } }); }); return out; }
+  function charListen(ch) {
+    var cs = chapChars(ch), all = Object.keys(CHARINFO).filter(safeChar); if (!cs.length) { return null; }
+    var c = pick(cs, 1)[0], pool = cs.length >= 4 ? cs : cs.concat(all), seen = {}, w = []; seen[c] = 1; shuffle(pool).forEach(function (x) { if (w.length < 3 && !seen[x]) { seen[x] = 1; w.push(x); } });
+    var lab = function (x) { var p = [charPy(x)]; return "<span class=\"hz\">" + esc(x) + "</span>" + (S.set.hardListen ? "" : readingHtml(p)); };
+    return { kind: "choice", listenNeeded: true, title: "Tap the character you hear", main: "<div class=\"bigaudio\">" + playBtn(c) + playBtn(c, true) + "</div>", audio: c, autoplay: true, options: shuffle([{ html: lab(c), ok: true }].concat(w.map(function (x) { return { html: lab(x), ok: false }; }))), explain: "<span class=\"hz\">" + hzC(c, [charPy(c)]) + "</span>" + readingHtml([charPy(c)]) + "<span class=\"en\">" + esc(GL[c] || "") + "</span>", cls: "grid" };
+  }
+  function charToneEx(c) {
+    var t = toneN(charPy(c));
+    return { kind: "choice", listenNeeded: true, title: "Which tone is this character?", main: "<div class=\"bigaudio\">" + playBtn(c) + playBtn(c, true) + "</div><span class=\"hz\">" + esc(c) + "</span><span class=\"en\">" + esc(GL[c] || "") + "</span>", audio: c, autoplay: true, options: [1, 2, 3, 4].map(function (n) { return { html: toneCell(n) + "<span class=\"tdesc\">" + TONEDESC[n] + "</span>", ok: n === t }; }), explain: "<span class=\"hz\">" + hzC(c, [charPy(c)]) + "</span>" + readingHtml([charPy(c)]) + "<span class=\"en\">Tone " + t + ": " + TONEDESC[t] + "</span>", cls: "grid" };
+  }
+  function charTone(ch) { var cs = chapChars(ch); return cs.length ? charToneEx(pick(cs, 1)[0]) : null; }
+  function roleEx(d) { var n = (d.b.zh.match(/[\u3400-\u9fff]/g) || []).length; return { kind: "speak", mode: "role", speakNeeded: true, item: d.id, title: "Reply out loud", main: "<div class=\"bubble\">" + rubyHtml(d.a.zh, d.a.py, true) + playBtn(d.a.zh) + "</div><span class=\"en\">" + esc(d.a.en) + "</span><p class=\"hint\">Say your reply. Your line is shown below.</p><div class=\"ex-target\">" + rubyHtml(d.b.zh, d.b.py, true) + "</div><span class=\"en\">" + esc(d.b.en) + "</span>", audio: d.a.zh, autoplay: true, target: d.b.zh, py: d.b.py, nSyl: n, explain: rubyHtml(d.b.zh, d.b.py, true) + "<span class=\"en\">" + esc(d.b.en) + "</span>" };
+  }
+  function clean(list) { return list.filter(Boolean); }
+  function buildLesson(ch, L) {
+    var st1 = [], st2 = [], st3 = [];
+    L.words.forEach(function (w) { st1.push(zh2en(w, ch)); });
+    L.words.forEach(function (w, i) { st2.push(i % 2 ? listen(w, ch) : en2zh(w, ch)); });
+    if (L.words.length) { var tw = L.words.filter(function (w) { return w.py.length <= 3; }); st2.push(charListen(ch)); if (tw.length) { st2.push(toneListen(pick(tw, 1)[0])); st3.push(toneListen(pick(tw, 1)[0])); } st3.push(charListen(ch)); st3.push(charTone(ch)); }
+    if (L.words.length >= 4) { st3.push(match(shuffle(L.words))); }
+    L.words.filter(function (w, i) { return i % 2 === 0; }).slice(0, 3).forEach(function (w) { st3.push(tone(w)); });
+    (L.review || []).length && pick(L.review, 3).forEach(function (w) { st2.push(en2zh(w, ch)); });
+    L.sents.forEach(function (s, i) { st1.push(sent2en(s, ch)); st2.push(cloze(s, ch)); st3.push(i % 2 ? order(s, ch, true) : order(s, ch, false)); });
+    L.dials.forEach(function (d) { st3.push(reply(d, ch)); });
+    if (L.sents.length) { st3.push(speak(L.sents[0], "sentence")); }
+    return clean(shuffle(st1)).concat(clean(shuffle(st2)), clean(shuffle(st3))).slice(0, 22);
+  }
+  function buildQuiz(ch) {
+    var q = [], V = shuffle(ch.vocab), Sn = shuffle(ch.sents), Dl = shuffle(ch.dials), TW = V.filter(function (w) { return w.py.length <= 3; });
+    V.slice(0, 3).forEach(function (w) { q.push(zh2en(w, ch)); });
+    V.slice(3, 5).forEach(function (w) { q.push(en2zh(w, ch)); });
+    V.slice(5, 7).forEach(function (w) { q.push(listen(w, ch)); });
+    V.slice(7, 9).forEach(function (w) { q.push(tone(w)); });
+    pick(TW, 2).forEach(function (w) { q.push(toneListen(w)); });
+    q.push(charListen(ch)); q.push(charTone(ch));
+    q.push(match(V.slice(9, 14).length >= 4 ? V.slice(9, 14) : V.slice(0, 5)));
+    if (V[14]) { q.push(typePy(V[14])); } else if (V[0]) { q.push(typePy(V[0])); }
+    Sn.slice(0, 2).forEach(function (s) { q.push(cloze(s, ch)); });
+    Sn.slice(2, 4).forEach(function (s) { q.push(order(s, ch, false)); });
+    if (Sn[4]) { q.push(sent2en(Sn[4], ch)); }
+    Dl.slice(0, 2).forEach(function (d) { q.push(reply(d, ch)); });
+    return shuffle(clean(q)).slice(0, 20);
+  }
+  function buildSpeech(ch) {
+    var pool = ch.sents.slice(); if (pool.length < 5) { pool = pool.concat(ch.vocab.map(function (v) { return { id: v.id, zh: v.zh, py: v.py, en: v.en }; })); }
+    return pick(pool, 5);
+  }
+  function buildToneLab(ch) {
+    var el = ch.vocab.filter(function (v) { return v.py.length <= 3 && v.py.some(function (s) { return toneN(s) !== 5; }); }), a = pick(el, 4), rest = el.filter(function (v) { return a.indexOf(v) < 0; }), b = pick(rest, 4); if (b.length < 4) { b = b.concat(pick(a, 4 - b.length)); }
+    return clean(a.map(toneListen)).concat(b.map(function (v) { return speak({ id: v.id, zh: v.zh, py: v.py, en: v.en }, "tone"); }));
+  }
+  function buildRole(ch) { return ch.dials.map(roleEx); }
+  var GYM = [
+    { id: "tones", zh: "四個聲調", en: "The four tones", desc: "Hear and say single syllables", build: function () {
+      var cs = Object.keys(CHARINFO).filter(safeChar), by = { 1: [], 2: [], 3: [], 4: [] }, ex = []; cs.forEach(function (c) { by[toneN(charPy(c))].push(c); });
+      [1, 2, 3, 4].forEach(function (t) { pick(by[t], 2).forEach(function (c) { ex.push(charToneEx(c)); }); });
+      [1, 2, 3, 4].forEach(function (t) { var c = pick(by[t], 1)[0]; ex.push(speak({ id: "g" + c, zh: c, py: [charPy(c)], en: GL[c] || "" }, "tone")); });
+      return shuffle(ex.slice(0, 8)).concat(ex.slice(8)); } },
+    { id: "pairs", zh: "聲調組合", en: "Tone pairs", desc: "Two-syllable words by tone pattern", build: function () {
+      var by = {}; ALLV.forEach(function (v) { if (v.py.length === 2) { var k = expectedTones(v.py).map(function (e) { return e.t; }).join("-"); (by[k] = by[k] || []).push(v); } });
+      var keys = pick(Object.keys(by).filter(function (k) { return by[k].length >= 2 && k.indexOf("5") < 0; }), 4), ex = [];
+      keys.forEach(function (k) { var w = pick(by[k], 2); ex.push(toneListen(w[0])); ex.push(speak({ id: w[1].id, zh: w[1].zh, py: w[1].py, en: w[1].en }, "tone")); });
+      return clean(ex); } },
+    { id: "sandhi", zh: "變調", en: "Third-tone change", desc: "Two third tones in a row", build: function () {
+      var ws = ALLV.filter(function (v) { return v.py.some(function (s, i) { return toneN(s) === 3 && v.py[i + 1] && toneN(v.py[i + 1]) === 3; }); }), pool = pick(ws, 8), ex = [];
+      pool.slice(0, 4).forEach(function (w) { ex.push(toneListen(w)); }); pool.slice(0, 5).forEach(function (w) { ex.push(speak({ id: w.id, zh: w.zh, py: w.py, en: w.en }, "tone")); });
+      return clean(ex); } },
+    { id: "neutral", zh: "輕聲", en: "The light tone", desc: "Words ending in a light syllable", build: function () {
+      var ws = ALLV.filter(function (v) { return v.py.length <= 3 && v.py.some(function (s) { return toneN(s) === 5; }) && v.py.some(function (s) { return toneN(s) !== 5; }); }), pool = pick(ws, 8), ex = [];
+      pool.slice(0, 4).forEach(function (w) { ex.push(toneListen(w)); }); pool.slice(4, 8).forEach(function (w) { ex.push(speak({ id: w.id, zh: w.zh, py: w.py, en: w.en }, "tone")); });
+      return clean(ex); } },
+    { id: "sounds", zh: "相似的音", en: "Sound pairs", desc: "zh/z, j/q/x, ü/u, -n/-ng and more", build: function () {
+      var ps = pick(window.PAIRS, 6), ex = [];
+      ps.forEach(function (p, i) {
+        var t = i % 2 ? p.b : p.a, o = i % 2 ? p.a : p.b, lab = function (x) { return "<span class=\"hz\">" + esc(x[0]) + "</span>" + (S.set.hardListen ? "" : readingHtml([x[1]])) + "<span class=\"en\">" + esc(x[2]) + "</span>"; };
+        ex.push({ kind: "choice", listenNeeded: true, title: "Which one do you hear? (" + p.label + ")", main: "<div class=\"bigaudio\">" + playBtn(t[0]) + playBtn(t[0], true) + "</div>", audio: t[0], autoplay: true, options: shuffle([{ html: lab(t), ok: true }, { html: lab(o), ok: false }]), explain: "<span class=\"hz\">" + hzC(t[0], [t[1]]) + "</span>" + readingHtml([t[1]]) + "<span class=\"en\">" + esc(t[2]) + "</span>", cls: "grid" });
+        ex.push(speak({ id: "p" + p.id, zh: t[0], py: [t[1]], en: t[2] + " (" + p.label + ")" }, "sound"));
+      });
+      return ex.slice(0, 10); } }
+  ];
+  function buildReview() {
+    var learned = Object.keys(S.learned).map(function (id) { return ITEM[id]; }).filter(Boolean);
+    learned.sort(function (a, b) { var sa = (S.srs[a.id] || { box: 0 }).box, sb = (S.srs[b.id] || { box: 0 }).box; return sa - sb || Math.random() - 0.5; });
+    var items = learned.slice(0, 10), out = [];
+    items.forEach(function (w, i) { var ch = BYID[w.ch]; out.push([zh2en, en2zh, listen, function (a, c) { return tone(a); }][i % 4](w, ch)); });
+    return shuffle(clean(out));
+  }
+
+  /* ================= exercise renderers ================= */
+  function renderChoice(ex, root, api) {
+    var sel = -1, btns = [];
+    root.appendChild(h("div", { class: "ex-main", html: ex.main }));
+    var opts = h("div", { class: "opts " + (ex.cls || "") });
+    ex.options.forEach(function (o, i) {
+      var b = h("button", { type: "button", class: "opt", "aria-pressed": "false" }, []);
+      b.innerHTML = "<kbd>" + (i + 1) + "</kbd><span class=\"optbody\">" + o.html + "</span>";
+      b.addEventListener("click", function () { sel = i; btns.forEach(function (x, k) { x.setAttribute("aria-pressed", k === i ? "true" : "false"); x.classList.toggle("sel", k === i); }); api.ready(true); });
+      btns.push(b); opts.appendChild(b);
+    });
+    root.appendChild(opts);
+    return {
+      grade: function () { var ok = sel >= 0 && ex.options[sel].ok; btns.forEach(function (b, i) { b.disabled = true; if (ex.options[i].ok) { b.classList.add("right"); } else if (i === sel) { b.classList.add("wrong"); } }); return { ok: ok }; },
+      solve: function () { var i = ex.options.findIndex(function (o) { return o.ok; }); btns[i].click(); },
+      key: function (n) { if (btns[n - 1] && !btns[n - 1].disabled) { btns[n - 1].click(); } }
+    };
+  }
+  function tileHtml(t) { var a = S.set.aid; return "<span class=\"tz\">" + esc(t.t) + "</span>" + (a !== "none" && t.py && t.py.length ? "<span class=\"tp\">" + esc(a === "zhuyin" ? t.py.map(U.zhuyin).join(" ") : t.py.map(U.mark).join(" ")) + "</span>" : ""); }
+  function renderOrder(ex, root, api) {
+    var placed = [], locked = false;
+    root.appendChild(h("div", { class: "ex-main", html: ex.main }));
+    var line = h("div", { class: "answer-line", "aria-label": "Your sentence" }), bank = h("div", { class: "bank" });
+    function tile(t, used, fn) { var b = h("button", { type: "button", class: "tile" + (used ? " used" : ""), disabled: used || locked, onclick: fn }); b.innerHTML = tileHtml(t); return b; }
+    function draw() {
+      line.innerHTML = ""; bank.innerHTML = "";
+      placed.forEach(function (t, i) { line.appendChild(tile(t, false, function () { if (locked) { return; } placed.splice(i, 1); draw(); api.ready(placed.length > 0); })); });
+      ex.bank.forEach(function (t) { var used = placed.indexOf(t) >= 0; bank.appendChild(tile(t, used, function () { if (locked) { return; } placed.push(t); draw(); api.ready(true); })); });
+    }
+    draw(); root.appendChild(line); root.appendChild(bank);
+    return {
+      grade: function () { locked = true; draw(); var got = placed.map(function (t) { return t.t; }).join(""), ok = got === ex.answer.join(""); line.classList.add(ok ? "right" : "wrong"); return { ok: ok }; },
+      solve: function () { placed = ex.answer.map(function (t, i) { return ex.bank.filter(function (b) { return b.t === t && b.id === i; })[0]; }); draw(); api.ready(true); }
+    };
+  }
+  function renderMatch(ex, root, api) {
+    var L = shuffle(ex.items), R = shuffle(ex.items), a = null, b = null, mistakes = 0, done = 0, lb = {}, rb = {};
+    root.appendChild(h("div", { class: "ex-main" }, [h("span", { class: "promptEn" }, ["Tap a Chinese word, then its meaning"])]));
+    var grid = h("div", { class: "matchgrid" }), cl = h("div", { class: "mcol" }), cr = h("div", { class: "mcol" });
+    function trySolve() {
+      if (a === null || b === null) { return; }
+      if (a === b) { lb[a].classList.add("done"); rb[b].classList.add("done"); lb[a].disabled = rb[b].disabled = true; done++; beep(true); if (done === ex.items.length) { api.ready(true); } }
+      else { mistakes++; lb[a].classList.add("shake"); rb[b].classList.add("shake"); var x = lb[a], y = rb[b]; setTimeout(function () { x.classList.remove("shake", "sel"); y.classList.remove("shake", "sel"); }, 400); beep(false); }
+      a = b = null; $$(".sel", grid).forEach(function (e) { if (!e.classList.contains("done") && !e.classList.contains("shake")) { e.classList.remove("sel"); } });
+    }
+    L.forEach(function (it) { var x = h("button", { type: "button", class: "mbtn", html: "<span class=\"hz\">" + esc(it.zh) + "</span>" + readingHtml(it.py), onclick: function () { if (x.classList.contains("done")) { return; } if (a !== null && lb[a]) { lb[a].classList.remove("sel"); } a = it.id; x.classList.add("sel"); say(it.zh); trySolve(); } }); lb[it.id] = x; cl.appendChild(x); });
+    R.forEach(function (it) { var y = h("button", { type: "button", class: "mbtn", html: esc(it.en), onclick: function () { if (y.classList.contains("done")) { return; } if (b !== null && rb[b]) { rb[b].classList.remove("sel"); } b = it.id; y.classList.add("sel"); trySolve(); } }); rb[it.id] = y; cr.appendChild(y); });
+    grid.appendChild(cl); grid.appendChild(cr); root.appendChild(grid);
+    return { grade: function () { return { ok: mistakes <= 2, mistakes: mistakes }; }, solve: function () { ex.items.forEach(function (it) { lb[it.id].click(); rb[it.id].click(); }); } };
+  }
+  function similarityBest(target, alts) { var best = 0; alts.forEach(function (a) { best = Math.max(best, U.similarity(target, a)); }); return best; }
+  /* ================= speaking coach: recognition + tone analysis ================= */
+  function canMic() { return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && (window.AudioContext || window.webkitAudioContext)); }
+  function Rec() { this.chunks = []; this.ctx = null; this.stream = null; this.proc = null; this.src = null; this.sr = 44100; }
+  Rec.prototype.start = function () {
+    var me = this; return navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: true } }).then(function (stream) {
+      me.stream = stream; var AC = window.AudioContext || window.webkitAudioContext; me.ctx = new AC(); me.sr = me.ctx.sampleRate; me.src = me.ctx.createMediaStreamSource(stream);
+      me.proc = me.ctx.createScriptProcessor(4096, 1, 1); me.proc.onaudioprocess = function (e) { me.chunks.push(new Float32Array(e.inputBuffer.getChannelData(0))); };
+      var mute = me.ctx.createGain(); mute.gain.value = 0; me.src.connect(me.proc); me.proc.connect(mute); mute.connect(me.ctx.destination); if (me.ctx.state === "suspended") { me.ctx.resume(); }
+    });
+  };
+  Rec.prototype.stop = function () {
+    var me = this; try { me.proc.disconnect(); me.src.disconnect(); } catch (e) {} try { me.stream.getTracks().forEach(function (t) { t.stop(); }); } catch (e) {}
+    var n = me.chunks.reduce(function (a, c) { return a + c.length; }, 0), out = new Float32Array(n), o = 0; me.chunks.forEach(function (c) { out.set(c, o); o += c.length; }); try { me.ctx.close(); } catch (e) {} return { samples: out, sr: me.sr };
+  };
+  function alignScore(target, alts) {
+    var t = Array.from(target).filter(isCJK).map(function (c) { return c === "兩" ? "二" : c; }), best = { flags: t.map(function () { return false; }), score: 0, heard: "" };
+    alts.forEach(function (a) {
+      var hs = Array.from(U.norm(a)), m = t.length, n = hs.length, d = [], i, j; for (i = 0; i <= m; i++) { d[i] = []; for (j = 0; j <= n; j++) { d[i][j] = i === 0 || j === 0 ? 0 : (t[i - 1] === hs[j - 1] ? d[i - 1][j - 1] + 1 : Math.max(d[i - 1][j], d[i][j - 1])); } }
+      var flags = t.map(function () { return false; }); i = m; j = n; while (i > 0 && j > 0) { if (t[i - 1] === hs[j - 1]) { flags[i - 1] = true; i--; j--; } else if (d[i - 1][j] >= d[i][j - 1]) { i--; } else { j--; } }
+      var sc = m ? Math.round(100 * d[m][n] / Math.max(m, n)) : 0; if (sc >= best.score) { best = { flags: flags, score: sc, heard: a }; }
+    });
+    return best;
+  }
+  function runCalibration(onTick, done) {
+    if (!canMic()) { return done(false, "This browser cannot use the microphone here."); }
+    var r = new Rec(), n = 0;
+    r.start().then(function () { onTick(5); var iv = setInterval(function () { n++; onTick(5 - n); if (n >= 5) { clearInterval(iv); var a = r.stop(), cal = window.TWP.calibrate(a.samples, a.sr); if (cal) { S.voice = cal; save(); done(true, "Saved. Your typical pitch is about " + Math.round(cal.med) + " Hz."); } else { done(false, "I could not hear enough voice. Try again somewhere quieter and speak a little louder."); } } }, 1000); }).catch(function () { done(false, "The microphone could not be opened. Check the browser permission for this page."); });
+  }
+  function mountCoach(root, cfg, cb) {
+    var exps = expectedTones(cfg.py), nSyl = cfg.py.length, TWP = window.TWP, el = h("div", { class: "coach" }), st = { phase: "idle", res: null, pass: false };
+    var rec = null, sr = null, srRes = null, srDead = false, recOk = false, timer = null, srWait = null, canTone = canMic() && S.set.check !== "words" && nSyl >= 1 && nSyl <= 6;
+    root.appendChild(el);
+    function micBtn(live) { return "<button type=\"button\" class=\"mic" + (live ? " live" : "") + "\" aria-label=\"" + (live ? "Stop recording" : "Start recording") + "\">" + icon("mic") + "</button>"; }
+    function idle(msg) {
+      st.phase = "idle";
+      el.innerHTML = "<div class=\"co-ctl\">" + micBtn(false) + "<div class=\"co-msg\" aria-live=\"polite\">" + esc(msg || "Tap the microphone, say it, then tap again to finish.") + "</div></div>" + (canTone && !S.voice ? "<p class=\"hint co-calnote\">For more reliable tone checks, <button type=\"button\" class=\"linkbtn co-cal\">calibrate your voice</button> once (5 seconds).</p>" : "") + "<button type=\"button\" class=\"linkbtn co-self\">Rate myself instead</button>";
+      $(".mic", el).onclick = start; $(".co-self", el).onclick = selfRate; var c = $(".co-cal", el); if (c) { c.onclick = calib; }
+    }
+    function calib() { el.innerHTML = "<div class=\"co-ctl\"><div class=\"mic live\" aria-hidden=\"true\">" + icon("mic") + "</div><div class=\"co-msg\" aria-live=\"polite\">Say anything in your normal voice for 5 seconds, in Chinese or English.</div></div>"; runCalibration(function (n) { var m = $(".co-msg", el); if (m && n > 0) { m.textContent = "Keep talking… " + n; } }, function (ok, msg) { idle(msg); }); }
+    function start() {
+      if (st.phase === "rec") { return stop(); }
+      if (tts) { try { speechSynthesis.cancel(); } catch (e) {} }
+      var wantSR = !!SR && !srBlocked && S.set.check !== "tones", wantRec = canMic() && S.set.check !== "words";
+      if (!wantSR && !wantRec) { return selfRate(); }
+      srRes = null; srDead = !wantSR; recOk = false; st.phase = "rec"; st.res = null; st.pass = false;
+      el.innerHTML = "<div class=\"co-ctl\">" + micBtn(true) + "<div class=\"co-msg\" aria-live=\"polite\">Listening… say it now, then tap the microphone to finish.</div></div>"; $(".mic", el).onclick = stop;
+      if (wantRec) { rec = new Rec(); rec.start().then(function () { recOk = true; }).catch(function () { rec = null; if (srDead) { selfRate("I could not open the microphone here, so please rate yourself."); } }); }
+      if (wantSR) { sr = listenOnce(function (r) { if (r.unsupported) { srDead = true; if (!rec && !recOk && st.phase === "rec") { selfRate("Speech recognition is not available here, so please rate yourself."); } return; } srRes = r; if (st.phase === "rec") { finishRec(); } }); if (!sr) { srDead = true; } }
+      timer = setTimeout(function () { if (st.phase === "rec") { stop(); } }, Math.min(14000, 5000 + 700 * nSyl));
+    }
+    function stop() {
+      if (st.phase !== "rec") { return; } st.phase = "wait"; el.querySelector(".co-msg").textContent = "Checking…";
+      if (sr && !srDead && !srRes) { try { sr.stop(); } catch (e) {} srWait = setTimeout(finishRec, 1200); } else { finishRec(); }
+    }
+    function finishRec() {
+      if (st.phase === "done") { return; } clearTimeout(timer); clearTimeout(srWait); st.phase = "done";
+      var audio = null; if (rec) { try { audio = recOk ? rec.stop() : null; if (!recOk) { rec.stop(); } } catch (e) {} } rec = null;
+      var m = el.querySelector(".co-msg"); if (m) { m.textContent = "Checking…"; }
+      setTimeout(function () { analyse(audio); }, 30);
+    }
+    function analyse(audio) {
+      var rc = null, tn = null;
+      if (srRes && srRes.alts && srRes.alts.length) { var al = alignScore(cfg.zh, srRes.alts); rc = { score: al.score, flags: al.flags, heard: al.heard }; }
+      if (audio && canTone && audio.samples.length > audio.sr * 0.3) {
+        var an = TWP.analyze(audio.samples, audio.sr, nSyl, S.voice);
+        if (an.ok) { var per = an.tones.map(function (t, i) { return { exp: exps[i], got: t, ok: toneOk(exps[i], t) }; }), judged = per.filter(function (p) { return p.exp.t !== 5; }); tn = { an: an, per: per, approx: an.approx, score: judged.length ? Math.round(100 * judged.filter(function (p) { return p.ok; }).length / judged.length * (an.approx ? 0.9 : 1)) : 100 }; } else { tn = { fail: an.reason }; }
+      }
+      compose(rc, tn);
+    }
+    function compose(rc, tn) {
+      var rS = rc ? rc.score : null, tS = tn && !tn.fail ? tn.score : null, score;
+      if (rS === null && tS === null) { return idle((tn && tn.fail) || "I could not hear you clearly. Move closer to the microphone and try again."); }
+      if (cfg.mode === "tone" && tS !== null) { score = rS !== null ? Math.round(0.75 * tS + 0.25 * rS) : tS; } else if (rS !== null && tS !== null) { score = Math.round(0.6 * rS + 0.4 * tS); } else { score = rS !== null ? rS : tS; }
+      st.res = { score: score, recScore: rS, toneScore: tS, rc: rc, tn: tn }; st.pass = score >= (cfg.mode === "tone" ? 70 : 60); show(); if (cb) { cb(st); }
+    }
+    function show() {
+      var r = st.res, rc = r.rc, tn = r.tn && !r.tn.fail ? r.tn : null, label = r.score >= 85 ? "Excellent" : r.score >= 70 ? "Good" : r.score >= 60 ? "Passable" : "Try again", notes = [];
+      if (!rc) { notes.push(S.set.check === "tones" ? "You chose to check tones only." : srDead || !SR ? "Speech recognition is not available here, so I checked your tones only." : "I could not recognise any words, so I checked your tones only."); }
+      if (!tn) { notes.push(canMic() ? (r.tn && r.tn.fail ? r.tn.fail : (nSyl > 6 ? "Tone checking works on words and short phrases (up to 6 syllables), so I checked the words only." : "I checked the words only.")) : "The microphone is not available here, so I checked the words only."); }
+      if (!tn && rc && r.tn && r.tn.fail) { notes.push("Some phones cannot use word recognition and tone checking at the same time. If this keeps happening, choose Words only or Tones only under Speaking check in Settings."); }
+      if (tn && tn.approx) { notes.push("Syllable splitting was approximate, so treat the tone result as a guide."); }
+      if (tn && !S.voice) { notes.push("Calibrating your voice in Settings makes tone checks more reliable."); }
+      var i = 0, chars = Array.from(cfg.zh).map(function (c) { if (!isCJK(c)) { return ""; } var k = i, s = cfg.py[i++], t = s ? toneN(s) : 0, f = rc && rc.flags.length ? (rc.flags[k] ? "ok" : "bad") : ""; return "<span class=\"cc " + f + "\"><span class=\"hzc" + (tcOn() && t ? " t" + t : "") + "\">" + esc(c) + "</span><span class=\"bp" + (tcOn() && t ? " t" + t : "") + "\">" + esc(U.mark(s)) + "</span><i aria-hidden=\"true\">" + (f === "ok" ? "✓" : f === "bad" ? "✗" : "") + "</i></span>"; }).join("");
+      var tones = "", tips = [];
+      if (tn) { tones = "<div class=\"toneres\">" + tn.per.map(function (p, k) { var exp = p.exp.t, got = p.got.tone; if (exp === 5) { return "<span class=\"tchip neutral\">" + esc(U.mark(cfg.py[k])) + ": light tone</span>"; } if (p.ok) { return "<span class=\"tchip ok\">" + esc(U.mark(cfg.py[k])) + ": ✓ " + TONEDESC[exp] + "</span>"; } if (tips.length < 2) { tips.push("<b>" + esc(U.mark(cfg.py[k])) + "</b>: " + TONETIP[exp]); } return "<span class=\"tchip bad\">" + esc(U.mark(cfg.py[k])) + ": wanted " + TONEDESC[exp] + ", heard " + (got ? TONEDESC[got] : "unclear") + "</span>"; }).join("") + "</div>"; }
+      el.innerHTML = "<div class=\"co-res\"><div class=\"ring" + (st.pass ? " pass" : " fail") + "\" style=\"--p:" + r.score + "\"><b>" + r.score + "%</b></div><div class=\"co-sum\"><strong>" + label + "</strong><span>" + (rc ? "Words " + rc.score + "%" : "") + (rc && tn ? " · " : "") + (tn ? "Tones " + tn.score + "%" : "") + "</span></div></div><div class=\"co-chars\">" + chars + "</div>" + tones + (tips.length ? "<ul class=\"co-tips\"><li>" + tips.join("</li><li>") + "</li></ul>" : "") + (rc && rc.heard ? "<p class=\"hint\">I heard: <span class=\"zh\">" + esc(rc.heard) + "</span></p>" : "") + (tn ? graph(tn.an, tn.per) : "") + (notes.length ? "<p class=\"hint co-notes\">" + esc(notes.join(" ")) + "</p>" : "") + "<div class=\"co-btns\"><button type=\"button\" class=\"ghost co-again\">Try again</button><button type=\"button\" class=\"ghost co-hear\">Hear it</button></div>";
+      $(".co-again", el).onclick = function () { idle(); }; $(".co-hear", el).onclick = function () { say(cfg.zh); };
+    }
+    function graph(an, per) {
+      var W = 320, H = 130, L = 8, R = 8, T = 10, B = 22, fr = an.frames.filter(function (f) { return f.voiced; }); if (!fr.length) { return ""; }
+      var t0 = fr[0].t - 0.05, t1 = fr[fr.length - 1].t + 0.05, X = function (t) { return L + (W - L - R) * (t - t0) / (t1 - t0); }, Y = function (v) { v = Math.max(-9, Math.min(9, v)); return T + (H - T - B) * (1 - (v + 9) / 18); }, g = "<line class=\"gl\" x1=\"" + L + "\" x2=\"" + (W - R) + "\" y1=\"" + Y(0) + "\" y2=\"" + Y(0) + "\" stroke-dasharray=\"3 4\"/>";
+      per.forEach(function (p, i) { var t = p.exp.t; if (t >= 1 && t <= 4) { var seg = an.tones[i], pts = TWP.TEMPLATES[t].map(function (v, k) { return X(seg.t0 + (seg.t1 - seg.t0) * k / 4).toFixed(1) + "," + Y(v * 4.2).toFixed(1); }).join(" "); g += "<polyline class=\"tgt\" points=\"" + pts + "\"/>"; } });
+      an.tones.forEach(function (s, i) { var ok = per[i].ok || per[i].exp.t === 5; s.pts.forEach(function (p) { var t = s.t0 + (s.t1 - s.t0) * (0.1 + 0.8 * p.t); g += "<circle cx=\"" + X(t).toFixed(1) + "\" cy=\"" + Y(p.v).toFixed(1) + "\" r=\"2.4\" class=\"" + (ok ? "okd" : "badd") + "\"/>"; }); g += "<text x=\"" + X((s.t0 + s.t1) / 2).toFixed(1) + "\" y=\"" + (H - 6) + "\" text-anchor=\"middle\" class=\"tx\">" + esc(U.mark(cfg.py[i])) + "</text>"; });
+      return "<svg viewBox=\"0 0 " + W + " " + H + "\" class=\"cgraph\" role=\"img\" aria-label=\"Your pitch compared with the target tone shapes\">" + g + "</svg><p class=\"hint\">Dashed line: the shape each tone should have. Dots: your voice (green matches, red does not).</p>";
+    }
+    function selfRate(msg) {
+      st.phase = "self"; clearTimeout(timer); if (rec) { try { rec.stop(); } catch (e) {} rec = null; } if (sr) { try { sr.abort(); } catch (e) {} }
+      el.innerHTML = "<p class=\"hint\">" + esc(msg || "Say it out loud, then rate yourself honestly.") + "</p><div class=\"selfrate\"></div>"; var row = $(".selfrate", el);
+      [["Clear and confident", 100], ["Almost there", 70], ["Needs practice", 20]].forEach(function (r) { var b = h("button", { type: "button", class: "opt", onclick: function () { $$(".opt", row).forEach(function (x) { x.classList.remove("sel"); }); b.classList.add("sel"); st.res = { score: r[1], self: true, toneScore: null }; st.pass = r[1] >= 60; if (cb) { cb(st); } } }, [r[0]]); row.appendChild(b); });
+    }
+    idle();
+    return { state: function () { return st; }, fake: function (sc) { st.res = { score: sc, toneScore: null, self: true }; st.pass = sc >= 60; if (cb) { cb(st); } } };
+  }
+  function renderSpeak(ex, root, api) {
+    root.appendChild(h("div", { class: "ex-main", html: ex.main }));
+    var c = mountCoach(root, { zh: ex.target, py: ex.py, mode: ex.mode }, function (st) { api.ready(!!st.res); });
+    return { grade: function () { var s = c.state(); return { ok: !!(s.res && s.pass), score: s.res ? s.res.score : 0, toneScore: s.res && s.res.toneScore !== undefined ? s.res.toneScore : null }; }, solve: function () { c.fake(100); }, skippable: true };
+  }
+  function stripTone(s) { return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[1-5\s'’\-]/g, "").replace(/ü|u:/g, "v"); }
+  function renderType(ex, root, api) {
+    root.appendChild(h("div", { class: "ex-main", html: ex.main }));
+    var inp = h("input", { type: "text", class: "typebox", autocomplete: "off", autocapitalize: "off", spellcheck: "false", "aria-label": "Pinyin answer", placeholder: "pinyin" });
+    inp.addEventListener("input", function () { api.ready(inp.value.trim().length > 0); });
+    root.appendChild(inp); setTimeout(function () { try { inp.focus({ preventScroll: true }); } catch (e) {} }, 50);
+    return { grade: function () { inp.disabled = true; var ok = stripTone(inp.value) === stripTone(ex.target); inp.classList.add(ok ? "right" : "wrong"); return { ok: ok }; }, solve: function () { inp.value = ex.target; api.ready(true); } };
+  }
+
+  /* ================= session runner ================= */
+  var sess = null;
+  function openSession(cfg) {
+    closeSession(true);
+    var el = h("div", { class: "session" + (cfg.color ? " c-" + cfg.color : ""), role: "dialog", "aria-modal": "true", "aria-label": cfg.title });
+    el.innerHTML = "<header class=\"s-top\"><button type=\"button\" class=\"s-close\" aria-label=\"Quit lesson\">" + icon("close") + "</button><div class=\"s-prog\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\"><i></i></div><div class=\"s-hearts\" aria-label=\"Hearts left\"></div></header><main class=\"s-main\"><div class=\"s-body\"></div></main><footer class=\"s-foot\"><div class=\"s-fb\" aria-live=\"polite\"></div><div class=\"s-btns\"><button type=\"button\" class=\"btn skip\"></button><button type=\"button\" class=\"btn main\">Check</button></div></footer>";
+    document.body.appendChild(el); document.documentElement.classList.add("in-session");
+    sess = { cfg: cfg, el: el, q: cfg.exercises.slice(), i: 0, total: cfg.exercises.length, hearts: cfg.hearts ? 5 : null, right: 0, wrong: 0, firstTry: 0, mistakes: [], phase: "answer", cur: null, ui: null, ready: false, retried: {}, results: [] };
+    $(".s-close", el).addEventListener("click", function () { if (confirm("Quit this session? Your progress in it will be lost.")) { closeSession(); } });
+    $(".btn.main", el).addEventListener("click", onMain); $(".btn.skip", el).addEventListener("click", onSkip);
+    $(".s-body", el).addEventListener("click", function (e) { var b = e.target.closest("[data-say]"); if (b) { say(b.getAttribute("data-say"), b.getAttribute("data-slow") ? 0.55 : null); } });
+    document.addEventListener("keydown", onKey);
+    if (cfg.intro && cfg.intro.length) { showIntro(); } else { nextEx(); }
+  }
+  function closeSession(silent) {
+    if (!sess) { return; } document.removeEventListener("keydown", onKey); if (tts) { try { speechSynthesis.cancel(); } catch (e) {} }
+    sess.el.remove(); sess = null; document.documentElement.classList.remove("in-session"); if (!silent) { renderHome(); }
+  }
+  function onKey(e) {
+    if (!sess) { return; }
+    if (e.key === "Enter") { if (document.activeElement && document.activeElement.tagName === "BUTTON" && document.activeElement.className.indexOf("btn") < 0 && document.activeElement.className.indexOf("opt") < 0) { return; } var b = $(".btn.main", sess.el); if (!b.disabled) { e.preventDefault(); b.click(); } }
+    else if (/^[1-4]$/.test(e.key) && sess.ui && sess.ui.key && sess.phase === "answer" && document.activeElement.tagName !== "INPUT") { sess.ui.key(+e.key); }
+  }
+  function setHearts() { var s = sess; var n = $(".s-hearts", s.el); n.style.visibility = s.hearts === null ? "hidden" : "visible"; if (s.hearts !== null) { n.innerHTML = icon("heart", "", true) + "<b>" + s.hearts + "</b>"; } }
+  function setProg() { var s = sess, pct = Math.round(100 * s.i / s.total); $(".s-prog i", s.el).style.width = pct + "%"; $(".s-prog", s.el).setAttribute("aria-valuenow", pct); }
+  function showIntro() {
+    var s = sess, body = $(".s-body", s.el); body.innerHTML = ""; $(".s-fb", s.el).innerHTML = ""; $(".s-fb", s.el).className = "s-fb"; setHearts(); setProg();
+    body.appendChild(h("h2", { class: "q" }, ["New words"]));
+    var list = h("div", { class: "intro" });
+    s.cfg.intro.forEach(function (w) { list.appendChild(h("div", { class: "introcard", html: "<div class=\"ic-top\"><span class=\"hz big2\">" + hzC(w.zh, w.py) + "</span><span class=\"ic-audio\">" + playBtn(w.zh) + playBtn(w.zh, true) + "</span></div>" + readingHtml(w.py) + "<span class=\"en\">" + esc(w.en) + "</span>" + breakdown(w.zh, w.py) })); });
+    body.appendChild(list); body.appendChild(h("p", { class: "hint" }, ["Tap the speaker to hear a word, or tap any character to hear it alone. Colours show the tone: ", h("b", { class: "t1" }, ["1"]), " ", h("b", { class: "t2" }, ["2"]), " ", h("b", { class: "t3" }, ["3"]), " ", h("b", { class: "t4" }, ["4"]), " ", h("b", { class: "t5" }, ["light"]), "."]));
+    var m = $(".btn.main", s.el); m.textContent = "Start"; m.disabled = false; $(".btn.skip", s.el).style.display = "none"; s.phase = "intro";
+  }
+  function nextEx() {
+    var s = sess; if (!s) { return; }
+    if (s.i >= s.q.length) { return finish(); }
+    var ex = s.q[s.i]; s.cur = ex; s.phase = "answer"; s.ready = false;
+    if (ex.listenNeeded && !tts) { s.i++; s.total = Math.max(1, s.total - 1); return nextEx(); }
+    var body = $(".s-body", s.el); body.innerHTML = ""; var fb = $(".s-fb", s.el); fb.innerHTML = ""; fb.className = "s-fb";
+    var m = $(".btn.main", s.el), sk = $(".btn.skip", s.el); m.textContent = "Check"; m.disabled = true; sk.style.display = "none";
+    body.appendChild(h("h2", { class: "q" }, [ex.title])); setHearts(); setProg();
+    var api = { ready: function (v) { s.ready = v; m.disabled = !v; }, ex: ex };
+    var wrap = h("div", { class: "ex ex-" + ex.kind }); body.appendChild(wrap);
+    var ui = ex.kind === "choice" ? renderChoice(ex, wrap, api) : ex.kind === "order" ? renderOrder(ex, wrap, api) : ex.kind === "match" ? renderMatch(ex, wrap, api) : ex.kind === "speak" ? renderSpeak(ex, wrap, api) : renderType(ex, wrap, api);
+    s.ui = ui;
+    if (ex.main && ex.audio && ex.kind === "choice" && !ex.listenNeeded) { var first = $(".ex-main", wrap); var bar = h("div", { class: "mini-audio", html: playBtn(ex.audio) }); first.appendChild(bar); }
+    if (ex.autoplay) { setTimeout(function () { say(ex.audio); }, 250); }
+    if (ui.skippable || ex.speakNeeded) { sk.style.display = ""; sk.textContent = "Can’t speak now"; }
+  }
+  function onSkip() { var s = sess; if (!s || s.phase !== "answer") { return; } s.skipped = (s.skipped || 0) + 1; s.i++; s.total = Math.max(1, s.total - 1); nextEx(); }
+  function srsUpdate(id, ok) { if (!id || !ITEM[id]) { return; } var r = S.srs[id] || { box: 0 }; r.box = ok ? Math.min(5, r.box + 1) : Math.max(0, r.box - 1); r.t = Date.now(); S.srs[id] = r; }
+  function onMain() {
+    var s = sess; if (!s) { return; }
+    if (s.phase === "intro") { s.cfg.intro.forEach(function (w) { S.learned[w.id] = 1; if (!S.srs[w.id]) { S.srs[w.id] = { box: 1, t: Date.now() }; } }); save(); return nextEx(); }
+    if (s.phase === "answer") {
+      var r = s.ui.grade(), ex = s.cur, fb = $(".s-fb", s.el), m = $(".btn.main", s.el);
+      s.phase = "feedback"; beep(r.ok); $(".btn.skip", s.el).style.display = "none";
+      if (ex.kind === "speak") { s.results.push({ zh: ex.target, score: r.score, tone: r.toneScore }); }
+      if (r.ok) { s.right++; if (!s.retried[s.i]) { s.firstTry++; } fb.className = "s-fb ok"; fb.innerHTML = "<div class=\"fb-h\">" + icon("check") + "<strong>" + PRAISE[Math.floor(Math.random() * PRAISE.length)] + "</strong></div><div class=\"fb-x\">" + (ex.kind === "match" ? "" : ex.explain) + "</div>"; }
+      else {
+        s.wrong++; s.mistakes.push(ex); fb.className = "s-fb bad"; fb.innerHTML = "<div class=\"fb-h\"><strong>" + (ex.kind === "speak" ? "Keep practising this one" : "Not quite") + "</strong></div><div class=\"fb-lab\">Correct answer</div><div class=\"fb-x\">" + ex.explain + "</div>";
+        if (s.hearts !== null) { s.hearts--; setHearts(); }
+        if (s.cfg.retry && !s.retried[s.i]) { var copy = Object.assign({}, ex); s.q.push(copy); s.retried[s.q.length - 1] = true; s.total = s.q.length; }
+      }
+      srsUpdate(ex.item, r.ok); save();
+      if (ex.audio && ex.kind !== "speak") { setTimeout(function () { say(ex.audio); }, 150); }
+      s.i++; setProg(); m.textContent = s.i >= s.q.length || (s.hearts !== null && s.hearts <= 0) ? "Finish" : "Continue"; m.disabled = false; m.focus({ preventScroll: true });
+      return;
+    }
+    if (s.phase === "feedback") { if (s.hearts !== null && s.hearts <= 0) { return failed(); } nextEx(); }
+  }
+  function failed() {
+    var s = sess; var body = $(".s-body", s.el); $(".s-fb", s.el).innerHTML = ""; $(".s-fb", s.el).className = "s-fb";
+    body.innerHTML = "<div class=\"endcard bad\"><h2>Out of hearts</h2><p>That lesson was tough. Words you missed stay in your review list. Try the lesson again when you’re ready.</p></div>";
+    var m = $(".btn.main", s.el); m.textContent = "Back to the map"; m.disabled = false; s.phase = "end"; m.onclick = function () { closeSession(); };
+    $(".s-top", s.el).style.visibility = "hidden";
+  }
+  function finish() {
+    var s = sess, cfg = s.cfg, acc = s.right + s.wrong ? Math.min(100, Math.round(100 * s.firstTry / Math.max(1, cfg.exercises.length - (s.skipped || 0)))) : 100;
+    if (cfg.mode === "quiz") { acc = Math.round(100 * s.right / Math.max(1, s.right + s.wrong)); }
+    var res = cfg.onDone ? cfg.onDone({ acc: acc, right: s.right, wrong: s.wrong, results: s.results }) : { xp: 0 };
+    if (res && res.acc !== undefined) { acc = res.acc; }
+    var body = $(".s-body", s.el); $(".s-fb", s.el).innerHTML = ""; $(".s-fb", s.el).className = "s-fb"; $(".s-top", s.el).style.visibility = "hidden";
+    body.innerHTML = "<div class=\"endcard " + (res.pass === false ? "bad" : "good") + "\"><h2>" + esc(res.title || "Lesson complete") + "</h2><p class=\"lead\">" + esc(res.msg || "") + "</p><div class=\"stats\"><div><b>+" + (res.xp || 0) + "</b><span>XP</span></div><div><b>" + acc + "%</b><span>" + (cfg.mode === "quiz" ? "score" : "accuracy") + "</span></div><div><b>" + S.streak.count + "</b><span>day streak</span></div></div>" + (res.extra || "") + "</div>";
+    var m = $(".btn.main", s.el); m.textContent = res.btn || "Back to the map"; m.disabled = false; $(".btn.skip", s.el).style.display = "none"; s.phase = "end"; m.onclick = function () { var after = res.after; closeSession(); if (after) { after(); } };
+  }
+
+  /* ================= speech test ================= */
+  function openSpeechTest(ch) {
+    var items = buildSpeech(ch);
+    openSession({ title: "Speaking test: " + ch.en, color: ch.part.color, mode: "speechtest", hearts: false, retry: false, exercises: items.map(function (it) { return speak(it, "sentence"); }),
+      onDone: function (r) {
+        var sc = r.results, avg = sc.length ? Math.round(sc.reduce(function (a, x) { return a + x.score; }, 0) / sc.length) : 0, pass = sc.length >= 3 && avg >= 60;
+        if (pass) { S.speech[ch.id] = Math.max(S.speech[ch.id] || 0, avg); addXp(25); bumpStreak(); } save();
+        var rows = sc.map(function (x) { return "<div class=\"rrow\"><span class=\"zh\">" + esc(x.zh) + "</span><b>" + x.score + "%" + (x.tone !== null && x.tone !== undefined ? " · tones " + x.tone + "%" : "") + "</b></div>"; }).join("");
+        return { acc: avg, xp: pass ? 25 : 0, pass: pass, title: pass ? "Speaking test passed" : "Keep practising", msg: sc.length < 3 ? "Answer at least three sentences to get a score." : pass ? "Your average is " + avg + "%." : "Your average is " + avg + "%. You need 60% to pass.", extra: "<div class=\"results\">" + rows + "</div>", btn: "Back to the map" };
+      } });
+  }
+  function startToneLab(ch) {
+    var ex = buildToneLab(ch); if (ex.length < 3) { return; }
+    openSession({ title: "Tone lab: " + ch.en, color: ch.part.color, mode: "tonelab", hearts: false, retry: false, exercises: ex,
+      onDone: function (r) { var tot = r.right + r.wrong, pct = tot ? Math.round(100 * r.right / tot) : 0, pass = pct >= 70; if (pass) { S.tone[ch.id] = Math.max(S.tone[ch.id] || 0, pct); addXp(20); bumpStreak(); } save(); return { acc: pct, xp: pass ? 20 : 0, pass: pass, title: pass ? "Tone lab passed" : "Keep training your ears", msg: pass ? "You got " + pct + "% of the tone checks." : "You got " + pct + "%. You need 70% to pass. Replay the lessons and try again.", btn: "Back to the map" }; } });
+  }
+  function startRole(ch) {
+    var ex = buildRole(ch); if (!ex.length) { return; }
+    openSession({ title: "Role-play: " + ch.en, color: ch.part.color, mode: "role", hearts: false, retry: false, exercises: ex,
+      onDone: function (r) { var sc = r.results, avg = sc.length ? Math.round(sc.reduce(function (a, x) { return a + x.score; }, 0) / sc.length) : 0, pass = sc.length >= Math.min(3, ex.length) && avg >= 60; if (pass) { S.role[ch.id] = Math.max(S.role[ch.id] || 0, avg); addXp(20); bumpStreak(); } save(); return { acc: avg, xp: pass ? 20 : 0, pass: pass, title: pass ? "Role-play passed" : "Keep practising", msg: pass ? "Your average is " + avg + "%." : "Your average is " + avg + "%. You need 60% to pass.", btn: "Back to the map" }; } });
+  }
+  function startGym(g) {
+    var ex = g.build().filter(Boolean); if (ex.length < 3) { return; }
+    openSession({ title: "Pronunciation gym: " + g.en, color: "orange", mode: "gym", hearts: false, retry: false, exercises: ex,
+      onDone: function (r) { var tot = r.right + r.wrong, pct = tot ? Math.round(100 * r.right / tot) : 0; S.gym[g.id] = Math.max(S.gym[g.id] || 0, pct); addXp(15); bumpStreak(); save(); return { acc: pct, xp: 15, title: "Workout complete", msg: "You got " + pct + "% of the checks right. Come back to beat your best.", btn: "Back to the map" }; } });
+  }
+  /* ================= progress logic ================= */
+  function lessonDone(ch, L) { return !!S.done[ch.id + L.key]; }
+  function allLessonsDone(ch) { return ch.lessons.every(function (L) { return lessonDone(ch, L); }); }
+  function quizPassed(ch) { return !!S.quiz[ch.id]; }
+  function chapterUnlocked(ch) { return ch.ci === 0 || quizPassed(CH[ch.ci - 1]) || !!S.tested[CH[ch.ci - 1].id] || !!S.tested[ch.id]; }
+  function chapterCrown(ch) { return quizPassed(ch) && (S.speech[ch.id] || 0) >= 60; }
+  function nextStop() {
+    for (var i = 0; i < CH.length; i++) {
+      var ch = CH[i]; if (!chapterUnlocked(ch)) { return null; }
+      for (var j = 0; j < ch.lessons.length; j++) { if (!lessonDone(ch, ch.lessons[j])) { return { ch: ch, kind: "lesson", L: ch.lessons[j], j: j }; } }
+      if (!quizPassed(ch)) { return { ch: ch, kind: "quiz" }; }
+    }
+    return { ch: CH[CH.length - 1], kind: "all" };
+  }
+  function startLesson(ch, L) {
+    var intro = L.words.length ? L.words : null;
+    openSession({ title: ch.en + ": " + L.label, color: ch.part.color, mode: "lesson", hearts: true, retry: true, intro: intro, exercises: buildLesson(ch, L),
+      onDone: function (r) {
+        var first = !S.done[ch.id + L.key]; S.done[ch.id + L.key] = Math.max(S.done[ch.id + L.key] || 0, r.acc);
+        var xp = 10 + (r.acc >= 90 ? 5 : 0) + (first ? 0 : -5); xp = Math.max(5, xp); addXp(xp); bumpStreak();
+        L.words.concat(L.review || []).forEach(function (w) { S.learned[w.id] = 1; if (!S.srs[w.id]) { S.srs[w.id] = { box: 1, t: Date.now() }; } });
+        if (L.sents.length) { L.sents.forEach(function (s) { if (!S.srs[s.id]) { S.srs[s.id] = { box: 1 }; } }); }
+        save(); var ready = allLessonsDone(ch) && !quizPassed(ch);
+        return { xp: xp, title: "Lesson complete", msg: ready ? "All lessons done. The chapter quiz is open." : (r.acc >= 90 ? "Excellent. 做得好！" : "Good work. Practice makes it stick."), btn: "Back to the map" };
+      } });
+  }
+  function startQuiz(ch, testOut) {
+    openSession({ title: (testOut ? "Test out: " : "Quiz: ") + ch.en, color: ch.part.color, mode: "quiz", hearts: false, retry: false, exercises: buildQuiz(ch),
+      onDone: function (r) {
+        var need = testOut ? 85 : 70, pass = r.acc >= need, xp = 0, stars = r.acc >= 90 ? 3 : r.acc >= 80 ? 2 : 1;
+        if (pass) { if (testOut) { S.tested[ch.id] = 1; ch.lessons.forEach(function (L) { S.done[ch.id + L.key] = S.done[ch.id + L.key] || 100; }); } S.quiz[ch.id] = Math.max(S.quiz[ch.id] || 0, stars); xp = testOut ? 40 : 30; addXp(xp); bumpStreak(); ch.vocab.forEach(function (w) { S.learned[w.id] = 1; if (!S.srs[w.id]) { S.srs[w.id] = { box: 2, t: Date.now() }; } }); }
+        save();
+        return { xp: xp, pass: pass, title: pass ? (testOut ? "You tested out" : "Quiz passed") : "Not yet", msg: pass ? "You earned " + stars + " star" + (stars > 1 ? "s" : "") + ". The next chapter is open." : "You need " + need + "% to pass. Review the lessons and try again.", extra: pass ? "<p class=\"stars\">" + "★".repeat(stars) + "☆".repeat(3 - stars) + "</p>" : "", btn: "Back to the map" };
+      } });
+  }
+  function startReview() {
+    var ex = buildReview(); if (ex.length < 3) { return; }
+    openSession({ title: "Review weak words", color: "orange", mode: "review", hearts: true, retry: true, exercises: ex, onDone: function (r) { var xp = 8; addXp(xp); bumpStreak(); save(); return { xp: xp, title: "Review complete", msg: "These words will come back sooner or later depending on how you did." }; } });
+  }
+
+  /* ================= home map ================= */
+  function partStats(p) { var cs = CH.filter(function (c) { return c.part.id === p.id; }); return { done: cs.filter(quizPassed).length, total: cs.length }; }
+  function renderHome() {
+    touchDay(); var root = $("#app"); root.innerHTML = "";
+    var nxt = nextStop(), learned = Object.keys(S.learned).length, goal = S.set.goal, pct = Math.min(100, Math.round(100 * S.today.xp / goal));
+    $("#stat-streak").innerHTML = icon("flame", "", true) + "<b>" + S.streak.count + "</b>"; $("#stat-xp").innerHTML = icon("star", "", true) + "<b>" + S.xp + "</b>";
+    /* departure board */
+    var title = "All stations visited", sub = "Review any chapter or keep your words fresh.", action = null, color = "red";
+    if (nxt && nxt.kind === "lesson") { title = nxt.ch.zh; sub = nxt.ch.code + " · " + nxt.ch.en + " · " + nxt.L.label; action = function () { startLesson(nxt.ch, nxt.L); }; color = nxt.ch.part.color; }
+    else if (nxt && nxt.kind === "quiz") { title = nxt.ch.zh; sub = nxt.ch.code + " · " + nxt.ch.en + " · Chapter quiz"; action = function () { startQuiz(nxt.ch); }; color = nxt.ch.part.color; }
+    var board = h("section", { class: "board c-" + color, "aria-label": "Next stop" }, [
+      h("div", { class: "board-l" }, [h("span", { class: "board-k", html: "下一站 <small>Next stop</small>" }), h("h1", { class: "board-t" }, [title]), h("p", { class: "board-s" }, [sub])]),
+      h("div", { class: "board-r" }, [action ? h("button", { type: "button", class: "go", onclick: action }, [nxt.kind === "lesson" && nxt.j === 0 && !Object.keys(S.done).length ? "Start learning" : "Continue"]) : h("span", { class: "board-done" }, ["完成"])])
+    ]);
+    root.appendChild(board);
+    root.appendChild(h("section", { class: "today", "aria-label": "Today" }, [
+      h("div", { class: "goal" }, [h("span", { class: "k" }, ["Today’s goal"]), h("div", { class: "meter", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": String(goal), "aria-valuenow": String(Math.min(goal, S.today.xp)) }, [h("i", { style: "width:" + pct + "%" })]), h("span", { class: "v" }, [Math.min(goal, S.today.xp) + " / " + goal + " XP"])]),
+      h("div", { class: "kv" }, [h("b", {}, [String(learned)]), h("span", {}, ["words met"])]),
+      h("div", { class: "kv" }, [h("b", {}, [String(CH.filter(chapterCrown).length)]), h("span", {}, ["chapters mastered"])]),
+      h("button", { type: "button", class: "ghost", disabled: learned < 5, onclick: startReview, title: learned < 5 ? "Finish a lesson first" : "" , html: "Review weak words" }),
+      h("button", { type: "button", class: "ghost", onclick: openReference, html: icon("book") + " Tones and Zhuyin chart" })
+    ]));
+    root.appendChild(h("section", { class: "gym", "aria-label": "Pronunciation gym" }, [h("header", { class: "gym-h" }, [h("h2", {}, ["發音練習 Pronunciation gym"]), h("p", {}, ["Short workouts for tones and sounds. Each one plays a sound, then checks you speaking."])]), h("div", { class: "gym-grid" }, GYM.map(function (g) { return h("button", { type: "button", class: "gymcard", onclick: function () { startGym(g); } }, [h("b", {}, [g.zh]), h("span", {}, [g.en]), h("small", {}, [g.desc]), h("em", {}, [S.gym[g.id] ? "Best " + S.gym[g.id] + "%" : "New"])]); }))]));
+    D.parts.forEach(function (p) {
+      var st = partStats(p), sec = h("section", { class: "line c-" + p.color, "aria-label": p.en });
+      sec.appendChild(h("header", { class: "line-h" }, [h("span", { class: "roundel", "aria-hidden": "true" }, [p.line]), h("div", {}, [h("h2", {}, [p.zh]), h("p", {}, [p.en + ": " + p.blurb])]), h("span", { class: "line-p" }, [st.done + " of " + st.total + " chapters"])]));
+      CH.filter(function (c) { return c.part.id === p.id; }).forEach(function (ch) { sec.appendChild(renderChapter(ch, nxt)); });
+      root.appendChild(sec);
+    });
+    updateVoiceNote();
+  }
+  function node(kind, label, sub, state, onclick, extra) {
+    var b = h("button", { type: "button", class: "stop " + kind + " " + state, disabled: state === "locked", onclick: onclick, "aria-label": label + ", " + sub + (state === "locked" ? ", locked" : state === "done" ? ", completed" : "") });
+    b.innerHTML = "<span class=\"dotwrap\"><span class=\"dot\">" + (state === "done" ? icon("check") : state === "locked" ? icon("lock", "", true) : kind === "speech" ? icon("mic") : kind === "quiz" ? icon("star", "", true) : kind === "tone" ? icon("speaker") : kind === "role" ? icon("mic") : "") + "</span></span><span class=\"stop-t\"><b>" + esc(label) + "</b><small>" + esc(sub) + "</small></span>" + (extra || "");
+    return b;
+  }
+  function renderChapter(ch, nxt) {
+    var unlocked = chapterUnlocked(ch), crown = chapterCrown(ch);
+    var wrap = h("article", { class: "station" + (unlocked ? "" : " is-locked") + (crown ? " is-crown" : ""), id: "ch-" + ch.id });
+    var sign = h("div", { class: "sign" }, [h("span", { class: "code" }, [ch.code]), h("div", { class: "names" }, [h("h3", {}, [ch.zh]), h("p", {}, [ch.en])]), crown ? h("span", { class: "crown", title: "Chapter mastered", html: icon("star", "", true) + " Mastered" }) : null, !unlocked ? h("button", { type: "button", class: "testout", onclick: function () { if (confirm("Take the chapter quiz to skip ahead? You need 85% to pass.")) { startQuiz(ch, true); } } }, ["Test out"]) : null]);
+    wrap.appendChild(sign);
+    wrap.appendChild(h("p", { class: "blurb" }, [ch.blurb]));
+    var stops = h("div", { class: "stops" });
+    ch.lessons.forEach(function (L, j) {
+      var prevOk = j === 0 || lessonDone(ch, ch.lessons[j - 1]), done = lessonDone(ch, L), st = !unlocked || !prevOk ? "locked" : done ? "done" : (nxt && nxt.ch === ch && nxt.L === L ? "current" : "open");
+      var sub = L.words.length ? L.words.slice(0, 3).map(function (w) { return w.zh; }).join("  ") + (L.words.length > 3 ? " …" : "") : (L.sents.length + " sentences" + (L.dials.length ? ", " + L.dials.length + " dialogue" + (L.dials.length > 1 ? "s" : "") : ""));
+      stops.appendChild(node("lesson", L.label + ": " + L.kind, sub, st, function () { startLesson(ch, L); }));
+    });
+    var quizState = !unlocked || !allLessonsDone(ch) ? "locked" : quizPassed(ch) ? "done" : (nxt && nxt.ch === ch && nxt.kind === "quiz" ? "current" : "open");
+    stops.appendChild(node("quiz", "Chapter quiz", "20 mixed questions, 70% to pass", quizState, function () { startQuiz(ch); }, quizPassed(ch) ? "<span class=\"stars\" aria-label=\"" + S.quiz[ch.id] + " stars\">" + "★".repeat(S.quiz[ch.id]) + "☆".repeat(3 - S.quiz[ch.id]) + "</span>" : ""));
+    var okAll = unlocked && allLessonsDone(ch), spState = !okAll ? "locked" : (S.speech[ch.id] >= 60 ? "done" : "open");
+    stops.appendChild(node("speech", "Speaking test", "Say 5 sentences aloud: words and tones are checked", spState, function () { openSpeechTest(ch); }, S.speech[ch.id] ? "<span class=\"stars\">" + S.speech[ch.id] + "%</span>" : ""));
+    stops.appendChild(node("tone", "Tone lab", "Hear the tones, then say words and check your pitch", !okAll ? "locked" : (S.tone[ch.id] >= 70 ? "done" : "open"), function () { startToneLab(ch); }, S.tone[ch.id] ? "<span class=\"stars\">" + S.tone[ch.id] + "%</span>" : ""));
+    if (ch.dials.length) { stops.appendChild(node("role", "Role-play", "Hear the question, then give the reply aloud", !okAll ? "locked" : (S.role[ch.id] >= 60 ? "done" : "open"), function () { startRole(ch); }, S.role[ch.id] ? "<span class=\"stars\">" + S.role[ch.id] + "%</span>" : "")); }
+    wrap.appendChild(stops);
+    wrap.appendChild(h("details", { class: "tip" }, [h("summary", {}, ["Taiwan tip"]), h("p", {}, [ch.tip])]));
+    return wrap;
+  }
+
+  /* ================= settings and reference ================= */
+  function modal(title, bodyNode) {
+    var m = h("div", { class: "modal", role: "dialog", "aria-modal": "true", "aria-label": title });
+    var card = h("div", { class: "modal-card" }, [h("header", {}, [h("h2", {}, [title]), h("button", { type: "button", class: "x", "aria-label": "Close", html: icon("close"), onclick: close })]), bodyNode]);
+    m.appendChild(card); document.body.appendChild(m); document.documentElement.classList.add("in-session");
+    function close() { m.remove(); document.documentElement.classList.remove("in-session"); document.removeEventListener("keydown", esck); renderHome(); }
+    function esck(e) { if (e.key === "Escape") { close(); } } document.addEventListener("keydown", esck); m.addEventListener("click", function (e) { if (e.target === m) { close(); } });
+    var f = card.querySelector("select,input,button.x"); if (f) { f.focus(); }
+  }
+  function calibrateModal() {
+    var out = h("p", { class: "co-msg", "aria-live": "polite" }, [""]), go = h("button", { type: "button", class: "ghost" }, ["Start 5-second recording"]);
+    go.onclick = function () { go.disabled = true; out.textContent = "Listening…"; runCalibration(function (n) { if (n > 0) { out.textContent = "Keep talking… " + n; } }, function (ok, msg) { out.textContent = msg; go.disabled = false; }); };
+    modal("Calibrate your voice", h("div", { class: "settings" }, [h("p", { class: "hint" }, ["Say anything in your normal speaking voice for 5 seconds, in Chinese or English. Find a quiet place and hold the device at a normal distance. The tone checker uses your typical pitch as its reference."]), go, out]));
+  }
+  function openSettings() {
+    function row(label, ctl, hint) { return h("div", { class: "srow" }, [h("label", {}, [label, hint ? h("small", {}, [hint]) : null]), ctl]); }
+    function sel(opts, val, fn) { var s = h("select", {}, opts.map(function (o) { return h("option", { value: o[0] }, [o[1]]); })); s.value = String(val); s.addEventListener("change", function () { fn(s.value); save(); }); return s; }
+    var vt = S.voice ? "Saved: about " + Math.round(S.voice.med) + " Hz." : "Not calibrated yet.";
+    var body = h("div", { class: "settings" }, [
+      row("Reading help", sel([["both", "Pinyin and Zhuyin"], ["pinyin", "Pinyin only"], ["zhuyin", "Zhuyin only"], ["none", "None (characters only)"]], S.set.aid, function (v) { S.set.aid = v; }), "Pinyin is shown on every character by default. Zhuyin (ㄅㄆㄇㄈ) is what Taiwan uses."),
+      row("Tone colours", sel([["true", "On"], ["false", "Off"]], String(S.set.tc !== false), function (v) { S.set.tc = v === "true"; }), "Every tone has its own colour on characters and pinyin: 1 red, 2 orange, 3 green, 4 blue, light grey."),
+      row("Listening tests", sel([["false", "Show reading help"], ["true", "Hide reading help (harder)"]], String(!!S.set.hardListen), function (v) { S.set.hardListen = v === "true"; }), "Hiding the reading in listening tests makes you rely on your ears."),
+      row("Speaking check", sel([["both", "Words and tones"], ["tones", "Tones only"], ["words", "Words only"]], S.set.check || "both", function (v) { S.set.check = v; }), "If your phone cannot do both at once, pick one. Tones only works without speech recognition."),
+      row("Audio speed", sel([["0.6", "Slow"], ["0.85", "Normal"], ["1", "Natural"]], S.set.rate, function (v) { S.set.rate = +v; })),
+      row("Sound effects", sel([["true", "On"], ["false", "Off"]], String(S.set.sound), function (v) { S.set.sound = v === "true"; })),
+      row("Daily goal", sel([["15", "15 XP, relaxed"], ["30", "30 XP, steady"], ["50", "50 XP, serious"]], S.set.goal, function (v) { S.set.goal = +v; })),
+      row("Theme", sel([["auto", "Match my device"], ["light", "Light"], ["dark", "Dark"]], S.set.theme, function (v) { S.set.theme = v; applyTheme(); })),
+      h("div", { class: "srow" }, [h("label", {}, ["Voice calibration", h("small", {}, [vt + " Helps the tone checker judge your pitch. This also tests your microphone."])]), h("button", { type: "button", class: "ghost", onclick: calibrateModal }, ["Calibrate"])]),
+      h("div", { class: "srow" }, [h("label", {}, ["Voice check", h("small", {}, ["Plays a Taiwan Mandarin sample."])]), h("button", { type: "button", class: "ghost", onclick: function () { if (!say("你好，歡迎來到台灣。")) { alert("This browser can’t play speech audio."); } } }, ["Play sample"])]),
+      h("div", { class: "srow" }, [h("label", {}, ["Reset progress", h("small", {}, ["Deletes XP, streak and chapter progress on this device."])]), h("button", { type: "button", class: "danger", onclick: function () { if (confirm("Delete all progress on this device? This cannot be undone.")) { S = defaults(); save(); applyTheme(); location.reload(); } } }, ["Reset"])])
+    ]);
+    modal("Settings", body);
+  }
+  var INITIALS = [["ㄅ", "b"], ["ㄆ", "p"], ["ㄇ", "m"], ["ㄈ", "f"], ["ㄉ", "d"], ["ㄊ", "t"], ["ㄋ", "n"], ["ㄌ", "l"], ["ㄍ", "g"], ["ㄎ", "k"], ["ㄏ", "h"], ["ㄐ", "j"], ["ㄑ", "q"], ["ㄒ", "x"], ["ㄓ", "zh"], ["ㄔ", "ch"], ["ㄕ", "sh"], ["ㄖ", "r"], ["ㄗ", "z"], ["ㄘ", "c"], ["ㄙ", "s"]];
+  var FINALS = [["ㄧ", "i / yi"], ["ㄨ", "u / wu"], ["ㄩ", "ü / yu"], ["ㄚ", "a"], ["ㄛ", "o"], ["ㄜ", "e"], ["ㄝ", "ê"], ["ㄞ", "ai"], ["ㄟ", "ei"], ["ㄠ", "ao"], ["ㄡ", "ou"], ["ㄢ", "an"], ["ㄣ", "en"], ["ㄤ", "ang"], ["ㄥ", "eng"], ["ㄦ", "er"]];
+  function openReference() {
+    var body = h("div", { class: "reference" });
+    body.appendChild(h("h3", {}, ["The four tones"]));
+    var tones = h("div", { class: "tonegrid" });
+    [["1", "媽", "ma1", "high and flat"], ["2", "麻", "ma2", "rising"], ["3", "馬", "ma3", "dip then rise"], ["4", "罵", "ma4", "sharp fall"], ["·", "嗎", "ma5", "light and short"]].forEach(function (t) { tones.appendChild(h("button", { type: "button", class: "tonecard", "data-say": t[1], html: "<b class=\"hz\">" + t[1] + "</b><span>" + U.mark(t[2]) + " · " + U.zhuyin(t[2]) + "</span><small>" + t[3] + "</small>" })); });
+    tones.addEventListener("click", function (e) { var b = e.target.closest("[data-say]"); if (b) { say(b.getAttribute("data-say")); } });
+    body.appendChild(tones);
+    body.appendChild(h("p", { class: "hint" }, ["Tone changes: two third tones in a row become 2 + 3 (你好 sounds like ní hǎo), and 不 and 一 change before a fourth tone. The app shows the tone as it is actually said in these cases."]));
+    body.appendChild(h("h3", {}, ["Zhuyin and pinyin"]));
+    function chart(list) { var g = h("div", { class: "zygrid" }); list.forEach(function (x) { g.appendChild(h("div", { class: "zycell", html: "<b>" + x[0] + "</b><span>" + x[1] + "</span>" })); }); return g; }
+    body.appendChild(h("p", { class: "hint" }, ["Starting sounds"])); body.appendChild(chart(INITIALS));
+    body.appendChild(h("p", { class: "hint" }, ["Vowels and endings"])); body.appendChild(chart(FINALS));
+    body.appendChild(h("p", { class: "hint" }, ["Zhuyin tone marks: none for the first tone, ˊ second, ˇ third, ˋ fourth, and ˙ before the syllable for the light tone."]));
+    body.appendChild(h("h3", {}, ["Remember the tones"]));
+    var hooks = h("div", { class: "hooks" });
+    [[1, "媽", "A flat road. Hold the note high and steady."], [2, "麻", "An up-slope. Rise like saying “huh?”"], [3, "馬", "A valley. Dip low. In a phrase, just stay low."], [4, "罵", "A drop. Fall sharply like a firm “No!”"], [5, "嗎", "A light tap. Short, soft and unstressed."]].forEach(function (t) { hooks.appendChild(h("div", { class: "hook", html: toneCell(t[0]) + "<span class=\"hzc t" + t[0] + "\">" + t[1] + "</span><span>" + esc(t[2]) + "</span>" })); });
+    body.appendChild(hooks);
+    body.appendChild(h("h3", {}, ["Sounds that need practice"]));
+    body.appendChild(h("ul", { class: "tips" }, [
+      ["zh, ch, sh, r: curl the tip of the tongue back. Many Taiwanese speakers say z, c, s instead, and both are understood, but aim for the curled sound in formal speech."],
+      ["j, q, x: keep the tongue flat behind the lower front teeth and spread your lips as if smiling."],
+      ["ü (ㄩ): say “ee”, then round your lips without moving your tongue."],
+      ["p, t, k are puffed and b, d, g are not. Hold a strip of paper before your mouth: it should flutter for p, t, k."],
+      ["-n and -ng: for -n the tongue tip touches the gum ridge, for -ng the back of the tongue lifts and the mouth stays open."],
+      ["e (ㄜ): relaxed and unrounded, from the back of the throat, like “uh”."]
+    ].map(function (t) { return h("li", {}, [t[0]]); })));
+    body.appendChild(h("h3", {}, ["How speaking is checked"]));
+    body.appendChild(h("p", { class: "hint" }, ["When you tap the microphone the page does two things. It asks your browser’s speech recognition which words it heard, and it measures your pitch to see whether each syllable rose, fell, dipped or stayed flat. The two parts are combined into one score."]));
+    body.appendChild(h("p", { class: "hint" }, ["Neither is perfect. Some browsers send your voice to an online service for recognition. The pitch check works best in a quiet room, with one clear voice and words of up to six syllables, and improves after you calibrate your voice in Settings. If one part is not available the page says so and uses the other. Treat the result as a coach, not a judge."]));
+    modal("Tones and Zhuyin chart", body);
+  }
+
+  /* ================= theme + init ================= */
+  function applyTheme() { var r = document.documentElement; if (S.set.theme === "auto") { r.removeAttribute("data-theme"); } else { r.setAttribute("data-theme", S.set.theme); } }
+  /* Tag Chinese text as Traditional Chinese (Taiwan) so phones choose the right glyph shapes and fonts */
+  var LANGSEL = ".hz,.hzc,.zh,.tz,ruby,.cc,.promptEn,.sentline,.board-t,.sign h3,.line-h h2,.gymcard b,.stop-t small,.stop-t b,.gym-h h2,.hook,.tonecard,.brand b,.zycell b,.introcard,.bubble,.rrow,.endcard h2,.tip p", langQueued = false, CJKRE = /[\u3400-\u9fff]/;
+  function tagLang() { langQueued = false; $$(LANGSEL).forEach(function (e) { var anc = e.parentElement && e.parentElement.closest("[lang]"); if (!e.hasAttribute("lang") && CJKRE.test(e.textContent) && (!anc || anc === document.documentElement)) { e.setAttribute("lang", "zh-Hant-TW"); } }); }
+  function queueLang() { if (!langQueued) { langQueued = true; (window.requestAnimationFrame || setTimeout)(tagLang); } }
+  if (window.MutationObserver) { new MutationObserver(queueLang).observe(document.documentElement, { childList: true, subtree: true }); }
+  function init() {
+    queueLang(); applyTheme(); $("#btn-settings").addEventListener("click", openSettings); $("#btn-ref").addEventListener("click", openReference);
+    var vn = $("#voicenote"); if (vn) { vn.querySelector("button").addEventListener("click", function () { sessionStorageDismissed = true; vn.hidden = true; }); }
+    renderHome(); setTimeout(function () { loadVoices(); updateVoiceNote(); }, 1200);
+  }
+  window.__tw = { S: function () { return S; }, speakTest: function (zh, py, mode) { openSession({ title: "test", mode: "gym", hearts: false, retry: false, exercises: [speak({ id: "t", zh: zh, py: py.split(" "), en: "" }, mode || "tone")], onDone: function () { return { xp: 0 }; } }); }, CH: CH, GYM: GYM, startToneLab: startToneLab, startRole: startRole, startGym: startGym, expectedTones: expectedTones, toneOk: toneOk, alignScore: alignScore, safeChar: safeChar, charPy: charPy, breakdown: breakdown, buildToneLab: buildToneLab, buildRole: buildRole, charListen: charListen, charTone: charTone, toneListen: toneListen, startLesson: startLesson, startQuiz: startQuiz, openSpeechTest: openSpeechTest, startReview: startReview, sess: function () { return sess; }, buildLesson: buildLesson, buildQuiz: buildQuiz, solve: function () { if (sess && sess.ui && sess.ui.solve) { sess.ui.solve(); } }, renderHome: renderHome };
+  if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", init); } else { init(); }
+})();
+
+</script>
+</body>
+</html>
